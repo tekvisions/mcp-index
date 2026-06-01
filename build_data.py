@@ -167,7 +167,13 @@ def main():
     }
     json.dump(data, open(os.path.join(HERE, "data.json"), "w"), indent=2)
     print(f"wrote data.json: {len(items)} servers, {data['new_this_week']} new this week, {data['active_count']} active", file=sys.stderr)
-    return 0 if items else 1
+    # resilience guard: the registry has thousands of servers; a run that returns far
+    # fewer means the API hiccupped mid-pagination. Refuse to publish a gutted index —
+    # fail so the cron skips commit+deploy and the last-good page stays live.
+    if len(items) < 500:
+        print(f"GUARD: only {len(items)} servers (< 500); refusing to publish a partial index.", file=sys.stderr)
+        return 1
+    return 0
 
 
 if __name__ == "__main__":
