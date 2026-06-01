@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T14:47:34.631131+00:00",
+  "generated_at": "2026-06-01T14:51:07.399748+00:00",
   "generated_date": "2026-06-01",
   "source": "registry.modelcontextprotocol.io (official MCP registry)",
   "server_count": 2264,
@@ -441,7 +441,7 @@
       "updated_at": "2026-06-01T08:50:31.81109Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 0.2,
+      "updated_days": 0.3,
       "health": "active",
       "is_new": true
     },
@@ -802,7 +802,7 @@
       "updated_at": "2026-06-01T01:37:54.743376Z",
       "is_latest": true,
       "category": "Cloud & DevOps",
-      "updated_days": 0.5,
+      "updated_days": 0.6,
       "health": "active",
       "is_new": true
     },
@@ -821,7 +821,7 @@
       "updated_at": "2026-06-01T01:37:54.644745Z",
       "is_latest": true,
       "category": "Finance",
-      "updated_days": 0.5,
+      "updated_days": 0.6,
       "health": "active",
       "is_new": true
     },
@@ -840,7 +840,7 @@
       "updated_at": "2026-06-01T01:37:54.532863Z",
       "is_latest": true,
       "category": "Files & Storage",
-      "updated_days": 0.5,
+      "updated_days": 0.6,
       "health": "active",
       "is_new": true
     },
@@ -4205,7 +4205,7 @@
       "updated_at": "2026-05-26T13:35:35.907578Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 6.0,
+      "updated_days": 6.1,
       "health": "active",
       "is_new": true
     },
@@ -5444,7 +5444,7 @@
       "updated_at": "2026-05-22T23:15:01.043285Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 9.6,
+      "updated_days": 9.7,
       "health": "active",
       "is_new": false
     },
@@ -5558,7 +5558,7 @@
       "updated_at": "2026-05-22T18:26:02.539221Z",
       "is_latest": true,
       "category": "Finance",
-      "updated_days": 9.8,
+      "updated_days": 9.9,
       "health": "active",
       "is_new": false
     },
@@ -5692,7 +5692,7 @@
       "updated_at": "2026-05-22T04:02:35.227993Z",
       "is_latest": true,
       "category": "Files & Storage",
-      "updated_days": 10.4,
+      "updated_days": 10.5,
       "health": "active",
       "is_new": false
     },
@@ -6075,7 +6075,7 @@
       "updated_at": "2026-05-21T06:27:03.086443Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 11.3,
+      "updated_days": 11.4,
       "health": "active",
       "is_new": false
     },
@@ -6094,7 +6094,7 @@
       "updated_at": "2026-05-21T06:26:50.653344Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 11.3,
+      "updated_days": 11.4,
       "health": "active",
       "is_new": false
     },
@@ -6113,7 +6113,7 @@
       "updated_at": "2026-05-21T06:26:39.572856Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 11.3,
+      "updated_days": 11.4,
       "health": "active",
       "is_new": false
     },
@@ -6132,7 +6132,7 @@
       "updated_at": "2026-05-21T06:26:30.385996Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 11.3,
+      "updated_days": 11.4,
       "health": "active",
       "is_new": false
     },
@@ -6151,7 +6151,7 @@
       "updated_at": "2026-05-21T06:26:20.658018Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 11.3,
+      "updated_days": 11.4,
       "health": "active",
       "is_new": false
     },
@@ -8604,7 +8604,7 @@
       "updated_at": "2026-05-18T06:26:51.040273Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 14.3,
+      "updated_days": 14.4,
       "health": "active",
       "is_new": false
     },
@@ -9193,7 +9193,7 @@
       "updated_at": "2026-05-16T13:38:02.843059Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 16.0,
+      "updated_days": 16.1,
       "health": "active",
       "is_new": false
     },
@@ -11688,7 +11688,7 @@
       "updated_at": "2026-05-12T16:01:06.536291Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 19.9,
+      "updated_days": 20.0,
       "health": "active",
       "is_new": false
     },
@@ -12663,7 +12663,7 @@
       "updated_at": "2026-05-12T11:14:00.514744Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 20.1,
+      "updated_days": 20.2,
       "health": "active",
       "is_new": false
     },
@@ -12838,7 +12838,7 @@
       "updated_at": "2026-05-11T23:14:55.281012Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 20.6,
+      "updated_days": 20.7,
       "health": "active",
       "is_new": false
     },
@@ -12858,7 +12858,7 @@
       "updated_at": "2026-05-11T23:13:23.909543Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 20.6,
+      "updated_days": 20.7,
       "health": "active",
       "is_new": false
     },
@@ -13950,7 +13950,7 @@
       "updated_at": "2026-05-09T18:24:21.205315Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 22.8,
+      "updated_days": 22.9,
       "health": "active",
       "is_new": false
     },
@@ -15110,7 +15110,7 @@
       "updated_at": "2026-05-04T23:13:29.868682Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 27.6,
+      "updated_days": 27.7,
       "health": "active",
       "is_new": false
     },
@@ -15892,7 +15892,7 @@
       "updated_at": "2026-05-01T20:50:11.743487Z",
       "is_latest": true,
       "category": "Data & DB",
-      "updated_days": 30.7,
+      "updated_days": 30.8,
       "health": "maintained",
       "is_new": false
     },
@@ -16007,7 +16007,7 @@
       "updated_at": "2026-05-01T01:35:56.303777Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 31.5,
+      "updated_days": 31.6,
       "health": "maintained",
       "is_new": false
     },
@@ -16774,7 +16774,7 @@
       "updated_at": "2026-04-28T04:01:51.331691Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 34.4,
+      "updated_days": 34.5,
       "health": "maintained",
       "is_new": false
     },
@@ -19328,7 +19328,7 @@
       "updated_at": "2026-04-22T06:24:45.995536Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 40.3,
+      "updated_days": 40.4,
       "health": "maintained",
       "is_new": false
     },
@@ -19594,7 +19594,7 @@
       "updated_at": "2026-04-21T18:26:08.588184Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 40.8,
+      "updated_days": 40.9,
       "health": "maintained",
       "is_new": false
     },
@@ -20815,7 +20815,7 @@
       "updated_at": "2026-04-17T04:01:26.724763Z",
       "is_latest": true,
       "category": "Files & Storage",
-      "updated_days": 45.4,
+      "updated_days": 45.5,
       "health": "maintained",
       "is_new": false
     },
@@ -20834,7 +20834,7 @@
       "updated_at": "2026-04-17T01:36:06.979854Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 45.5,
+      "updated_days": 45.6,
       "health": "maintained",
       "is_new": false
     },
@@ -22017,7 +22017,7 @@
       "updated_at": "2026-04-12T08:49:11.733989Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 50.2,
+      "updated_days": 50.3,
       "health": "maintained",
       "is_new": false
     },
@@ -23381,7 +23381,7 @@
       "updated_at": "2026-04-07T18:25:38.993863Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 54.8,
+      "updated_days": 54.9,
       "health": "maintained",
       "is_new": false
     },
@@ -23495,7 +23495,7 @@
       "updated_at": "2026-04-06T18:26:15.101419Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 55.8,
+      "updated_days": 55.9,
       "health": "maintained",
       "is_new": false
     },
@@ -23553,7 +23553,7 @@
       "updated_at": "2026-04-06T11:15:01.839235Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 56.1,
+      "updated_days": 56.2,
       "health": "maintained",
       "is_new": false
     },
@@ -23591,7 +23591,7 @@
       "updated_at": "2026-04-06T08:49:35.487917Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 56.2,
+      "updated_days": 56.3,
       "health": "maintained",
       "is_new": false
     },
@@ -24504,7 +24504,7 @@
       "updated_at": "2026-04-03T18:24:52.146401Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 58.8,
+      "updated_days": 58.9,
       "health": "maintained",
       "is_new": false
     },
@@ -25762,7 +25762,7 @@
       "updated_at": "2026-03-31T13:36:47.010601Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 62.0,
+      "updated_days": 62.1,
       "health": "maintained",
       "is_new": false
     },
@@ -26254,7 +26254,7 @@
       "updated_at": "2026-03-30T11:14:26.845967Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 63.1,
+      "updated_days": 63.2,
       "health": "maintained",
       "is_new": false
     },
@@ -26634,7 +26634,7 @@
       "updated_at": "2026-03-27T18:25:54.796415Z",
       "is_latest": true,
       "category": "Cloud & DevOps",
-      "updated_days": 65.8,
+      "updated_days": 65.9,
       "health": "maintained",
       "is_new": false
     },
@@ -27833,7 +27833,7 @@
       "updated_at": "2026-03-20T20:48:50.039955Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 72.7,
+      "updated_days": 72.8,
       "health": "maintained",
       "is_new": false
     },
@@ -28216,7 +28216,7 @@
       "updated_at": "2026-03-18T16:02:38.197535Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 74.9,
+      "updated_days": 75.0,
       "health": "maintained",
       "is_new": false
     },
@@ -28578,7 +28578,7 @@
       "updated_at": "2026-03-17T01:36:25.40992Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 76.5,
+      "updated_days": 76.6,
       "health": "maintained",
       "is_new": false
     },
@@ -29340,7 +29340,7 @@
       "updated_at": "2026-03-09T20:49:06.664608Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 83.7,
+      "updated_days": 83.8,
       "health": "maintained",
       "is_new": false
     },
@@ -29665,7 +29665,7 @@
       "updated_at": "2026-03-06T20:49:15.06579Z",
       "is_latest": true,
       "category": "Maps & Travel",
-      "updated_days": 86.7,
+      "updated_days": 86.8,
       "health": "maintained",
       "is_new": false
     },
@@ -29703,7 +29703,7 @@
       "updated_at": "2026-03-06T16:01:31.40246Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 86.9,
+      "updated_days": 87.0,
       "health": "maintained",
       "is_new": false
     },
@@ -30216,7 +30216,7 @@
       "updated_at": "2026-03-05T20:49:42.7255Z",
       "is_latest": true,
       "category": "Data & DB",
-      "updated_days": 87.7,
+      "updated_days": 87.8,
       "health": "maintained",
       "is_new": false
     },
@@ -30635,7 +30635,7 @@
       "updated_at": "2026-03-03T18:24:51.989943Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 89.8,
+      "updated_days": 89.9,
       "health": "maintained",
       "is_new": false
     },
@@ -31523,7 +31523,7 @@
       "updated_at": "2026-02-24T06:25:15.858332Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 97.3,
+      "updated_days": 97.4,
       "health": "maintained",
       "is_new": false
     },
@@ -33351,7 +33351,7 @@
       "updated_at": "2026-02-18T13:37:52.652645Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 103.0,
+      "updated_days": 103.1,
       "health": "maintained",
       "is_new": false
     },
@@ -34225,7 +34225,7 @@
       "updated_at": "2026-02-08T08:48:19.364402Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 113.2,
+      "updated_days": 113.3,
       "health": "maintained",
       "is_new": false
     },
@@ -34776,7 +34776,7 @@
       "updated_at": "2026-01-31T20:49:31.630734Z",
       "is_latest": true,
       "category": "Cloud & DevOps",
-      "updated_days": 120.7,
+      "updated_days": 120.8,
       "health": "stale",
       "is_new": false
     },
@@ -34947,7 +34947,7 @@
       "updated_at": "2026-01-29T08:50:16.035232Z",
       "is_latest": true,
       "category": "Data & DB",
-      "updated_days": 123.2,
+      "updated_days": 123.3,
       "health": "stale",
       "is_new": false
     },
@@ -35061,7 +35061,7 @@
       "updated_at": "2026-01-23T16:02:36.621983Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 128.9,
+      "updated_days": 129.0,
       "health": "stale",
       "is_new": false
     },
@@ -36299,7 +36299,7 @@
       "updated_at": "2025-12-02T18:24:00.984Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 180.8,
+      "updated_days": 180.9,
       "health": "stale",
       "is_new": false
     },
@@ -36889,7 +36889,7 @@
       "updated_at": "2025-11-03T04:00:14.972296Z",
       "is_latest": true,
       "category": "Finance",
-      "updated_days": 210.4,
+      "updated_days": 210.5,
       "health": "stale",
       "is_new": false
     },
@@ -38298,7 +38298,7 @@
       "updated_at": "2025-10-06T11:12:19.115931Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 238.1,
+      "updated_days": 238.2,
       "health": "stale",
       "is_new": false
     },
@@ -38317,7 +38317,7 @@
       "updated_at": "2025-10-06T11:12:18.988861Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 238.1,
+      "updated_days": 238.2,
       "health": "stale",
       "is_new": false
     },
@@ -42121,7 +42121,7 @@
       "updated_at": "2025-09-12T18:25:16.049647Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 261.8,
+      "updated_days": 261.9,
       "health": "stale",
       "is_new": false
     },
@@ -42615,7 +42615,7 @@
       "updated_at": "2025-09-10T18:26:59.341637Z",
       "is_latest": true,
       "category": "Productivity",
-      "updated_days": 263.8,
+      "updated_days": 263.9,
       "health": "stale",
       "is_new": false
     },
