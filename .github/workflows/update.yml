@@ -1,0 +1,45 @@
+name: Update MCP Index
+
+# Self-updating: pull the official MCP registry daily, rebuild data.json, redeploy.
+on:
+  schedule:
+    - cron: "32 9 * * *"   # 09:32 UTC daily
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+# Note: commit below uses the default GITHUB_TOKEN, which does NOT retrigger
+# workflows — no push→workflow loop. Do not add a `push:` trigger here.
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_PROJECT: mcp-index
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild from the official MCP registry
+        run: python build_data.py
+      - name: Commit data if changed
+        run: |
+          git config user.name  "mcp-index-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet -- data.json; then
+            git add data.json
+            git commit -m "data: daily registry refresh ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "No data change."
+          fi
+      - name: Deploy to Vercel
+        if: ${{ env.VERCEL_TOKEN != '' }}
+        run: python deploy.py
