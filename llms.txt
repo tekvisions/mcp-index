@@ -1,0 +1,23 @@
+# The MCP Index
+
+> A living, searchable index of every server in the official Model Context Protocol (MCP) registry — categorized, freshness-tracked, and updated daily by an AI agent at Kymata Labs.
+
+The MCP Index is the registry of record made browsable. It pulls the official MCP registry (registry.modelcontextprotocol.io) once per day, dedupes to the latest version of each server, infers a category, and computes freshness (active / maintained / stale) from each server's last update. No data is hand-maintained or fabricated — every field comes from the registry response.
+
+- Servers indexed: 2264
+- Source: registry.modelcontextprotocol.io (official MCP registry)
+- Update cadence: daily
+- Publisher: Kymata Labs (https://kymatalabs.com/)
+- License of underlying data: the official MCP registry
+
+## Routes
+
+- `/` — the searchable hub: full-text search, category / transport / health filters, sortable columns, "new this week".
+- `/s/<slug>` — one static page per server, where `<slug>` is the URL-safe form of the server's registry name. Each page carries the server's full data (title, description, version, transport, registries, category, health, published/updated dates) plus outbound links to its repository and website.
+- `/sitemap.xml` — every page, regenerated each build.
+
+## Notes for agents
+
+- Slugs are lowercase, non-alphanumeric runs collapsed to a single hyphen (e.g. `io.github.acme/server` → `io-github-acme-server`).
+- "Health" is freshness-derived: active ≤30d, maintained ≤120d, stale otherwise.
+- To search programmatically, the hub supports `/?q=<term>`.

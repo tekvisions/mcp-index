@@ -7,8 +7,14 @@
 
   var ALL=[], PAGE=120, limit=PAGE;
   var state={q:"",cat:"All",transport:"All",health:"All",onlyNew:false};
+  var sort={key:null,dir:1}; // null key = registry default order (freshest first)
 
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];});}
+  // URL-safe slug from a server name — must match build_data.py.slugify()
+  function slugify(name){
+    var s=String(name||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/-+/g,"-").replace(/^-|-$/g,"");
+    return s||"server";
+  }
   // only allow http(s) — block javascript:/data: from untrusted registry fields
   function safeUrl(u){
     if(!u) return null;
@@ -46,13 +52,26 @@
     return true;
   }
 
+  function sortVal(s){
+    var k=sort.key;
+    if(k==="updated_days"){ var v=s.updated_days; return v==null?1e9:v; } // unknown sinks last
+    return String(s[k]==null?"":s[k]).toLowerCase();
+  }
+  function applySort(arr){
+    if(!sort.key) return arr; // default registry order (freshest first)
+    return arr.slice().sort(function(a,b){
+      var av=sortVal(a), bv=sortVal(b);
+      if(av<bv) return -1*sort.dir; if(av>bv) return 1*sort.dir; return 0;
+    });
+  }
+
   function render(){
-    var filtered=ALL.filter(matches);
+    var filtered=applySort(ALL.filter(matches));
     var shown=filtered.slice(0,limit);
     document.getElementById("rows").innerHTML = shown.length ? shown.map(function(s){
       var reg=(s.registries||[]).map(function(r){return '<span>'+esc(r)+'</span>';}).join("");
       var nw=s.is_new?'<span class="new">NEW</span>':'';
-      return '<a class="row" href="'+esc(linkFor(s))+'" target="_blank" rel="noopener">'
+      return '<a class="row" href="/s/'+esc(slugify(s.name))+'/">'
         +'<div class="nm"><h3>'+esc(s.title)+' '+nw+'</h3><div class="ns">'+esc(s.name)+'</div>'
           +(s.description?'<p>'+esc(s.description)+'</p>':'')+(reg?'<div class="reg">'+reg+'</div>':'')+'</div>'
         +'<div class="cat">'+esc(s.category)+'</div>'
@@ -73,8 +92,19 @@
   }
   function m(v,l){return '<div class="m"><b>'+v+'</b><span>'+l+'</span></div>';}
 
+  function injectItemList(data){
+    var top=(data.servers||[]).slice(0,50);
+    var ld={"@context":"https://schema.org","@type":"ItemList","name":"The MCP Index — featured servers",
+      "numberOfItems":top.length,
+      "itemListElement":top.map(function(s,i){return {"@type":"ListItem","position":i+1,
+        "url":"https://mcp.kymatalabs.com/s/"+slugify(s.name),"name":s.title||s.name};})};
+    var el=document.createElement("script"); el.type="application/ld+json"; el.id="ld-itemlist";
+    el.textContent=JSON.stringify(ld); document.head.appendChild(el);
+  }
+
   function build(data){
     ALL=data.servers||[];
+    injectItemList(data);
     document.getElementById("metarow").innerHTML =
       m(data.server_count.toLocaleString(),"Servers indexed")
       + m(data.new_this_week,"New this week")
@@ -116,6 +146,22 @@
     var q=document.getElementById("q"), clear=document.getElementById("clear");
     q.addEventListener("input",function(){state.q=q.value.trim();clear.style.display=state.q?"":"none";limit=PAGE;render();});
     clear.addEventListener("click",function(){q.value="";state.q="";clear.style.display="none";limit=PAGE;render();q.focus();});
+
+    // sortable column headers — click/Enter toggles asc/desc, third click clears to default
+    var heads=document.querySelectorAll(".colhead .sortable");
+    function paint(){ heads.forEach(function(h){
+      var k=h.getAttribute("data-sort");
+      h.setAttribute("aria-sort", sort.key===k ? (sort.dir>0?"ascending":"descending") : "none");
+    }); }
+    heads.forEach(function(h){
+      h.addEventListener("click",function(){
+        var k=h.getAttribute("data-sort");
+        if(sort.key!==k){ sort.key=k; sort.dir=1; }
+        else if(sort.dir===1){ sort.dir=-1; }
+        else { sort.key=null; sort.dir=1; } // third click → default order
+        paint(); limit=PAGE; render();
+      });
+    });
 
     render();
   }
