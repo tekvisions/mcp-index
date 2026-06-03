@@ -4,7 +4,7 @@
 
 The MCP Index is the registry of record made browsable. It pulls the official MCP registry (registry.modelcontextprotocol.io) once per day, dedupes to the latest version of each server, infers a category, and computes freshness (active / maintained / stale) from each server's last update. No data is hand-maintained or fabricated — every field comes from the registry response.
 
-- Servers indexed: 2264
+- Servers indexed: 2256
 - Source: registry.modelcontextprotocol.io (official MCP registry)
 - Update cadence: daily
 - Publisher: Kymata Labs (https://kymatalabs.com/)
