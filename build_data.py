@@ -6,7 +6,7 @@ dedupes to the latest version per server, derives category + freshness + transpo
 and writes data.json. Authoritative source, no fabricated signals — every field
 comes from the registry response.
 """
-import json, os, re, html, shutil, sys, time, urllib.request, urllib.parse
+import json, os, re, html, math, shutil, sys, time, urllib.request, urllib.parse
 from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -132,6 +132,85 @@ def _fmt_date(iso):
         return "—"
 
 
+# ── derivation helpers for the detail deep-dives (all from real registry fields) ──
+
+# reverse-DNS-ish registry names → a human owner/namespace.
+#   io.github.Acme/server   → ("Acme", "github")
+#   com.mambabuilt/suite    → ("mambabuilt", "com")
+#   dev.goodbarber/x        → ("goodbarber", "dev")
+def owner_of(name):
+    if not name:
+        return None, None
+    ns = name.split("/", 1)[0]
+    parts = ns.split(".")
+    if name.startswith("io.github.") and len(parts) >= 3:
+        return parts[2], "github"
+    if len(parts) >= 2:
+        # com.mambabuilt → mambabuilt ; ai.foo.bar → bar
+        return parts[-1], parts[0]
+    return ns, None
+
+
+# best-guess package coordinate for an install snippet: the trailing path
+# segment of the registry name (after the namespace), else the title.
+def _pkg_guess(name, title):
+    if name and "/" in name:
+        seg = name.split("/", 1)[1].strip("/")
+        if seg:
+            return seg
+    return (title or "server").strip()
+
+
+# Human-readable, copy-pasteable install/config snippet derived from the
+# registry TYPE + name. No fabricated package versions — these are the canonical
+# invocation shapes the MCP ecosystem uses, with the inferred coordinate.
+def install_snippet(server):
+    regs = server.get("registries") or []
+    name = server.get("name") or ""
+    title = server.get("title") or name
+    web = safe_url(server.get("website"))
+    pkg = _pkg_guess(name, title)
+    if "npm" in regs:
+        return ("npx", "npm", f"npx -y {pkg}",
+                "Run directly with npx, or add to your client's mcpServers config.")
+    if "pypi" in regs:
+        return ("uvx", "PyPI", f"uvx {pkg}",
+                "Run with uv (uvx), or pip install into your environment.")
+    if "oci" in regs:
+        return ("docker", "OCI image", f"docker run -i --rm {pkg}",
+                "Pull and run the published container over stdio.")
+    if "mcpb" in regs:
+        return ("mcpb", "MCP Bundle", f"# install the .mcpb bundle for “{title}”",
+                "Distributed as an MCP Bundle — install via your client's bundle loader.")
+    if "nuget" in regs:
+        return ("dotnet", "NuGet", f"dnx {pkg}",
+                "Run the published .NET tool.")
+    if "hosted" in regs or server.get("transport") == "Remote":
+        url = web or "https://<server-endpoint>"
+        return ("remote", "hosted", url,
+                "A hosted server — point your client at its remote endpoint (HTTP/SSE).")
+    return (None, None, None, None)
+
+
+# A small, HONEST recency timeline. The registry exposes a single publish moment
+# (published_at == updated_at), so we render a lifecycle arc: how long the server
+# has existed and how fresh it is — not fabricated commit history.
+def _recency_phase(ud):
+    if ud is None:
+        return "unknown", "Freshness unknown"
+    if ud < 1:
+        return "active", "Updated today"
+    if ud <= 7:
+        return "active", "Updated this week"
+    if ud <= 30:
+        return "active", "Updated this month"
+    if ud <= 120:
+        return "maintained", "Maintained · updated this quarter"
+    if ud <= 365:
+        return "stale", "Quiet · no update in months"
+    return "stale", "Dormant · over a year since update"
+
+
 def generate_details(data, out_dir=None):
     """Static-generate /s/<slug>/index.html for every server — the SEO surface.
     Reuses the hub's exact header/nav/footer/theme (style.css). Shared head/footer
@@ -139,6 +218,13 @@ def generate_details(data, out_dir=None):
     """
     out_dir = out_dir or HERE
     servers = assign_slugs(data.get("servers", []))
+
+    # category index (freshest-first) — used to render "category peers" cross-links.
+    by_cat = {}
+    for s in servers:
+        by_cat.setdefault(s.get("category") or "Other", []).append(s)
+    cat_total = {c: len(v) for c, v in by_cat.items()}
+
     s_root = os.path.join(out_dir, "s")
     if os.path.isdir(s_root):
         shutil.rmtree(s_root)  # avoid orphaned pages from renamed/removed servers
@@ -200,6 +286,17 @@ def generate_details(data, out_dir=None):
         '(function(){var b=document.getElementById("themebtn");if(!b)return;function set(t){document.documentElement.dataset.theme=t;try{localStorage.setItem("theme",t);}catch(e){}'
         'var m=document.querySelector(\'meta[name="theme-color"]\');if(m)m.setAttribute("content",t==="dark"?"#0a1320":"#e7edf3");window.dispatchEvent(new Event("themechange"));}'
         'b.addEventListener("click",function(){set(document.documentElement.dataset.theme==="dark"?"light":"dark");});})();'
+        # copy-to-clipboard for [data-copy] (code snippet + registry name)
+        '(function(){function flash(el){if(!el||el.classList.contains("ok"))return;var p=el.getAttribute("data-orig");if(p==null){p=el.textContent;el.setAttribute("data-orig",p);}'
+        'el.textContent="copied ✓";el.classList.add("ok");setTimeout(function(){el.textContent=el.getAttribute("data-orig")||p;el.classList.remove("ok");},1400);}'
+        'function legacy(t){try{var a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();document.execCommand("copy");document.body.removeChild(a);}catch(e){}}'
+        'function copy(t,btn){flash(btn);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).catch(function(){legacy(t);});}else{legacy(t);}}'
+        'document.addEventListener("click",function(ev){var host=ev.target.closest("[data-copy]");if(!host)return;'
+        'var t=host.getAttribute("data-copy");var btn=ev.target.closest(".copy")||host.querySelector(".copy")||host.querySelector(".ncopy")||host;copy(t,btn);});})();'
+        # scroll-reveal for detail cards
+        '(function(){var els=document.querySelectorAll(".d-card,.d-grid");if(!("IntersectionObserver"in window)||(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches)){els.forEach(function(e){e.classList.add("in");});return;}'
+        'var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{rootMargin:"0px 0px -8% 0px"});'
+        'els.forEach(function(e){io.observe(e);});})();'
         '</script></body></html>'
     )
 
@@ -281,35 +378,139 @@ def generate_details(data, out_dir=None):
 
         new_badge = ' <span class="new">New this week</span>' if s.get("is_new") else ""
         reg_html = "".join(f"<span>{e(r)}</span>" for r in regs) or '<span>—</span>'
+
+        # ── derived context ──
+        owner, owner_kind = owner_of(name)
+        verb, reg_label, snippet, snippet_note = install_snippet(s)
+        phase_cls, phase_label = _recency_phase(ud)
+        health_word = {"active": "Actively maintained", "maintained": "Maintained",
+                       "stale": "Quiet", "unknown": "Unknown freshness"}.get(health, "Unknown")
+        transport_note = {
+            "Remote": "Hosted — runs on the provider's infrastructure; connect over HTTP/SSE.",
+            "Local": "Local — runs on your machine over stdio (npx / uvx / docker / bundle).",
+            "Unknown": "Transport not declared in the registry entry.",
+        }.get(transport, "")
+        is_github = owner_kind == "github" and "/" in name
+        gh_user = name.split(".")[2] if (is_github and len(name.split(".")) >= 3) else None
+        gh_url = repo or (f"https://github.com/{gh_user}" if gh_user else None)
+
+        # primary actions
         actions = []
         if repo:
-            actions.append(f'<a class="primary" href="{attr(repo)}" target="_blank" rel="noopener nofollow">Repository ↗</a>')
+            actions.append(f'<a class="primary" href="{attr(repo)}" target="_blank" rel="noopener nofollow">View source ↗</a>')
         if web:
             actions.append(f'<a class="ghost" href="{attr(web)}" target="_blank" rel="noopener nofollow">Website ↗</a>')
-        actions.append(f'<a class="ghost" href="https://registry.modelcontextprotocol.io/?search={urllib.parse.quote(name)}" target="_blank" rel="noopener nofollow">Registry entry ↗</a>')
+        actions.append(f'<a class="ghost" href="https://registry.modelcontextprotocol.io/?search={urllib.parse.quote(name, safe="")}" target="_blank" rel="noopener nofollow">Registry entry ↗</a>')
         actions_html = "".join(actions)
 
         desc_html = f'<p class="d-desc">{e(desc)}</p>' if desc else ""
 
+        # ── install / connect panel ──
+        if snippet:
+            verb_badge = f'<span class="run-verb">{e(verb)}</span>' if verb else ""
+            if verb == "remote":
+                install_inner = (
+                    f'<div class="run-head"><span class="run-label">Connect · {e(reg_label)}</span>{verb_badge}</div>'
+                    f'<pre class="code" data-copy="{attr(snippet)}"><code>{e(snippet)}</code><button class="copy" type="button" aria-label="Copy">copy</button></pre>'
+                    f'<p class="run-note">{e(snippet_note)}</p>'
+                )
+            else:
+                install_inner = (
+                    f'<div class="run-head"><span class="run-label">Install · {e(reg_label)}</span>{verb_badge}</div>'
+                    f'<pre class="code" data-copy="{attr(snippet)}"><code><span class="prompt">$</span> {e(snippet)}</code><button class="copy" type="button" aria-label="Copy">copy</button></pre>'
+                    f'<p class="run-note">{e(snippet_note)}</p>'
+                )
+            install_block = f'<section class="d-card run"><h2 class="d-h">Install &amp; connect</h2>{install_inner}</section>'
+        else:
+            install_block = ""
+
+        # ── recency lifecycle arc (honest: existence span + freshness) ──
+        # position the freshness marker on a log-ish 0–365d axis
+        pos = 100.0
+        if ud is not None:
+            pos = max(2.0, min(98.0, (1 - (math.log10(max(ud, 0.3) + 1) / math.log10(366))) * 100))
+        recency_block = (
+            '<section class="d-card recency">'
+            '<h2 class="d-h">Freshness</h2>'
+            f'<div class="rec-state {phase_cls}"><span class="d {phase_cls}"></span>{e(phase_label)}</div>'
+            '<div class="rec-track" aria-hidden="true">'
+            '<div class="rec-scale"><span>today</span><span>1mo</span><span>4mo</span><span>1yr+</span></div>'
+            '<div class="rec-bar"><i class="rec-fill" style="width:' + f'{pos:.1f}%' + '"></i>'
+            f'<i class="rec-dot {phase_cls}" style="left:{pos:.1f}%"></i></div>'
+            '</div>'
+            f'<p class="run-note">Last registry update {e(_fmt_days(ud))} · published {e(_fmt_date(s.get("published_at")))}.</p>'
+            '</section>'
+        )
+
+        # ── facts grid (exactly 6 cells → clean 3×2; "Last updated" lives in the
+        #    Freshness card, so it's omitted here to avoid a ragged 7th cell) ──
+        if owner:
+            owner_disp = f"{e(owner)}" + (' <span class="kind">github</span>' if owner_kind == "github" else "")
+            if gh_url:
+                owner_b = f'<a class="cell-link" href="{attr(gh_url)}" target="_blank" rel="noopener nofollow">{owner_disp} ↗</a>'
+            else:
+                owner_b = owner_disp
+        else:
+            owner_b = '<span style="color:var(--muted)">—</span>'
+        facts = (
+            '<div class="d-grid">'
+            f'<div class="cell"><span>Category</span><b><a class="cell-link" href="/#index">{e(cat)}</a></b></div>'
+            f'<div class="cell"><span>Transport</span><b>{e(transport)}</b></div>'
+            f'<div class="cell"><span>Health</span><b><span class="d {e(health)}"></span>{e(health_word)}</b></div>'
+            f'<div class="cell"><span>Version</span><b>{e(version)}</b></div>'
+            f'<div class="cell reg"><span>Distribution</span><b>{reg_html}</b></div>'
+            f'<div class="cell"><span>Maintainer</span><b>{owner_b}</b></div>'
+            '</div>'
+        )
+
+        # ── category peers (cross-links to keep the directory connected) ──
+        peers = [p for p in by_cat.get(cat, []) if p.get("slug") != slug][:8]
+        peers_block = ""
+        if peers:
+            chips = "".join(
+                f'<a class="peer" href="/s/{e(p["slug"])}/"><span class="pd {e(p.get("health") or "unknown")}"></span>'
+                f'<span class="pn">{e(p.get("title") or p.get("name"))}</span>'
+                f'<span class="pm">{e(p.get("transport") or "")}</span></a>'
+                for p in peers
+            )
+            more_n = cat_total.get(cat, 0) - 1
+            more_link = (f'<a class="peer-all" href="/#index">Browse all {more_n} in {e(cat)} →</a>'
+                         if more_n > len(peers) else "")
+            peers_block = (
+                '<section class="d-card peers">'
+                f'<h2 class="d-h">More in {e(cat)} <span class="d-h-n">{cat_total.get(cat,0)}</span></h2>'
+                f'<div class="peer-grid">{chips}</div>{more_link}'
+                '</section>'
+            )
+
+        about_block = (
+            '<section class="d-card about">'
+            '<h2 class="d-h">About this server</h2>'
+            f'<p class="about-p">{e(desc) if desc else e(title) + " is a " + transport.lower() + " Model Context Protocol server."}</p>'
+            f'<p class="about-p sub">{e(transport_note)} Indexed under <b>{e(cat)}</b>, alongside {cat_total.get(cat,0)-1} other server{"s" if cat_total.get(cat,0)!=2 else ""}. '
+            'Health is freshness-derived from the registry\'s last-update timestamp; this index does not run the server, so capabilities and tool lists live in the source repository.</p>'
+            '</section>'
+        )
+
         body = (
             '<main class="detail"><div class="wrap">'
             '<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span>'
-            '<a href="/#index">The MCP Index</a><span class="sep">/</span>'
+            f'<a href="/#index">The MCP Index</a><span class="sep">/</span><a href="/#index">{e(cat)}</a><span class="sep">/</span>'
             f'<span>{e(title)}</span></nav>'
             '<a class="back" href="/">← Back to the index</a>'
             '<div class="d-head"><div class="d-title">'
+            f'<div class="d-kicker"><span class="d {e(health)}"></span>{e(health_word)} · {e(transport)}{" · " + e(reg_label) if reg_label else ""}</div>'
             f'<h1>{e(title)}{new_badge}</h1>'
-            f'<div class="d-name">{e(name)}</div></div></div>'
+            f'<div class="d-name" data-copy="{attr(name)}" title="Click to copy the registry name">{e(name)} <span class="ncopy">copy</span></div></div></div>'
             f'{desc_html}'
             f'<div class="d-actions">{actions_html}</div>'
-            '<div class="d-grid">'
-            f'<div class="cell"><span>Category</span><b>{e(cat)}</b></div>'
-            f'<div class="cell"><span>Transport</span><b>{e(transport)}</b></div>'
-            f'<div class="cell"><span>Health</span><b><span class="d {e(health)}"></span>{e(health)}</b></div>'
-            f'<div class="cell"><span>Last updated</span><b>{e(_fmt_days(ud))}</b></div>'
-            f'<div class="cell"><span>Version</span><b>{e(version)}</b></div>'
-            f'<div class="cell reg"><span>Registries</span><b>{reg_html}</b></div>'
+            f'{facts}'
+            '<div class="d-cols">'
+            f'{install_block}'
+            f'{recency_block}'
             '</div>'
+            f'{about_block}'
+            f'{peers_block}'
             '<div class="d-meta">'
             f'<div>Published · <b>{e(_fmt_date(s.get("published_at")))}</b></div>'
             f'<div>Updated · <b>{e(_fmt_date(s.get("updated_at")))}</b></div>'
