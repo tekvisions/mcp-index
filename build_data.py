@@ -132,6 +132,33 @@ def _fmt_date(iso):
         return "—"
 
 
+def _spark_svg(series, w=720, h=90):
+    """Minimal inline-SVG polyline sparkline (no deps). `series` is already oriented
+    so a higher value reads as a higher point on the chart. Self-contained: it scales
+    to the series' own min/max, so it carries no dependency on an outer total."""
+    pts = [v for v in series if isinstance(v, (int, float))]
+    if len(pts) < 2:
+        return ""
+    lo, hi = min(pts), max(pts)
+    span = (hi - lo) or 1
+    pad = 6
+    n = len(pts)
+    coords = []
+    for i, v in enumerate(pts):
+        x = pad + (w - 2 * pad) * (i / (n - 1))
+        y = pad + (h - 2 * pad) * (1 - (v - lo) / span)
+        coords.append(f"{x:.1f},{y:.1f}")
+    poly = " ".join(coords)
+    lx, ly = coords[-1].split(",")
+    return (
+        f'<svg class="mv-spark" viewBox="0 0 {w} {h}" preserveAspectRatio="none" '
+        f'role="img" aria-hidden="true">'
+        f'<polyline fill="none" stroke="var(--node)" stroke-width="2.5" '
+        f'stroke-linejoin="round" stroke-linecap="round" points="{poly}"/>'
+        f'<circle cx="{lx}" cy="{ly}" r="4" fill="var(--node)"/></svg>'
+    )
+
+
 # ── derivation helpers for the detail deep-dives (all from real registry fields) ──
 
 # reverse-DNS-ish registry names → a human owner/namespace.
@@ -379,6 +406,53 @@ def generate_details(data, out_dir=None):
         new_badge = ' <span class="new">New this week</span>' if s.get("is_new") else ""
         reg_html = "".join(f"<span>{e(r)}</span>" for r in regs) or '<span>—</span>'
 
+        # ── registry-position movement: the climbed/slipped badge + an inverted
+        #    rank-over-time sparkline (fits the mesh/index theme). rank_delta > 0
+        #    means the server climbed toward the top of the freshest-first board. ──
+        rank = s.get("rank")
+        rank_delta = s.get("rank_delta")
+        rhist = s.get("rank_history") or []
+        peak = s.get("peak_rank", rank)
+        if isinstance(rank_delta, int) and rank_delta > 0:
+            move_badge = f'<span class="d-move up" title="Climbed {rank_delta} since the prior run">▲ {rank_delta}</span>'
+            move_word = f"climbed {rank_delta} place{'s' if rank_delta != 1 else ''}"
+        elif isinstance(rank_delta, int) and rank_delta < 0:
+            move_badge = f'<span class="d-move dn" title="Slipped {abs(rank_delta)} since the prior run">▼ {abs(rank_delta)}</span>'
+            move_word = f"slipped {abs(rank_delta)} place{'s' if abs(rank_delta) != 1 else ''}"
+        elif isinstance(rank_delta, int):
+            move_badge = '<span class="d-move flat" title="Held position">→</span>'
+            move_word = "held position"
+        else:
+            move_badge = '<span class="d-move new" title="New to the tracked index">NEW</span>'
+            move_word = "new to the tracked index"
+        if len(rhist) >= 2:
+            # invert so a climb reads as an upward line: use the series' own worst
+            # (largest) rank as the baseline — worst→0, best→largest — self-contained,
+            # no dependency on the outer server_count.
+            _ranks = [int(p.get("rank", rank) or (rank or 1)) for p in rhist]
+            _worst = max(_ranks)
+            rank_series = [max(1, (_worst + 1) - rv) for rv in _ranks]
+            rank_chart = f'<div class="mv-sparkwrap">{_spark_svg(rank_series, 720, 90)}</div>'
+            rank_note = f"position over the last {len(rhist)} days tracked · best: #{peak}"
+        else:
+            rank_chart = ""
+            rank_note = "position movement fills in as the index runs daily"
+        rank_cur = f"#{rank}" if isinstance(rank, int) else "—"
+        rank_best = f"#{peak}" if isinstance(peak, int) else "—"
+        position_block = (
+            '<section class="d-card position">'
+            '<h2 class="d-h">Registry position over time</h2>'
+            f'<p class="run-note">Where {e(title)} sits in the freshest-first index, tracked daily — '
+            f'{move_word} since the prior run. {rank_note}.</p>'
+            f'{rank_chart}'
+            '<div class="d-grid pos-stats" style="margin-top:18px">'
+            f'<div class="cell"><span>Current position</span><b>{rank_cur}</b></div>'
+            f'<div class="cell"><span>Best position</span><b>{rank_best}</b></div>'
+            f'<div class="cell"><span>Since prior run</span><b>{move_badge}</b></div>'
+            '</div>'
+            '</section>'
+        )
+
         # ── derived context ──
         owner, owner_kind = owner_of(name)
         verb, reg_label, snippet, snippet_note = install_snippet(s)
@@ -500,7 +574,7 @@ def generate_details(data, out_dir=None):
             '<a class="back" href="/">← Back to the index</a>'
             '<div class="d-head"><div class="d-title">'
             f'<div class="d-kicker"><span class="d {e(health)}"></span>{e(health_word)} · {e(transport)}{" · " + e(reg_label) if reg_label else ""}</div>'
-            f'<h1>{e(title)}{new_badge}</h1>'
+            f'<h1>{e(title)}{new_badge} {move_badge}</h1>'
             f'<div class="d-name" data-copy="{attr(name)}" title="Click to copy the registry name">{e(name)} <span class="ncopy">copy</span></div></div></div>'
             f'{desc_html}'
             f'<div class="d-actions">{actions_html}</div>'
@@ -509,6 +583,7 @@ def generate_details(data, out_dir=None):
             f'{install_block}'
             f'{recency_block}'
             '</div>'
+            f'{position_block}'
             f'{about_block}'
             f'{peers_block}'
             '<div class="d-meta">'
@@ -575,6 +650,21 @@ The MCP Index is the registry of record made browsable. It pulls the official MC
 
 
 def main():
+    # read the prior data.json to extend each server's rank_history — the daily
+    # "registry position" series (rank = position in the freshest-first list; the
+    # score behind that rank is the server's updated_at timestamp). Keyed on the
+    # stable server id (`name`, the reverse-DNS registry name). Same cold-start as
+    # any history series: on day one deltas are None and the UI shows a "new" state.
+    prior_rankh = {}
+    _prior_path = os.path.join(HERE, "data.json")
+    if os.path.exists(_prior_path):
+        try:
+            _prev = json.load(open(_prior_path))
+            for _r in _prev.get("servers", []):
+                prior_rankh[_r["name"]] = _r.get("rank_history", [])
+        except Exception:
+            pass
+
     seen = {}   # name -> entry (keep isLatest / newest publishedAt)
     cursor = None
     pages = 0
@@ -619,7 +709,7 @@ def main():
 
     items = list(seen.values())
     for it in items:
-        it["category"] = categorize(it["title"] + " " + it["description"] + " " + it["name"])
+        it["category"] = categorize((it.get("title") or "") + " " + (it.get("description") or "") + " " + (it.get("name") or ""))
         d = days_since(it["updated_at"])
         it["updated_days"] = round(d, 1) if d is not None else None
         if d is None:
@@ -636,6 +726,49 @@ def main():
     # sort: freshest first (most recently updated)
     items.sort(key=lambda x: x["updated_at"] or "", reverse=True)
 
+    # ── movement tracking ─────────────────────────────────────────────────────
+    # rank = 1-based position in the freshest-first display list. Append today's
+    # (rank, score=updated_at) to each server's rank_history (capped 90 days), then
+    # derive position movement vs the most recent PRIOR day. rank_delta > 0 means the
+    # server CLIMBED (a smaller rank number is better — closer to the top). On day one
+    # there is no prior, so deltas are None and the UI shows a "new"/no-change state.
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    for i, it in enumerate(items):
+        it["rank"] = i + 1
+        rh = list(prior_rankh.get(it["name"], []))
+        # only PRIOR points with a real int rank are comparable (a malformed/None rank
+        # in the persisted history must never crash the daily cron build).
+        prior_pts = [p for p in rh if p.get("date") != today and isinstance(p.get("rank"), int)]
+        if not rh or rh[-1].get("date") != today:
+            rh.append({"date": today, "rank": it["rank"], "score": it["updated_at"]})
+        rh = rh[-90:]
+        it["rank_history"] = rh
+        if prior_pts:
+            prev_rank = prior_pts[-1].get("rank")
+            it["rank_prev"] = prev_rank
+            it["rank_delta"] = prev_rank - it["rank"]   # prior_pts are int-rank only
+            it["peak_rank"] = min([p["rank"] for p in prior_pts] + [it["rank"]])
+            it["tracked_days"] = len(prior_pts) + 1
+        else:
+            it["rank_prev"] = None
+            it["rank_delta"] = None       # None == new/untracked (distinct from 0 == held)
+            it["peak_rank"] = it["rank"]
+            it["tracked_days"] = 1
+
+    # biggest climbers over the tracked window — the "Movers" strip. Default-guard the
+    # sort keys so a malformed record can never crash the daily cron build (production
+    # blast radius). Falls back to the newest-published servers on day one (before any
+    # position history exists) so the strip is never empty.
+    climbers = [x for x in items if isinstance(x.get("rank_delta"), int) and x["rank_delta"] > 0]
+    movers = sorted(climbers, key=lambda x: (x["rank_delta"], -(x.get("rank") or 0)),
+                    reverse=True)[:5]
+    if not movers:
+        # day-one fallback: newest servers. Sort by a stable key (updated_at desc, then
+        # name) so the build output is deterministic across runs with identical input.
+        movers = sorted([x for x in items if x.get("is_new")],
+                        key=lambda x: (x.get("updated_at") or "", x.get("name") or ""),
+                        reverse=True)[:5]
+
     cats = {}
     for it in items:
         cats[it["category"]] = cats.get(it["category"], 0) + 1
@@ -651,6 +784,10 @@ def main():
         "categories": sorted(cats.keys()),
         "category_counts": cats,
         "new_names": new_this_week,
+        "movers": [{"name": m["name"], "title": m.get("title"), "slug": slugify(m["name"]),
+                    "category": m.get("category"), "rank": m["rank"],
+                    "rank_delta": m.get("rank_delta"), "is_new": bool(m.get("is_new"))}
+                   for m in movers],
         "servers": items,
     }
     json.dump(data, open(os.path.join(HERE, "data.json"), "w"), indent=2)

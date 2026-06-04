@@ -51,6 +51,37 @@
       +'<i style="width:'+p.toFixed(0)+'%"></i></span>';
   }
 
+  /* registry-position movement vs the prior daily run: ▲N climbed, ▼N slipped, → held.
+     rank_delta>0 means a smaller (better) rank number — i.e. climbed toward the top.
+     Returns '' when there's no prior history yet (fills in as the index runs daily). */
+  function moveBadge(s){
+    var d=s.rank_delta;
+    if(d==null) return '';
+    if(d>0) return ' <span class="mv up" title="Climbed '+d+' since the prior run">▲'+d+'</span>';
+    if(d<0) return ' <span class="mv dn" title="Slipped '+Math.abs(d)+' since the prior run">▼'+Math.abs(d)+'</span>';
+    return ' <span class="mv flat" title="Held position">→</span>';
+  }
+
+  /* movers strip: horizontally-scrollable chips linking to detail pages. Each shows
+     the position climb (▲N) when tracked, else a NEW tag on day one before history. */
+  function renderMovers(movers){
+    var el=D.getElementById("movers"); if(!el) return;
+    if(!movers||!movers.length){ el.hidden=true; return; }
+    var chips=movers.map(function(m,i){
+      var d=m.rank_delta;
+      var climbed=(typeof d==="number" && d>0);
+      // only a genuinely untracked item (null/undefined rank_delta) is NEW; a numeric 0
+      // means it HELD position (→), never NEW.
+      var tag=climbed?'<span class="mv up">▲'+d+'</span>'
+        :(d==null?'<span class="mv new">NEW</span>':'<span class="mv flat" title="Held position">→</span>');
+      var sub=climbed?("now #"+m.rank):(d==null?esc(m.category||"new"):("now #"+m.rank));
+      return '<a class="mover" href="/s/'+esc(m.slug||slugify(m.name))+'/" style="--d:'+(i*50)+'ms">'
+        +tag+'<span class="mvn">'+esc(m.title||m.name)+'</span><span class="mvs">'+sub+'</span></a>';
+    }).join("");
+    el.innerHTML='<span class="movers-l">Movers</span><div class="movers-track">'+chips+'</div>';
+    el.hidden=false;
+  }
+
   function matches(s){
     if(state.onlyNew && !s.is_new) return false;
     if(state.cat!=="All" && s.category!==state.cat) return false;
@@ -86,7 +117,7 @@
       ? ' style="animation-delay:'+Math.min((i-animFrom)*22,420)+'ms"' : '';
     var cls = (animFrom!=null && i>=animFrom) ? 'row reveal' : 'row';
     return '<a class="'+cls+'" href="/s/'+esc(slugify(s.name))+'/"'+anim+'>'
-      +'<div class="nm"><h3>'+title+' '+nw+'</h3><div class="ns">'+name+'</div>'
+      +'<div class="nm"><h3>'+title+' '+nw+moveBadge(s)+'</h3><div class="ns">'+name+'</div>'
         +desc+(reg?'<div class="reg">'+reg+'</div>':'')+'</div>'
       +'<div class="cat">'+esc(s.category)+'</div>'
       +'<div class="health">'+spark(s)+'<span class="hl"><span class="d '+esc(s.health)+'"></span>'+esc(s.health)+' · '+fmtDays(s.updated_days)+'</span></div>'
@@ -166,6 +197,9 @@
   function build(data){
     ALL=data.servers||[];
     injectItemList(data);
+    // movers strip — biggest climbers since the prior run (rank_delta), or newest
+    // servers on day one before registry-position history exists.
+    renderMovers(data.movers||[]);
     D.getElementById("metarow").innerHTML =
       statCell(data.server_count,"Servers indexed")
       + statCell(data.new_this_week,"New this week")

@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://mcp.kymatalabs.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-apify-apify-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/dev-storage-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/ai-drillr-drillr</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/ai-ankimcp-anki-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-1145-am-syracuse-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-blackveilsecurity-dns</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/app-marketgenius-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-fixyourdocs-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-awesomehye-upnote-lens-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-keboola-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-agenttools-cloud-agent-tools-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-earnidle-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-lionx402-lion-x402</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-akka-finance-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-automox-automox-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-agentled-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/bid-scope-aec</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/bid-scope-claims</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/bid-scope-legal</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-cognivators-mcp-safeguard</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-aiinfradecoded-mcp-anvil</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-local-mcp-local-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-okareo-okareo</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-0rkz-byte-protocol</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/ai-rfix-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/co-tempguru-event-staffing</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-startaiming-aim</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-files-python-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-fccdb-api</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-beever-ai-beever-atlas</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/dev-buildcalcapi-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-tokenofesteem-token-of-esteem</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-2s-io-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-areso-safe-ssh-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-wauldo-wauldo</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-wingmanprotocol-agent-gateway</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-senzing-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-unstoppabledomains-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-microsoft-powerbi-modeling-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/com-shiftinbits-constellation</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mcp.kymatalabs.com/s/io-github-1clawai-1claw-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-luneresearch-lune</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-zeroheight-zeroheight</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-savvly-savvly</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -9,7 +50,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/io-alterlab-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/co-haveny-california-hoa-law</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-agentnomos-nomos-crossborder-broker</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-agentled-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-mobbin-mobbin</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/fyi-cred-cred</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ing-conjure-conjure</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -22,11 +62,8 @@
   <url><loc>https://mcp.kymatalabs.com/s/app-ganty-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/co-bizverify-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-tensorfeed-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/dev-workers-lionmaster-operations-lion-x402-lion-x402</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/com-blackveilsecurity-dns</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/dev-hatchloop-pdf-generator</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-52choujiang-kuaishou-insights</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/com-local-mcp-local-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-scrapeer-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-edusignal-districts</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-clauderecall-recall</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -35,11 +72,9 @@
   <url><loc>https://mcp.kymatalabs.com/s/com-timesrare-canvas</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-ahmeedgamil-semhood</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-xcodebuildmcp-xcodebuildmcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/com-automox-automox-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-alchemy-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-verlon-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-cpln-control-plane</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/app-marketgenius-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-sitepulsar-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-cotribute-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-superfact-superfact</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -70,13 +105,11 @@
   <url><loc>https://mcp.kymatalabs.com/s/com-civilquants-civilquants</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/dev-bofip-bofip</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/cn-whylingxi-insurance</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/com-senzing-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-ski-france-agent-search</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-pangolinfo-amazon-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-trycanonical-company-search</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-painspotter-painspotter</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-easyship-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-areso-safe-ssh-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ca-wiremi-marketing-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/cloud-dchub-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-alloccontext-alloc-context</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -93,11 +126,9 @@
   <url><loc>https://mcp.kymatalabs.com/s/io-github-automatelab-tech-citation-intelligence</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/co-pipeboard-snap-ads-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-dealscanner-dealscanner</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/com-files-python-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-walterwrites-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-contrastcyber-api</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/dev-goodbarber-goodbarber-public-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-akka-finance-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-mambabuilt-mcp-gtm-suite</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-mambabuilt-mcp-icp-fit-scorer</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-mambabuilt-mcp-domain-to-linkedin-url-resolver</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -106,7 +137,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/com-mambabuilt-mcp-gtm-tech-stack-signal-scraper</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-mambabuilt-mcp-gtm-hiring-signal-scraper</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-b2bware-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/com-keboola-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-antwork-social</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/chat-prowl-prowl-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-bowmark-bowmark</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -171,7 +201,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/io-github-alejandro-m-p-git-courer</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-seanwinslow-vault-knowledge</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-suresms-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-2s-io-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/app-promptfax-promptfax</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-voxell-forge</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-skipshit-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -193,7 +222,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/io-github-alvisooculus-optionsahoy-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-getdealboard-dealboard</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-blackwalltier-blackwall</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/com-okareo-okareo</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-amalgix-io-amalgix</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-zeltser-website-search</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-dfetcher-vitamin-d</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -206,7 +234,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/ai-law-mcp-lawyer-search</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-automatelab-tech-seo-performance-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-aurelianflo-core</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-fixyourdocs-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/app-fryd-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-nyx-intelligence-val</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/au-com-iknowthepilot-flight-deals</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -222,7 +249,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/com-meertrack-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/app-vercel-agent-svg-registry-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-warmthengine-observatory</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/com-apify-apify-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/app-netlify-gleaming-cassata-d41682-lion-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-avnester-mcp-property-intelligence</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-info-subscription-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -241,7 +267,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/ai-redditgrow-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-krtr-krtr</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-ootworacle-www-predictions-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-0rkz-byte-protocol</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-aryan-jhaveri-mcp-statcan</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/bot-mailbox-mailbox</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-reliastats-public</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -295,7 +320,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/com-varynforge-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-kapruka-kapruka-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-potomacledger-trades</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/com-shiftinbits-constellation</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-pimea-pimea</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-delega-aws-pricing-calculator</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-wiselyenterprisesllc-x402-agent-payment-infrastructure</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -364,9 +388,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/com-bounceprotect-www-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/dev-skillrepo-skillrepo</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/app-humantaste-taste-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/bid-scope-aec</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/bid-scope-claims</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/bid-scope-legal</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-ninar-ninar</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-dealsurface-dealsurface</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-linkguard-linkguard-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -467,7 +488,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/com-verityrms-rms-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-optionsanalysissuite-options-analysis-suite-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/app-nausika-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/ai-drillr-drillr</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-clauxel-toolcallwitness-toolcallwitness-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-clauxel-agentdataboundary-agentdataboundary-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-clauxel-browserspendguard-browserspendguard-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -541,29 +561,7 @@
   <url><loc>https://mcp.kymatalabs.com/s/ai-adeu-adeu</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/art-travel-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-eventescapes-event-escapes</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-fact-checker</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-event-resolver</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-ens-resolver</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-email-verification</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-email-send</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-email-finder</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-email-deliverability</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-domain-intelligence</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-dns-lookup</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-diff-checker</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-dex-quotes</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-defi-yields</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-currency-converter</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-csv-to-json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-crypto-news</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-crontab-generator</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-cron-parser</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-company-enrichment</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-color-palette</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-code-sandbox</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-bridge-routes</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-base-defi</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-base64-codec</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-barcode-generator</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-ai-summarizer</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-airdrop-checker</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -866,7 +864,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/com-complianceautomator-public-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-devcycle-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-normatia-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/dev-storage-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-readypermit-geo</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-getperspective-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-jamesrosingmd-tebra</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -964,7 +961,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/io-github-000safah000-ai-blackhawk-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-nexustoken-nexustoken-sdk</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-pentest-tools-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/ai-ankimcp-anki-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/ai-bringyour-bringyour</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-github-agentphone-ai-agentphone</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/co-jacktrade-jacktrade-crm</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -1143,7 +1139,6 @@
   <url><loc>https://mcp.kymatalabs.com/s/com-promptot-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-spocont-booboooking</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-feedoracle-compliance</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://mcp.kymatalabs.com/s/io-github-br0ski777-funding-arb</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-docdeploy-www-mcp-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/io-chamade-server</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mcp.kymatalabs.com/s/com-getcurrentoffer-mcp</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
