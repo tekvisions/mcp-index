@@ -95,9 +95,19 @@ def slugify(name):
 
 
 def assign_slugs(servers):
-    """Stable unique slug per server (collisions get a -2, -3, … suffix)."""
+    """Stable unique slug per server (collisions get a -2, -3, … suffix).
+    IDEMPOTENT: a server that already carries a `slug` keeps it (and reserves it),
+    so calling this twice on the same list (main() pre-assigns; generate_details()
+    re-calls) can never reassign a different slug — badge files, feed URLs, and
+    detail-page embeds therefore reference one and the same slug."""
     used = {}
+    # first pass: reserve already-assigned slugs so a later new server can't steal them
     for s in servers:
+        if s.get("slug"):
+            used[s["slug"]] = True
+    for s in servers:
+        if s.get("slug"):
+            continue
         base = slugify(s.get("name"))
         slug = base
         n = 1
@@ -157,6 +167,143 @@ def _spark_svg(series, w=720, h=90):
         f'stroke-linejoin="round" stroke-linecap="round" points="{poly}"/>'
         f'<circle cx="{lx}" cy="{ly}" r="4" fill="var(--node)"/></svg>'
     )
+
+
+# ── public distribution: feed.json API + embeddable rank badges ──────────────
+# Badge generation is CAPPED (see generate_badges) — the registry carries ~2250
+# servers and one SVG file each would bloat the repo. feed.json is the full API.
+
+# how many top-ranked badges to emit, on top of every is_new server (which always
+# gets one — a freshly-published server is the most likely to want to show its rank).
+BADGE_TOP_N = 250
+# absolute ceiling on badge files written, so a freak day of thousands of is_new
+# servers can never balloon the repo. The cap is documented; the top-ranked set is
+# always retained first, then is_new fills the remaining budget.
+BADGE_HARD_CAP = 600
+
+
+def _badge_svg(s: dict) -> str:
+    """shields.io-style embeddable rank badge. Left label "MCP Index", right
+    "#<rank>" in the mesh node-blue; appends "▲N" when the server climbed
+    (rank_delta > 0). Self-contained, theme-neutral, accessible (role/title).
+    Character-width estimation keeps the right pill snug without a web font."""
+    rank = s.get("rank")
+    rank_txt = f"#{rank}" if isinstance(rank, int) else "#—"
+    rd = s.get("rank_delta")
+    if isinstance(rd, int) and rd > 0:
+        rank_txt = f"{rank_txt} ▲{rd}"
+    label = "MCP Index"
+    name = s.get("name", "") or ""
+    title = s.get("title") or name
+    # ~6px per char @ 11px Verdana-ish; +pad. Stable, no font metrics needed.
+    lw = len(label) * 6 + 18
+    rw = len(rank_txt) * 6 + 18
+    total = lw + rw
+    aria = f"MCP Index — {html.escape(title)} ranked {rank_txt}"
+    # unique gradient id per badge. Use the COLLISION-RESOLVED s["slug"] (assign_slugs
+    # appends -2/-3… on dupes) rather than re-slugifying the name — so two servers that
+    # slugify to the same base never produce a duplicate id. Re-filtered to [a-z0-9-]
+    # so the id is always a valid SVG/XML name (defensive; slugify already guarantees it).
+    gid = "mi" + (re.sub(r"[^a-z0-9-]", "", s.get("slug") or slugify(name)) or "badge")
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{total}" height="20" '
+        f'role="img" aria-label="{aria}">'
+        f'<title>{aria}</title>'
+        f'<linearGradient id="{gid}" x2="0" y2="100%">'
+        f'<stop offset="0" stop-color="#fff" stop-opacity=".12"/>'
+        f'<stop offset="1" stop-opacity=".12"/></linearGradient>'
+        f'<rect rx="3" width="{total}" height="20" fill="#555"/>'
+        f'<rect rx="3" x="{lw}" width="{rw}" height="20" fill="#1d6fe0"/>'
+        f'<rect rx="3" width="{total}" height="20" fill="url(#{gid})"/>'
+        f'<g fill="#fff" text-anchor="middle" '
+        f'font-family="Verdana,DejaVu Sans,Geneva,sans-serif" font-size="11">'
+        f'<text x="{lw/2:.0f}" y="14">{label}</text>'
+        f'<text x="{lw + rw/2:.0f}" y="14" font-weight="bold">{html.escape(rank_txt)}</text>'
+        f'</g></svg>'
+    )
+
+
+def badge_eligible(servers):
+    """The capped badge set: top BADGE_TOP_N by rank PLUS every is_new server,
+    bounded by BADGE_HARD_CAP total. Keeps the repo from gaining one SVG per ~2250
+    servers while guaranteeing a badge for the entries most likely to embed one
+    (top-ranked + just-published). Top-ranked is retained first; is_new fills the
+    remaining budget (also rank-ordered) so the set is deterministic and bounded."""
+    by_rank = sorted(servers, key=lambda x: x.get("rank") or 10**9)
+    chosen = {}
+    for s in by_rank[:BADGE_TOP_N]:
+        chosen[s["slug"]] = s
+    for s in by_rank:  # is_new in rank order — deterministic fill of the remaining budget
+        if len(chosen) >= BADGE_HARD_CAP:
+            break
+        if s.get("is_new"):
+            chosen[s["slug"]] = s
+    return list(chosen.values())
+
+
+def generate_badges(servers, out_dir=None) -> set:
+    """Write a static /badge/<slug>.svg for the capped eligible set (mirrors the
+    detail-page generation; static-deployable, refreshed each daily build).
+    Returns the set of slugs that got a badge (so detail pages can gate the embed
+    block to only those that actually have a badge file)."""
+    out_dir = out_dir or HERE
+    b_dir = os.path.join(out_dir, "badge")
+    if os.path.isdir(b_dir):
+        shutil.rmtree(b_dir)  # drop badges for servers that fell out of the cap
+    os.makedirs(b_dir, exist_ok=True)
+    eligible = badge_eligible(servers)
+    written = set()
+    for s in eligible:
+        # slug comes from slugify() (only [a-z0-9-], never "." or "/"), but re-clamp
+        # to [a-z0-9-] here so the filename is provably traversal-free at the write site
+        # — no registry-controlled name can escape badge/ regardless of upstream changes.
+        slug = re.sub(r"[^a-z0-9-]", "", s.get("slug") or "") or "server"
+        with open(os.path.join(b_dir, f"{slug}.svg"), "w") as f:
+            f.write(_badge_svg(s))
+        written.add(slug)
+    print(f"  generated {len(written)} rank badges in /badge/ "
+          f"(cap: top {BADGE_TOP_N} by rank + all is_new)", file=sys.stderr)
+    return written
+
+
+def generate_feed(data, badge_slugs=None, out_dir=None) -> None:
+    """Write feed.json — a documented, stable-schema public API subset of the
+    board (read-only data already public on the page / in data.json; no secrets).
+    Includes ALL ranked servers (the full directory is already public). The per-item
+    `badge` URL is emitted ONLY for the capped set that actually has a badge file
+    (`badge_slugs`); other servers carry `"badge": null` so consumers never get a
+    dead link."""
+    out_dir = out_dir or HERE
+    badge_slugs = badge_slugs if badge_slugs is not None else set()
+    servers = sorted(data.get("servers", []), key=lambda x: x.get("rank") or 10**9)
+
+    def _item(s):
+        slug = s.get("slug") or slugify(s.get("name"))
+        return {
+            "rank": s.get("rank"),
+            "name": s.get("title") or s.get("name"),
+            "server_id": s.get("name"),
+            "category": s.get("category"),
+            "updated_at": s.get("updated_at"),
+            "rank_delta": s.get("rank_delta"),
+            "url": f"{SITE}/s/{slug}/",
+            "badge": f"{SITE}/badge/{slug}.svg" if slug in badge_slugs else None,
+        }
+
+    feed = {
+        "$schema_version": "1",
+        "generator": "The MCP Index (Kymata Labs)",
+        "generated_at": data.get("generated_at"),
+        "site": SITE,
+        "docs": f"{SITE}/#how",
+        "license": "Data derived from the official Model Context Protocol registry; attribution to The MCP Index (mcp.kymatalabs.com) appreciated.",
+        "count": len(servers),
+        "items": [_item(s) for s in servers],
+        "movers": data.get("movers", []),
+    }
+    with open(os.path.join(out_dir, "feed.json"), "w") as f:
+        json.dump(feed, f, indent=2)
+    print(f"  wrote feed.json: {len(servers)} servers", file=sys.stderr)
 
 
 # ── derivation helpers for the detail deep-dives (all from real registry fields) ──
@@ -238,12 +385,15 @@ def _recency_phase(ud):
     return "stale", "Dormant · over a year since update"
 
 
-def generate_details(data, out_dir=None):
+def generate_details(data, out_dir=None, badge_slugs=None):
     """Static-generate /s/<slug>/index.html for every server — the SEO surface.
     Reuses the hub's exact header/nav/footer/theme (style.css). Shared head/footer
     built once for speed; only the per-server body is templated in the loop.
+    `badge_slugs` (optional set) gates the "Embed this badge" block to only the
+    servers that actually have a /badge/<slug>.svg (the capped set).
     """
     out_dir = out_dir or HERE
+    badge_slugs = badge_slugs if badge_slugs is not None else set()
     servers = assign_slugs(data.get("servers", []))
 
     # category index (freshest-first) — used to render "category peers" cross-links.
@@ -566,6 +716,27 @@ def generate_details(data, out_dir=None):
             '</section>'
         )
 
+        # ── embeddable rank badge — the viral loop (servers show their live rank,
+        #    linking back here). Only rendered for the capped set that has a badge. ──
+        embed_block = ""
+        if slug in badge_slugs:
+            badge_url = f"{SITE}/badge/{slug}.svg"
+            embed_md = f"[![MCP Index rank]({badge_url})]({canon}/)"
+            embed_html = f'<a href="{canon}/"><img src="{badge_url}" alt="MCP Index rank"></a>'
+            embed_block = (
+                '<section class="d-card embed">'
+                '<h2 class="d-h">📛 Embed this badge</h2>'
+                '<p class="run-note">Show your live MCP Index rank in your README — it updates daily and links back here.</p>'
+                f'<p style="margin-top:14px"><img src="{attr(badge_url)}" alt="MCP Index rank badge for {attr(title)}" style="vertical-align:middle"></p>'
+                '<div style="margin-top:14px">'
+                '<div class="run-head"><span class="run-label">Markdown</span></div>'
+                f'<pre class="code" data-copy="{attr(embed_md)}"><code>{e(embed_md)}</code><button class="copy" type="button" aria-label="Copy">copy</button></pre>'
+                '<div class="run-head" style="margin-top:14px"><span class="run-label">HTML</span></div>'
+                f'<pre class="code" data-copy="{attr(embed_html)}"><code>{e(embed_html)}</code><button class="copy" type="button" aria-label="Copy">copy</button></pre>'
+                '</div>'
+                '</section>'
+            )
+
         body = (
             '<main class="detail"><div class="wrap">'
             '<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span>'
@@ -585,6 +756,7 @@ def generate_details(data, out_dir=None):
             '</div>'
             f'{position_block}'
             f'{about_block}'
+            f'{embed_block}'
             f'{peers_block}'
             '<div class="d-meta">'
             f'<div>Published · <b>{e(_fmt_date(s.get("published_at")))}</b></div>'
@@ -792,8 +964,13 @@ def main():
     }
     json.dump(data, open(os.path.join(HERE, "data.json"), "w"), indent=2)
     print(f"wrote data.json: {len(items)} servers, {data['new_this_week']} new this week, {data['active_count']} active", file=sys.stderr)
+    # assign stable slugs once, up front, so badges + feed + detail pages all agree.
+    assign_slugs(data["servers"])
+    # public distribution surface: capped rank badges (/badge/<slug>.svg) + feed.json API.
+    badge_slugs = generate_badges(data["servers"])
+    generate_feed(data, badge_slugs=badge_slugs)
     # static-generate the SEO surface: /s/<slug> detail pages + sitemap + llms.txt
-    generate_details(data)
+    generate_details(data, badge_slugs=badge_slugs)
     # resilience guard: the registry has thousands of servers; a run that returns far
     # fewer means the API hiccupped mid-pagination. Refuse to publish a gutted index —
     # fail so the cron skips commit+deploy and the last-good page stays live.
