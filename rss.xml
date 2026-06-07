@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The MCP Index — every Model Context Protocol server</title>
+    <link>https://mcp.kymatalabs.com</link>
+    <atom:link href="https://mcp.kymatalabs.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>A living, freshness-tracked index of MCP servers from the official registry — categorized and recomputed daily by autonomous agents.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Jun 2026 01:10:56 +0000</lastBuildDate>
+    <generator>Kymata Labs</generator>
+    <item>
+      <title>BlueNexus Universal MCP</title>
+      <link>https://mcp.kymatalabs.com/s/ai-bluenexus-universal-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/ai-bluenexus-universal-mcp/</guid>
+      <category>Other</category>
+      <description>#1 · Other · updated 2026-06-05 ▲146</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>mcp-server</title>
+      <link>https://mcp.kymatalabs.com/s/cloud-dchub-mcp-server/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/cloud-dchub-mcp-server/</guid>
+      <category>Cloud &amp; DevOps</category>
+      <description>#2 · Cloud &amp; DevOps · updated 2026-06-05 ▲108</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>mcp</title>
+      <link>https://mcp.kymatalabs.com/s/com-mdtidy-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-mdtidy-mcp/</guid>
+      <category>Files &amp; Storage</category>
+      <description>#3 · Files &amp; Storage · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>local-mcp</title>
+      <link>https://mcp.kymatalabs.com/s/com-local-mcp-local-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-local-mcp-local-mcp/</guid>
+      <category>Productivity</category>
+      <description>#4 · Productivity · updated 2026-06-04 ▲17</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>mcp</title>
+      <link>https://mcp.kymatalabs.com/s/io-github-2s-io-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/io-github-2s-io-mcp/</guid>
+      <category>Dev Tools</category>
+      <description>#5 · Dev Tools · updated 2026-06-04 ▲27</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Music360 MCP</title>
+      <link>https://mcp.kymatalabs.com/s/br-com-music360-app-mcp-server/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/br-com-music360-app-mcp-server/</guid>
+      <category>AI &amp; Models</category>
+      <description>#6 · AI &amp; Models · updated 2026-06-04 ▲111</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>AgenticBI</title>
+      <link>https://mcp.kymatalabs.com/s/io-github-agenticbihq-agenticbi-mcp-server/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/io-github-agenticbihq-agenticbi-mcp-server/</guid>
+      <category>Dev Tools</category>
+      <description>#7 · Dev Tools · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Chamade</title>
+      <link>https://mcp.kymatalabs.com/s/io-chamade-server/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/io-chamade-server/</guid>
+      <category>Productivity</category>
+      <description>#8 · Productivity · updated 2026-06-04 ▲1133</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Scope (AEC) - Preview</title>
+      <link>https://mcp.kymatalabs.com/s/bid-scope-aec/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/bid-scope-aec/</guid>
+      <category>Web &amp; Search</category>
+      <description>#9 · Web &amp; Search · updated 2026-06-04 ▲7</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Scope (Claims) - Preview</title>
+      <link>https://mcp.kymatalabs.com/s/bid-scope-claims/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/bid-scope-claims/</guid>
+      <category>Dev Tools</category>
+      <description>#10 · Dev Tools · updated 2026-06-04 ▲7</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Scope (Legal)</title>
+      <link>https://mcp.kymatalabs.com/s/bid-scope-legal/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/bid-scope-legal/</guid>
+      <category>Other</category>
+      <description>#11 · Other · updated 2026-06-04 ▲7</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>olympus-bets-analytics</title>
+      <link>https://mcp.kymatalabs.com/s/com-olympus-bets-olympus-bets-analytics/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-olympus-bets-olympus-bets-analytics/</guid>
+      <category>Other</category>
+      <description>#12 · Other · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Black Duck Security Scanner</title>
+      <link>https://mcp.kymatalabs.com/s/com-blackduck-mcp-server/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-blackduck-mcp-server/</guid>
+      <category>Other</category>
+      <description>#13 · Other · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>switch</title>
+      <link>https://mcp.kymatalabs.com/s/ai-switchapp-switch/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/ai-switchapp-switch/</guid>
+      <category>Dev Tools</category>
+      <description>#14 · Dev Tools · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Automox MCP Server</title>
+      <link>https://mcp.kymatalabs.com/s/com-automox-automox-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-automox-automox-mcp/</guid>
+      <category>Other</category>
+      <description>#15 · Other · updated 2026-06-04 ▼1</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Mainline</title>
+      <link>https://mcp.kymatalabs.com/s/dev-mainline-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/dev-mainline-mcp/</guid>
+      <category>AI &amp; Models</category>
+      <description>#16 · AI &amp; Models · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Wauldo</title>
+      <link>https://mcp.kymatalabs.com/s/com-wauldo-wauldo/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-wauldo-wauldo/</guid>
+      <category>AI &amp; Models</category>
+      <description>#17 · AI &amp; Models · updated 2026-06-04 ▲17</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>safe-ssh-mcp</title>
+      <link>https://mcp.kymatalabs.com/s/io-github-areso-safe-ssh-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/io-github-areso-safe-ssh-mcp/</guid>
+      <category>Dev Tools</category>
+      <description>#18 · Dev Tools · updated 2026-06-04 ▲15</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>mcp-server</title>
+      <link>https://mcp.kymatalabs.com/s/io-gildara-mcp-server/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/io-gildara-mcp-server/</guid>
+      <category>AI &amp; Models</category>
+      <description>#19 · AI &amp; Models · updated 2026-06-04 ▲1180</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>TrustNotch</title>
+      <link>https://mcp.kymatalabs.com/s/com-trustnotch-trustnotch-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-trustnotch-trustnotch-mcp/</guid>
+      <category>Web &amp; Search</category>
+      <description>#20 · Web &amp; Search · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>CloudPepper</title>
+      <link>https://mcp.kymatalabs.com/s/io-cloudpepper-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/io-cloudpepper-mcp/</guid>
+      <category>Cloud &amp; DevOps</category>
+      <description>#21 · Cloud &amp; DevOps · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>AnkiMCP Server</title>
+      <link>https://mcp.kymatalabs.com/s/ai-ankimcp-anki-mcp-server-addon/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/ai-ankimcp-anki-mcp-server-addon/</guid>
+      <category>Other</category>
+      <description>#22 · Other · updated 2026-06-04 ▲580</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>python-mcp</title>
+      <link>https://mcp.kymatalabs.com/s/com-files-python-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-files-python-mcp/</guid>
+      <category>Dev Tools</category>
+      <description>#23 · Dev Tools · updated 2026-06-04 ▲4</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Anki MCP Server</title>
+      <link>https://mcp.kymatalabs.com/s/ai-ankimcp-anki-mcp-server/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/ai-ankimcp-anki-mcp-server/</guid>
+      <category>Other</category>
+      <description>#24 · Other · updated 2026-06-04 ▼21</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>enigma-mcp-server</title>
+      <link>https://mcp.kymatalabs.com/s/com-enigma-enigma-mcp-server/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-enigma-enigma-mcp-server/</guid>
+      <category>Dev Tools</category>
+      <description>#25 · Dev Tools · updated 2026-06-04 ▲2192</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Superforms</title>
+      <link>https://mcp.kymatalabs.com/s/co-superforms-superforms/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/co-superforms-superforms/</guid>
+      <category>AI &amp; Models</category>
+      <description>#26 · AI &amp; Models · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Zoning Signal</title>
+      <link>https://mcp.kymatalabs.com/s/com-zoningsignal-observatory/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-zoningsignal-observatory/</guid>
+      <category>Other</category>
+      <description>#27 · Other · updated 2026-06-04 ▲379</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Svelte MCP</title>
+      <link>https://mcp.kymatalabs.com/s/dev-svelte-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/dev-svelte-mcp/</guid>
+      <category>Other</category>
+      <description>#28 · Other · updated 2026-06-04 ▲570</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Weftly</title>
+      <link>https://mcp.kymatalabs.com/s/ai-weftly-weftly/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/ai-weftly-weftly/</guid>
+      <category>Dev Tools</category>
+      <description>#29 · Dev Tools · updated 2026-06-04 ▲515</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Optibot</title>
+      <link>https://mcp.kymatalabs.com/s/ai-getoptimal-optibot/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/ai-getoptimal-optibot/</guid>
+      <category>Dev Tools</category>
+      <description>#30 · Dev Tools · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Senzing</title>
+      <link>https://mcp.kymatalabs.com/s/com-senzing-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-senzing-mcp/</guid>
+      <category>Web &amp; Search</category>
+      <description>#31 · Web &amp; Search · updated 2026-06-04 ▲5</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>mcp</title>
+      <link>https://mcp.kymatalabs.com/s/app-takehub-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/app-takehub-mcp/</guid>
+      <category>Dev Tools</category>
+      <description>#32 · Dev Tools · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>otskit-mcp</title>
+      <link>https://mcp.kymatalabs.com/s/io-github-alexalves87-otskit-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/io-github-alexalves87-otskit-mcp/</guid>
+      <category>Dev Tools</category>
+      <description>#33 · Dev Tools · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>ProviderSignal: Dental Market Intelligence</title>
+      <link>https://mcp.kymatalabs.com/s/com-providersignal-dental-market-intelligence/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-providersignal-dental-market-intelligence/</guid>
+      <category>Dev Tools</category>
+      <description>#34 · Dev Tools · updated 2026-06-04 ▲775</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Partglyph MCP Gateway</title>
+      <link>https://mcp.kymatalabs.com/s/com-partglyph-mcp-gateway/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-partglyph-mcp-gateway/</guid>
+      <category>Other</category>
+      <description>#35 · Other · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>wachete</title>
+      <link>https://mcp.kymatalabs.com/s/com-wachete-wachete/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-wachete-wachete/</guid>
+      <category>Web &amp; Search</category>
+      <description>#36 · Web &amp; Search · updated 2026-06-04</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>AlgoVault — Crypto Quant Trade Calls</title>
+      <link>https://mcp.kymatalabs.com/s/io-github-algovaultfi-crypto-quant-signal-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/io-github-algovaultfi-crypto-quant-signal-mcp/</guid>
+      <category>Dev Tools</category>
+      <description>#37 · Dev Tools · updated 2026-06-04 ▲155</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>apify-mcp-server</title>
+      <link>https://mcp.kymatalabs.com/s/com-apify-apify-mcp-server/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/com-apify-apify-mcp-server/</guid>
+      <category>Web &amp; Search</category>
+      <description>#38 · Web &amp; Search · updated 2026-06-04 ▲210</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Tigris MCP Server</title>
+      <link>https://mcp.kymatalabs.com/s/dev-storage-mcp/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/dev-storage-mcp/</guid>
+      <category>Files &amp; Storage</category>
+      <description>#39 · Files &amp; Storage · updated 2026-06-04 ▼38</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Drillr — The financial MCP for AI agents</title>
+      <link>https://mcp.kymatalabs.com/s/ai-drillr-drillr/</link>
+      <guid isPermaLink="true">https://mcp.kymatalabs.com/s/ai-drillr-drillr/</guid>
+      <category>AI &amp; Models</category>
+      <description>#40 · AI &amp; Models · updated 2026-06-04 ▼38</description>
+      <pubDate>Fri, 05 Jun 2026 01:10:56 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

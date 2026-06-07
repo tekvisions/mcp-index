@@ -306,6 +306,64 @@ def generate_feed(data, badge_slugs=None, out_dir=None) -> None:
     print(f"  wrote feed.json: {len(servers)} servers", file=sys.stderr)
 
 
+def generate_rss(data, out_dir=None) -> None:
+    """Write rss.xml — the current MCP-server directory (top 40 by rank) as a
+    subscribable RSS 2.0 feed. Stable per-entry guids (detail URLs); pubDate = the
+    daily refresh. Additive, read-only public data (PRD O7)."""
+    from email.utils import format_datetime
+    out_dir = out_dir or HERE
+    def _x(s):
+        return html.escape("" if s is None else str(s), quote=True)
+    servers = sorted(data.get("servers", []), key=lambda x: x.get("rank") or 10**9)[:40]
+    gen_iso = data.get("generated_at")
+    try:
+        dt = datetime.fromisoformat(gen_iso) if gen_iso else datetime.now(timezone.utc)
+    except (TypeError, ValueError):
+        dt = datetime.now(timezone.utc)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    rfc = format_datetime(dt)
+    title = "The MCP Index — every Model Context Protocol server"
+    desc = ("A living, freshness-tracked index of MCP servers from the official registry — "
+            "categorized and recomputed daily by autonomous agents.")
+    items = []
+    for s in servers:
+        slug = s.get("slug") or slugify(s.get("name"))
+        url = f"{SITE}/s/{slug}/"
+        name = s.get("title") or s.get("name")
+        cat, rank = s.get("category"), s.get("rank")
+        rd = s.get("rank_delta")
+        move = f" ▲{rd}" if isinstance(rd, int) and rd > 0 else (
+               f" ▼{abs(rd)}" if isinstance(rd, int) and rd < 0 else "")
+        upd = (s.get("updated_at") or "")[:10]
+        body = f"#{rank} · {cat} · updated {upd}{move}".strip()
+        items.append(
+            "    <item>\n"
+            f"      <title>{_x(name)}</title>\n"
+            f"      <link>{_x(url)}</link>\n"
+            f'      <guid isPermaLink="true">{_x(url)}</guid>\n'
+            f"      <category>{_x(cat)}</category>\n"
+            f"      <description>{_x(body)}</description>\n"
+            f"      <pubDate>{rfc}</pubDate>\n"
+            "    </item>")
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "  <channel>\n"
+        f"    <title>{_x(title)}</title>\n"
+        f"    <link>{SITE}</link>\n"
+        f'    <atom:link href="{SITE}/rss.xml" rel="self" type="application/rss+xml"/>\n'
+        f"    <description>{_x(desc)}</description>\n"
+        "    <language>en</language>\n"
+        f"    <lastBuildDate>{rfc}</lastBuildDate>\n"
+        "    <generator>Kymata Labs</generator>\n"
+        + "\n".join(items) + "\n"
+        "  </channel>\n</rss>\n")
+    with open(os.path.join(out_dir, "rss.xml"), "w") as f:
+        f.write(xml)
+    print(f"  wrote rss.xml: {len(items)} items", file=sys.stderr)
+
+
 # ── derivation helpers for the detail deep-dives (all from real registry fields) ──
 
 # reverse-DNS-ish registry names → a human owner/namespace.
@@ -969,6 +1027,7 @@ def main():
     # public distribution surface: capped rank badges (/badge/<slug>.svg) + feed.json API.
     badge_slugs = generate_badges(data["servers"])
     generate_feed(data, badge_slugs=badge_slugs)
+    generate_rss(data)
     # static-generate the SEO surface: /s/<slug> detail pages + sitemap + llms.txt
     generate_details(data, badge_slugs=badge_slugs)
     # resilience guard: the registry has thousands of servers; a run that returns far
