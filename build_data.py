@@ -393,6 +393,21 @@ def _pkg_guess(name, title):
     return (title or "server").strip()
 
 
+# REAL package coordinate from the registry's packages[] for a given registryType
+# (e.g. npm -> '@adeu/mcp-server', oci -> 'docker.io/...:0.1.0'). The registry carries the
+# canonical identifier — far better than guessing from the name (which drops the npm scope).
+def _pkg_ident(server, regtype):
+    ids = server.get("pkg_ids") or {}
+    if ids.get(regtype):
+        return ids[regtype]
+    for p in (server.get("packages") or []):
+        if (p.get("registryType") or p.get("registry_type")) == regtype:
+            ident = (p.get("identifier") or p.get("name") or "").strip()
+            if ident:
+                return ident
+    return None
+
+
 # Human-readable, copy-pasteable install/config snippet derived from the
 # registry TYPE + name. No fabricated package versions — these are the canonical
 # invocation shapes the MCP ecosystem uses, with the inferred coordinate.
@@ -403,19 +418,23 @@ def install_snippet(server):
     web = safe_url(server.get("website"))
     pkg = _pkg_guess(name, title)
     if "npm" in regs:
-        return ("npx", "npm", f"npx -y {pkg}",
+        c = _pkg_ident(server, "npm") or pkg
+        return ("npx", "npm", f"npx -y {c}",
                 "Run directly with npx, or add to your client's mcpServers config.")
     if "pypi" in regs:
-        return ("uvx", "PyPI", f"uvx {pkg}",
+        c = _pkg_ident(server, "pypi") or pkg
+        return ("uvx", "PyPI", f"uvx {c}",
                 "Run with uv (uvx), or pip install into your environment.")
     if "oci" in regs:
-        return ("docker", "OCI image", f"docker run -i --rm {pkg}",
+        c = _pkg_ident(server, "oci") or pkg
+        return ("docker", "OCI image", f"docker run -i --rm {c}",
                 "Pull and run the published container over stdio.")
     if "mcpb" in regs:
         return ("mcpb", "MCP Bundle", f"# install the .mcpb bundle for “{title}”",
                 "Distributed as an MCP Bundle — install via your client's bundle loader.")
     if "nuget" in regs:
-        return ("dotnet", "NuGet", f"dnx {pkg}",
+        c = _pkg_ident(server, "nuget") or pkg
+        return ("dotnet", "NuGet", f"dnx {c}",
                 "Run the published .NET tool.")
     if "hosted" in regs or server.get("transport") == "Remote":
         url = web or "https://<server-endpoint>"
@@ -918,6 +937,11 @@ def main():
                 "version": s.get("version"),
                 "transport": transport_of(s),
                 "registries": registries(s),
+                # compact {registryType: identifier} so install snippets use the REAL
+                # package coordinate (e.g. @scope/pkg) instead of guessing from the name.
+                "pkg_ids": {p.get("registryType"): p.get("identifier")
+                            for p in (s.get("packages") or [])
+                            if p.get("registryType") and p.get("identifier")},
                 "repository": safe_url((s.get("repository") or {}).get("url") if isinstance(s.get("repository"), dict) else None),
                 "website": safe_url(s.get("websiteUrl")),
                 "published_at": meta.get("publishedAt"),
