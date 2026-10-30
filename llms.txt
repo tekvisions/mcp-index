@@ -1,6 +1,6 @@
 # The MCP Index
 
-> A living, searchable index of every server in the official Model Context Protocol (MCP) registry — categorized, freshness-tracked, and updated daily by an AI agent at Kymata Labs.
+> A living, searchable index of every server in the official Model Context Protocol (MCP) registry — categorized, freshness-tracked, and updated daily at Kymata Labs.
 
 The MCP Index is the registry of record made browsable. It pulls the official MCP registry (registry.modelcontextprotocol.io) once per day, dedupes to the latest version of each server, infers a category, and computes freshness (active / maintained / stale) from each server's last update. No data is hand-maintained or fabricated — every field comes from the registry response.
 
