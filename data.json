@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-30T12:52:36.266502+00:00",
+  "generated_at": "2026-10-30T12:57:42.064426+00:00",
   "generated_date": "2026-10-30",
   "source": "registry.modelcontextprotocol.io (official MCP registry)",
-  "server_count": 1909,
-  "new_this_week": 251,
+  "server_count": 1907,
+  "new_this_week": 252,
   "active_count": 791,
   "categories": [
     "AI & Models",
@@ -18,18 +18,20 @@
     "Web & Search"
   ],
   "category_counts": {
+    "Other": 563,
     "Dev Tools": 261,
     "Productivity": 95,
-    "Other": 563,
     "Files & Storage": 66,
-    "Web & Search": 408,
-    "AI & Models": 340,
+    "Web & Search": 407,
+    "AI & Models": 339,
     "Finance": 71,
     "Data & DB": 59,
     "Maps & Travel": 22,
     "Cloud & DevOps": 24
   },
   "new_names": [
+    "ai.achromat/mcp-server",
+    "ai.aistlabs/aistlabs",
     "ai.morphareels/morpha",
     "ai.kosmodrom/kosmodrom",
     "ai.pathhub/pathhub",
@@ -37,11 +39,9 @@
     "ai.flydocs/flydocs",
     "ai.bowmark/bowmark",
     "ai.refix/refix",
-    "ai.aistlabs/aistlabs",
     "ai.huddo/huddo",
     "ai.brainattic/knowledge-base",
-    "ai.fordeal/price-hunter",
-    "ai.izap/whatsapp"
+    "ai.fordeal/price-hunter"
   ],
   "movers": [
     {
@@ -49,8 +49,8 @@
       "title": "HiAPI",
       "slug": "ai-hiapi-mcp",
       "category": "Dev Tools",
-      "rank": 19,
-      "rank_delta": 472,
+      "rank": 20,
+      "rank_delta": 471,
       "is_new": true
     },
     {
@@ -58,8 +58,8 @@
       "title": "Luw.ai",
       "slug": "ai-luw-mcp",
       "category": "Dev Tools",
-      "rank": 21,
-      "rank_delta": 413,
+      "rank": 22,
+      "rank_delta": 412,
       "is_new": true
     },
     {
@@ -67,8 +67,8 @@
       "title": "Analytics Legends \u2014 SAP AI & Analytics MCP Server",
       "slug": "ai-analyticslegends-sap-analytics",
       "category": "AI & Models",
-      "rank": 16,
-      "rank_delta": 403,
+      "rank": 17,
+      "rank_delta": 402,
       "is_new": true
     },
     {
@@ -76,8 +76,8 @@
       "title": "Sato Hub: Build Onchain & Crypto Agents",
       "slug": "ai-satohub-onchain-agents",
       "category": "Finance",
-      "rank": 27,
-      "rank_delta": 364,
+      "rank": 28,
+      "rank_delta": 363,
       "is_new": true
     },
     {
@@ -85,12 +85,164 @@
       "title": "Kin",
       "slug": "ai-kinlab-kin",
       "category": "AI & Models",
-      "rank": 29,
-      "rank_delta": 361,
+      "rank": 30,
+      "rank_delta": 360,
       "is_new": true
     }
   ],
   "servers": [
+    {
+      "name": "ai.achromat/mcp-server",
+      "title": "Achromat MOM",
+      "description": "Recall and calibrate policy-compliant tool-call arguments before execution. Does not run the tool.",
+      "version": "0.1.4",
+      "transport": "Remote",
+      "registries": [
+        "hosted",
+        "npm"
+      ],
+      "pkg_ids": {
+        "npm": "@achromat-ai/mcp-server"
+      },
+      "repository": "https://github.com/achromat-ai/achromat-mcp-server",
+      "website": "https://mom.achromat.ai",
+      "published_at": "2026-10-30T12:56:21.426569Z",
+      "updated_at": "2026-10-30T12:56:21.426569Z",
+      "is_latest": true,
+      "category": "Other",
+      "updated_days": 0.0,
+      "health": "active",
+      "is_new": true,
+      "rank": 1,
+      "rank_history": [
+        {
+          "date": "2026-10-20",
+          "rank": 41,
+          "score": "2026-10-19T16:40:53.960211Z"
+        },
+        {
+          "date": "2026-10-21",
+          "rank": 114,
+          "score": "2026-10-19T16:40:53.960211Z"
+        },
+        {
+          "date": "2026-10-22",
+          "rank": 33,
+          "score": "2026-10-22T08:00:48.478963Z"
+        },
+        {
+          "date": "2026-10-23",
+          "rank": 49,
+          "score": "2026-10-22T08:00:48.478963Z"
+        },
+        {
+          "date": "2026-10-24",
+          "rank": 111,
+          "score": "2026-10-22T08:00:48.478963Z"
+        },
+        {
+          "date": "2026-10-25",
+          "rank": 130,
+          "score": "2026-10-22T08:00:48.478963Z"
+        },
+        {
+          "date": "2026-10-26",
+          "rank": 161,
+          "score": "2026-10-22T08:00:48.478963Z"
+        },
+        {
+          "date": "2026-10-27",
+          "rank": 210,
+          "score": "2026-10-22T08:00:48.478963Z"
+        },
+        {
+          "date": "2026-10-28",
+          "rank": 242,
+          "score": "2026-10-22T08:00:48.478963Z"
+        },
+        {
+          "date": "2026-10-29",
+          "rank": 277,
+          "score": "2026-10-22T08:00:48.478963Z"
+        },
+        {
+          "date": "2026-10-30",
+          "rank": 288,
+          "score": "2026-10-22T08:00:48.478963Z"
+        }
+      ],
+      "rank_prev": 277,
+      "rank_delta": 276,
+      "peak_rank": 1,
+      "tracked_days": 11
+    },
+    {
+      "name": "ai.aistlabs/aistlabs",
+      "title": "AISTLabs",
+      "description": "Video, image and audio generation on top AI models for agents, with an AI director built in.",
+      "version": "1.56.0",
+      "transport": "Remote",
+      "registries": [
+        "hosted"
+      ],
+      "pkg_ids": {},
+      "repository": "https://github.com/aistlabs-ai/aistlabs-mcp",
+      "website": "https://aistlabs.ai",
+      "published_at": "2026-10-30T12:55:06.001126Z",
+      "updated_at": "2026-10-30T12:55:06.001126Z",
+      "is_latest": true,
+      "category": "Dev Tools",
+      "updated_days": 0.0,
+      "health": "active",
+      "is_new": true,
+      "rank": 2,
+      "rank_history": [
+        {
+          "date": "2026-10-23",
+          "rank": 2,
+          "score": "2026-10-23T13:57:07.085578Z"
+        },
+        {
+          "date": "2026-10-24",
+          "rank": 46,
+          "score": "2026-10-23T15:12:36.437461Z"
+        },
+        {
+          "date": "2026-10-25",
+          "rank": 68,
+          "score": "2026-10-23T15:12:36.437461Z"
+        },
+        {
+          "date": "2026-10-26",
+          "rank": 101,
+          "score": "2026-10-23T15:12:36.437461Z"
+        },
+        {
+          "date": "2026-10-27",
+          "rank": 1,
+          "score": "2026-10-27T15:23:23.02235Z"
+        },
+        {
+          "date": "2026-10-28",
+          "rank": 11,
+          "score": "2026-10-28T13:04:04.299428Z"
+        },
+        {
+          "date": "2026-10-29",
+          "rank": 21,
+          "score": "2026-10-29T11:40:36.738545Z"
+        },
+        {
+          "date": "2026-10-30",
+          "rank": 17,
+          "score": "2026-10-29T18:57:39.071126Z"
+        }
+      ],
+      "rank_prev": 21,
+      "rank_delta": 19,
+      "peak_rank": 1,
+      "tracked_days": 8
+    },
     {
       "name": "ai.morphareels/morpha",
       "title": "MorphaReels",
@@ -110,7 +262,7 @@
       "updated_days": 0.0,
       "health": "active",
       "is_new": true,
-      "rank": 1,
+      "rank": 3,
       "rank_history": [
         {
           "date": "2026-09-07",
@@ -384,7 +536,7 @@
         }
       ],
       "rank_prev": 32,
-      "rank_delta": 31,
+      "rank_delta": 29,
       "peak_rank": 1,
       "tracked_days": 54
     },
@@ -407,7 +559,7 @@
       "updated_days": 0.0,
       "health": "active",
       "is_new": true,
-      "rank": 2,
+      "rank": 4,
       "rank_history": [
         {
           "date": "2026-10-06",
@@ -536,7 +688,7 @@
         }
       ],
       "rank_prev": 19,
-      "rank_delta": 17,
+      "rank_delta": 15,
       "peak_rank": 1,
       "tracked_days": 25
     },
@@ -559,7 +711,7 @@
       "updated_days": 0.0,
       "health": "active",
       "is_new": true,
-      "rank": 3,
+      "rank": 5,
       "rank_history": [
         {
           "date": "2026-10-30",
@@ -569,7 +721,7 @@
       ],
       "rank_prev": null,
       "rank_delta": null,
-      "peak_rank": 3,
+      "peak_rank": 5,
       "tracked_days": 1
     },
     {
@@ -591,7 +743,7 @@
       "updated_days": 0.0,
       "health": "active",
       "is_new": true,
-      "rank": 4,
+      "rank": 6,
       "rank_history": [
         {
           "date": "2026-10-30",
@@ -601,7 +753,7 @@
       ],
       "rank_prev": null,
       "rank_delta": null,
-      "peak_rank": 4,
+      "peak_rank": 6,
       "tracked_days": 1
     },
     {
@@ -625,7 +777,7 @@
       "updated_days": 0.1,
       "health": "active",
       "is_new": true,
-      "rank": 5,
+      "rank": 7,
       "rank_history": [
         {
           "date": "2026-08-19",
@@ -994,7 +1146,7 @@
         }
       ],
       "rank_prev": 44,
-      "rank_delta": 39,
+      "rank_delta": 37,
       "peak_rank": 1,
       "tracked_days": 73
     },
@@ -1022,7 +1174,7 @@
       "updated_days": 0.1,
       "health": "active",
       "is_new": true,
-      "rank": 6,
+      "rank": 8,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -1476,7 +1628,7 @@
         }
       ],
       "rank_prev": 45,
-      "rank_delta": 39,
+      "rank_delta": 37,
       "peak_rank": 1,
       "tracked_days": 90
     },
@@ -1499,7 +1651,7 @@
       "updated_days": 0.1,
       "health": "active",
       "is_new": true,
-      "rank": 7,
+      "rank": 9,
       "rank_history": [
         {
           "date": "2026-10-30",
@@ -1509,75 +1661,8 @@
       ],
       "rank_prev": null,
       "rank_delta": null,
-      "peak_rank": 7,
+      "peak_rank": 9,
       "tracked_days": 1
-    },
-    {
-      "name": "ai.aistlabs/aistlabs",
-      "title": "AISTLabs",
-      "description": "Video, image and audio generation on top AI models for agents, with an AI director built in.",
-      "version": "1.55.0",
-      "transport": "Remote",
-      "registries": [
-        "hosted"
-      ],
-      "pkg_ids": {},
-      "repository": "https://github.com/aistlabs-ai/aistlabs-mcp",
-      "website": "https://aistlabs.ai",
-      "published_at": "2026-10-30T08:45:15.676299Z",
-      "updated_at": "2026-10-30T08:45:15.676299Z",
-      "is_latest": true,
-      "category": "Dev Tools",
-      "updated_days": 0.2,
-      "health": "active",
-      "is_new": true,
-      "rank": 8,
-      "rank_history": [
-        {
-          "date": "2026-10-23",
-          "rank": 2,
-          "score": "2026-10-23T13:57:07.085578Z"
-        },
-        {
-          "date": "2026-10-24",
-          "rank": 46,
-          "score": "2026-10-23T15:12:36.437461Z"
-        },
-        {
-          "date": "2026-10-25",
-          "rank": 68,
-          "score": "2026-10-23T15:12:36.437461Z"
-        },
-        {
-          "date": "2026-10-26",
-          "rank": 101,
-          "score": "2026-10-23T15:12:36.437461Z"
-        },
-        {
-          "date": "2026-10-27",
-          "rank": 1,
-          "score": "2026-10-27T15:23:23.02235Z"
-        },
-        {
-          "date": "2026-10-28",
-          "rank": 11,
-          "score": "2026-10-28T13:04:04.299428Z"
-        },
-        {
-          "date": "2026-10-29",
-          "rank": 21,
-          "score": "2026-10-29T11:40:36.738545Z"
-        },
-        {
-          "date": "2026-10-30",
-          "rank": 17,
-          "score": "2026-10-29T18:57:39.071126Z"
-        }
-      ],
-      "rank_prev": 21,
-      "rank_delta": 13,
-      "peak_rank": 1,
-      "tracked_days": 8
     },
     {
       "name": "ai.huddo/huddo",
@@ -1601,7 +1686,7 @@
       "updated_days": 0.2,
       "health": "active",
       "is_new": true,
-      "rank": 9,
+      "rank": 10,
       "rank_history": [
         {
           "date": "2026-10-06",
@@ -1730,8 +1815,8 @@
         }
       ],
       "rank_prev": 159,
-      "rank_delta": 150,
-      "peak_rank": 9,
+      "rank_delta": 149,
+      "peak_rank": 10,
       "tracked_days": 25
     },
     {
@@ -1753,7 +1838,7 @@
       "updated_days": 0.2,
       "health": "active",
       "is_new": true,
-      "rank": 10,
+      "rank": 11,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -2207,7 +2292,7 @@
         }
       ],
       "rank_prev": 270,
-      "rank_delta": 260,
+      "rank_delta": 259,
       "peak_rank": 6,
       "tracked_days": 90
     },
@@ -2230,7 +2315,7 @@
       "updated_days": 0.2,
       "health": "active",
       "is_new": true,
-      "rank": 11,
+      "rank": 12,
       "rank_history": [
         {
           "date": "2026-10-30",
@@ -2240,7 +2325,7 @@
       ],
       "rank_prev": null,
       "rank_delta": null,
-      "peak_rank": 11,
+      "peak_rank": 12,
       "tracked_days": 1
     },
     {
@@ -2262,7 +2347,7 @@
       "updated_days": 0.3,
       "health": "active",
       "is_new": true,
-      "rank": 12,
+      "rank": 13,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -2716,7 +2801,7 @@
         }
       ],
       "rank_prev": 47,
-      "rank_delta": 35,
+      "rank_delta": 34,
       "peak_rank": 1,
       "tracked_days": 90
     },
@@ -2739,7 +2824,7 @@
       "updated_days": 0.3,
       "health": "active",
       "is_new": true,
-      "rank": 13,
+      "rank": 14,
       "rank_history": [
         {
           "date": "2026-10-30",
@@ -2749,7 +2834,7 @@
       ],
       "rank_prev": null,
       "rank_delta": null,
-      "peak_rank": 13,
+      "peak_rank": 14,
       "tracked_days": 1
     },
     {
@@ -2771,7 +2856,7 @@
       "updated_days": 0.3,
       "health": "active",
       "is_new": true,
-      "rank": 14,
+      "rank": 15,
       "rank_history": [
         {
           "date": "2026-10-30",
@@ -2781,7 +2866,7 @@
       ],
       "rank_prev": null,
       "rank_delta": null,
-      "peak_rank": 14,
+      "peak_rank": 15,
       "tracked_days": 1
     },
     {
@@ -2803,7 +2888,7 @@
       "updated_days": 0.3,
       "health": "active",
       "is_new": true,
-      "rank": 15,
+      "rank": 16,
       "rank_history": [
         {
           "date": "2026-10-30",
@@ -2813,7 +2898,7 @@
       ],
       "rank_prev": null,
       "rank_delta": null,
-      "peak_rank": 15,
+      "peak_rank": 16,
       "tracked_days": 1
     },
     {
@@ -2835,7 +2920,7 @@
       "updated_days": 0.4,
       "health": "active",
       "is_new": true,
-      "rank": 16,
+      "rank": 17,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -3289,7 +3374,7 @@
         }
       ],
       "rank_prev": 419,
-      "rank_delta": 403,
+      "rank_delta": 402,
       "peak_rank": 5,
       "tracked_days": 90
     },
@@ -3314,7 +3399,7 @@
       "updated_days": 0.4,
       "health": "active",
       "is_new": true,
-      "rank": 17,
+      "rank": 18,
       "rank_history": [
         {
           "date": "2026-10-08",
@@ -3433,7 +3518,7 @@
         }
       ],
       "rank_prev": 158,
-      "rank_delta": 141,
+      "rank_delta": 140,
       "peak_rank": 3,
       "tracked_days": 23
     },
@@ -3456,7 +3541,7 @@
       "updated_days": 0.4,
       "health": "active",
       "is_new": true,
-      "rank": 18,
+      "rank": 19,
       "rank_history": [
         {
           "date": "2026-09-30",
@@ -3615,7 +3700,7 @@
         }
       ],
       "rank_prev": 345,
-      "rank_delta": 327,
+      "rank_delta": 326,
       "peak_rank": 6,
       "tracked_days": 31
     },
@@ -3638,7 +3723,7 @@
       "updated_days": 0.5,
       "health": "active",
       "is_new": true,
-      "rank": 19,
+      "rank": 20,
       "rank_history": [
         {
           "date": "2026-10-15",
@@ -3722,8 +3807,8 @@
         }
       ],
       "rank_prev": 491,
-      "rank_delta": 472,
-      "peak_rank": 19,
+      "rank_delta": 471,
+      "peak_rank": 20,
       "tracked_days": 16
     },
     {
@@ -3745,7 +3830,7 @@
       "updated_days": 0.5,
       "health": "active",
       "is_new": true,
-      "rank": 20,
+      "rank": 21,
       "rank_history": [
         {
           "date": "2026-10-30",
@@ -3755,7 +3840,7 @@
       ],
       "rank_prev": null,
       "rank_delta": null,
-      "peak_rank": 20,
+      "peak_rank": 21,
       "tracked_days": 1
     },
     {
@@ -3780,7 +3865,7 @@
       "updated_days": 0.5,
       "health": "active",
       "is_new": true,
-      "rank": 21,
+      "rank": 22,
       "rank_history": [
         {
           "date": "2026-10-08",
@@ -3899,8 +3984,8 @@
         }
       ],
       "rank_prev": 434,
-      "rank_delta": 413,
-      "peak_rank": 21,
+      "rank_delta": 412,
+      "peak_rank": 22,
       "tracked_days": 23
     },
     {
@@ -3924,7 +4009,7 @@
       "updated_days": 0.5,
       "health": "active",
       "is_new": true,
-      "rank": 22,
+      "rank": 23,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -3953,7 +4038,7 @@
         }
       ],
       "rank_prev": 12,
-      "rank_delta": -10,
+      "rank_delta": -11,
       "peak_rank": 12,
       "tracked_days": 5
     },
@@ -3976,7 +4061,7 @@
       "updated_days": 0.6,
       "health": "active",
       "is_new": true,
-      "rank": 23,
+      "rank": 24,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -3990,7 +4075,7 @@
         }
       ],
       "rank_prev": 1,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 1,
       "tracked_days": 2
     },
@@ -4016,7 +4101,7 @@
       "updated_days": 0.6,
       "health": "active",
       "is_new": true,
-      "rank": 24,
+      "rank": 25,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -4030,8 +4115,8 @@
         }
       ],
       "rank_prev": 58,
-      "rank_delta": 34,
-      "peak_rank": 24,
+      "rank_delta": 33,
+      "peak_rank": 25,
       "tracked_days": 2
     },
     {
@@ -4053,7 +4138,7 @@
       "updated_days": 0.6,
       "health": "active",
       "is_new": true,
-      "rank": 25,
+      "rank": 26,
       "rank_history": [
         {
           "date": "2026-09-02",
@@ -4352,7 +4437,7 @@
         }
       ],
       "rank_prev": 6,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 1,
       "tracked_days": 59
     },
@@ -4375,7 +4460,7 @@
       "updated_days": 0.7,
       "health": "active",
       "is_new": true,
-      "rank": 26,
+      "rank": 27,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -4389,7 +4474,7 @@
         }
       ],
       "rank_prev": 5,
-      "rank_delta": -21,
+      "rank_delta": -22,
       "peak_rank": 5,
       "tracked_days": 2
     },
@@ -4415,7 +4500,7 @@
       "updated_days": 0.7,
       "health": "active",
       "is_new": true,
-      "rank": 27,
+      "rank": 28,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -4454,8 +4539,8 @@
         }
       ],
       "rank_prev": 391,
-      "rank_delta": 364,
-      "peak_rank": 27,
+      "rank_delta": 363,
+      "peak_rank": 28,
       "tracked_days": 7
     },
     {
@@ -4477,7 +4562,7 @@
       "updated_days": 0.7,
       "health": "active",
       "is_new": true,
-      "rank": 28,
+      "rank": 29,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -4491,7 +4576,7 @@
         }
       ],
       "rank_prev": 7,
-      "rank_delta": -21,
+      "rank_delta": -22,
       "peak_rank": 7,
       "tracked_days": 2
     },
@@ -4514,7 +4599,7 @@
       "updated_days": 0.7,
       "health": "active",
       "is_new": true,
-      "rank": 29,
+      "rank": 30,
       "rank_history": [
         {
           "date": "2026-08-15",
@@ -4903,7 +4988,7 @@
         }
       ],
       "rank_prev": 390,
-      "rank_delta": 361,
+      "rank_delta": 360,
       "peak_rank": 1,
       "tracked_days": 77
     },
@@ -4926,7 +5011,7 @@
       "updated_days": 0.8,
       "health": "active",
       "is_new": true,
-      "rank": 30,
+      "rank": 31,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -4940,7 +5025,7 @@
         }
       ],
       "rank_prev": 10,
-      "rank_delta": -20,
+      "rank_delta": -21,
       "peak_rank": 10,
       "tracked_days": 2
     },
@@ -4963,7 +5048,7 @@
       "updated_days": 0.8,
       "health": "active",
       "is_new": true,
-      "rank": 31,
+      "rank": 32,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -4987,8 +5072,8 @@
         }
       ],
       "rank_prev": 165,
-      "rank_delta": 134,
-      "peak_rank": 31,
+      "rank_delta": 133,
+      "peak_rank": 32,
       "tracked_days": 4
     },
     {
@@ -5010,7 +5095,7 @@
       "updated_days": 0.8,
       "health": "active",
       "is_new": true,
-      "rank": 32,
+      "rank": 33,
       "rank_history": [
         {
           "date": "2026-10-01",
@@ -5164,7 +5249,7 @@
         }
       ],
       "rank_prev": 103,
-      "rank_delta": 71,
+      "rank_delta": 70,
       "peak_rank": 8,
       "tracked_days": 30
     },
@@ -5187,7 +5272,7 @@
       "updated_days": 0.9,
       "health": "active",
       "is_new": true,
-      "rank": 33,
+      "rank": 34,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -5201,7 +5286,7 @@
         }
       ],
       "rank_prev": 1,
-      "rank_delta": -32,
+      "rank_delta": -33,
       "peak_rank": 1,
       "tracked_days": 2
     },
@@ -5227,7 +5312,7 @@
       "updated_days": 0.9,
       "health": "active",
       "is_new": true,
-      "rank": 34,
+      "rank": 35,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -5266,7 +5351,7 @@
         }
       ],
       "rank_prev": 2,
-      "rank_delta": -32,
+      "rank_delta": -33,
       "peak_rank": 2,
       "tracked_days": 7
     },
@@ -5289,7 +5374,7 @@
       "updated_days": 0.9,
       "health": "active",
       "is_new": true,
-      "rank": 35,
+      "rank": 36,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -5743,7 +5828,7 @@
         }
       ],
       "rank_prev": 3,
-      "rank_delta": -32,
+      "rank_delta": -33,
       "peak_rank": 3,
       "tracked_days": 90
     },
@@ -5766,7 +5851,7 @@
       "updated_days": 0.9,
       "health": "active",
       "is_new": true,
-      "rank": 36,
+      "rank": 37,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -5805,7 +5890,7 @@
         }
       ],
       "rank_prev": 4,
-      "rank_delta": -32,
+      "rank_delta": -33,
       "peak_rank": 4,
       "tracked_days": 7
     },
@@ -5828,7 +5913,7 @@
       "updated_days": 0.9,
       "health": "active",
       "is_new": true,
-      "rank": 37,
+      "rank": 38,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -5842,7 +5927,7 @@
         }
       ],
       "rank_prev": 5,
-      "rank_delta": -32,
+      "rank_delta": -33,
       "peak_rank": 5,
       "tracked_days": 2
     },
@@ -5865,7 +5950,7 @@
       "updated_days": 0.9,
       "health": "active",
       "is_new": true,
-      "rank": 38,
+      "rank": 39,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -5879,7 +5964,7 @@
         }
       ],
       "rank_prev": 7,
-      "rank_delta": -31,
+      "rank_delta": -32,
       "peak_rank": 7,
       "tracked_days": 2
     },
@@ -5902,7 +5987,7 @@
       "updated_days": 0.9,
       "health": "active",
       "is_new": true,
-      "rank": 39,
+      "rank": 40,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -5916,7 +6001,7 @@
         }
       ],
       "rank_prev": 8,
-      "rank_delta": -31,
+      "rank_delta": -32,
       "peak_rank": 8,
       "tracked_days": 2
     },
@@ -5939,7 +6024,7 @@
       "updated_days": 0.9,
       "health": "active",
       "is_new": true,
-      "rank": 40,
+      "rank": 41,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -5978,7 +6063,7 @@
         }
       ],
       "rank_prev": 9,
-      "rank_delta": -31,
+      "rank_delta": -32,
       "peak_rank": 7,
       "tracked_days": 7
     },
@@ -6003,7 +6088,7 @@
       "updated_days": 0.9,
       "health": "active",
       "is_new": true,
-      "rank": 41,
+      "rank": 42,
       "rank_history": [
         {
           "date": "2026-08-20",
@@ -6367,7 +6452,7 @@
         }
       ],
       "rank_prev": 10,
-      "rank_delta": -31,
+      "rank_delta": -32,
       "peak_rank": 7,
       "tracked_days": 72
     },
@@ -6390,7 +6475,7 @@
       "updated_days": 1.0,
       "health": "active",
       "is_new": true,
-      "rank": 42,
+      "rank": 43,
       "rank_history": [
         {
           "date": "2026-10-04",
@@ -6529,7 +6614,7 @@
         }
       ],
       "rank_prev": 11,
-      "rank_delta": -31,
+      "rank_delta": -32,
       "peak_rank": 11,
       "tracked_days": 27
     },
@@ -6552,7 +6637,7 @@
       "updated_days": 1.0,
       "health": "active",
       "is_new": true,
-      "rank": 43,
+      "rank": 44,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -6566,7 +6651,7 @@
         }
       ],
       "rank_prev": 13,
-      "rank_delta": -30,
+      "rank_delta": -31,
       "peak_rank": 13,
       "tracked_days": 2
     },
@@ -6591,7 +6676,7 @@
       "updated_days": 1.0,
       "health": "active",
       "is_new": true,
-      "rank": 44,
+      "rank": 45,
       "rank_history": [
         {
           "date": "2026-10-12",
@@ -6690,7 +6775,7 @@
         }
       ],
       "rank_prev": 14,
-      "rank_delta": -30,
+      "rank_delta": -31,
       "peak_rank": 5,
       "tracked_days": 19
     },
@@ -6713,7 +6798,7 @@
       "updated_days": 1.0,
       "health": "active",
       "is_new": true,
-      "rank": 45,
+      "rank": 46,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -6727,7 +6812,7 @@
         }
       ],
       "rank_prev": 15,
-      "rank_delta": -30,
+      "rank_delta": -31,
       "peak_rank": 15,
       "tracked_days": 2
     },
@@ -6750,7 +6835,7 @@
       "updated_days": 1.0,
       "health": "active",
       "is_new": true,
-      "rank": 46,
+      "rank": 47,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -6764,7 +6849,7 @@
         }
       ],
       "rank_prev": 16,
-      "rank_delta": -30,
+      "rank_delta": -31,
       "peak_rank": 16,
       "tracked_days": 2
     },
@@ -6787,7 +6872,7 @@
       "updated_days": 1.0,
       "health": "active",
       "is_new": true,
-      "rank": 47,
+      "rank": 48,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -6801,7 +6886,7 @@
         }
       ],
       "rank_prev": 17,
-      "rank_delta": -30,
+      "rank_delta": -31,
       "peak_rank": 17,
       "tracked_days": 2
     },
@@ -6824,7 +6909,7 @@
       "updated_days": 1.0,
       "health": "active",
       "is_new": true,
-      "rank": 48,
+      "rank": 49,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -6838,7 +6923,7 @@
         }
       ],
       "rank_prev": 18,
-      "rank_delta": -30,
+      "rank_delta": -31,
       "peak_rank": 18,
       "tracked_days": 2
     },
@@ -6858,10 +6943,10 @@
       "updated_at": "2026-10-29T11:41:31.731745Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 1.0,
+      "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 49,
+      "rank": 50,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -7315,7 +7400,7 @@
         }
       ],
       "rank_prev": 20,
-      "rank_delta": -29,
+      "rank_delta": -30,
       "peak_rank": 3,
       "tracked_days": 90
     },
@@ -7338,7 +7423,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 50,
+      "rank": 51,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -7352,7 +7437,7 @@
         }
       ],
       "rank_prev": 22,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 22,
       "tracked_days": 2
     },
@@ -7375,7 +7460,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 51,
+      "rank": 52,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -7389,7 +7474,7 @@
         }
       ],
       "rank_prev": 23,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 23,
       "tracked_days": 2
     },
@@ -7412,7 +7497,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 52,
+      "rank": 53,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -7426,7 +7511,7 @@
         }
       ],
       "rank_prev": 24,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 24,
       "tracked_days": 2
     },
@@ -7452,7 +7537,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 53,
+      "rank": 54,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -7491,7 +7576,7 @@
         }
       ],
       "rank_prev": 25,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 25,
       "tracked_days": 7
     },
@@ -7514,7 +7599,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 54,
+      "rank": 55,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -7528,7 +7613,7 @@
         }
       ],
       "rank_prev": 26,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 26,
       "tracked_days": 2
     },
@@ -7551,7 +7636,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 55,
+      "rank": 56,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -7575,7 +7660,7 @@
         }
       ],
       "rank_prev": 27,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 26,
       "tracked_days": 4
     },
@@ -7600,7 +7685,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 56,
+      "rank": 57,
       "rank_history": [
         {
           "date": "2026-10-18",
@@ -7669,7 +7754,7 @@
         }
       ],
       "rank_prev": 28,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 8,
       "tracked_days": 13
     },
@@ -7692,7 +7777,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 57,
+      "rank": 58,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -7706,7 +7791,7 @@
         }
       ],
       "rank_prev": 29,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 29,
       "tracked_days": 2
     },
@@ -7729,7 +7814,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 58,
+      "rank": 59,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -7743,7 +7828,7 @@
         }
       ],
       "rank_prev": 30,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 30,
       "tracked_days": 2
     },
@@ -7768,7 +7853,7 @@
       "updated_days": 1.1,
       "health": "active",
       "is_new": true,
-      "rank": 59,
+      "rank": 60,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -8222,7 +8307,7 @@
         }
       ],
       "rank_prev": 31,
-      "rank_delta": -28,
+      "rank_delta": -29,
       "peak_rank": 1,
       "tracked_days": 90
     },
@@ -8242,10 +8327,10 @@
       "updated_at": "2026-10-29T09:16:49.944515Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 1.1,
+      "updated_days": 1.2,
       "health": "active",
       "is_new": true,
-      "rank": 60,
+      "rank": 61,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -8284,7 +8369,7 @@
         }
       ],
       "rank_prev": 33,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 5,
       "tracked_days": 7
     },
@@ -8307,7 +8392,7 @@
       "updated_days": 1.2,
       "health": "active",
       "is_new": true,
-      "rank": 61,
+      "rank": 62,
       "rank_history": [
         {
           "date": "2026-09-28",
@@ -8476,7 +8561,7 @@
         }
       ],
       "rank_prev": 34,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 23,
       "tracked_days": 33
     },
@@ -8499,7 +8584,7 @@
       "updated_days": 1.2,
       "health": "active",
       "is_new": true,
-      "rank": 62,
+      "rank": 63,
       "rank_history": [
         {
           "date": "2026-09-26",
@@ -8678,7 +8763,7 @@
         }
       ],
       "rank_prev": 35,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 2,
       "tracked_days": 35
     },
@@ -8701,7 +8786,7 @@
       "updated_days": 1.2,
       "health": "active",
       "is_new": true,
-      "rank": 63,
+      "rank": 64,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -8740,7 +8825,7 @@
         }
       ],
       "rank_prev": 36,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 28,
       "tracked_days": 7
     },
@@ -8763,7 +8848,7 @@
       "updated_days": 1.2,
       "health": "active",
       "is_new": true,
-      "rank": 64,
+      "rank": 65,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -8777,7 +8862,7 @@
         }
       ],
       "rank_prev": 37,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 37,
       "tracked_days": 2
     },
@@ -8800,7 +8885,7 @@
       "updated_days": 1.3,
       "health": "active",
       "is_new": true,
-      "rank": 65,
+      "rank": 66,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -8814,7 +8899,7 @@
         }
       ],
       "rank_prev": 38,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 38,
       "tracked_days": 2
     },
@@ -8837,7 +8922,7 @@
       "updated_days": 1.3,
       "health": "active",
       "is_new": true,
-      "rank": 66,
+      "rank": 67,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -8876,7 +8961,7 @@
         }
       ],
       "rank_prev": 39,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 39,
       "tracked_days": 7
     },
@@ -8899,7 +8984,7 @@
       "updated_days": 1.4,
       "health": "active",
       "is_new": true,
-      "rank": 67,
+      "rank": 68,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -8913,7 +8998,7 @@
         }
       ],
       "rank_prev": 40,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 40,
       "tracked_days": 2
     },
@@ -8936,7 +9021,7 @@
       "updated_days": 1.4,
       "health": "active",
       "is_new": true,
-      "rank": 68,
+      "rank": 69,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -8975,7 +9060,7 @@
         }
       ],
       "rank_prev": 41,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 17,
       "tracked_days": 7
     },
@@ -9001,7 +9086,7 @@
       "updated_days": 1.4,
       "health": "active",
       "is_new": true,
-      "rank": 69,
+      "rank": 70,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -9040,7 +9125,7 @@
         }
       ],
       "rank_prev": 42,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 12,
       "tracked_days": 7
     },
@@ -9065,7 +9150,7 @@
       "updated_days": 1.4,
       "health": "active",
       "is_new": true,
-      "rank": 70,
+      "rank": 71,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -9519,7 +9604,7 @@
         }
       ],
       "rank_prev": 43,
-      "rank_delta": -27,
+      "rank_delta": -28,
       "peak_rank": 27,
       "tracked_days": 90
     },
@@ -9542,7 +9627,7 @@
       "updated_days": 1.4,
       "health": "active",
       "is_new": true,
-      "rank": 71,
+      "rank": 72,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -9566,7 +9651,7 @@
         }
       ],
       "rank_prev": 46,
-      "rank_delta": -25,
+      "rank_delta": -26,
       "peak_rank": 34,
       "tracked_days": 4
     },
@@ -9589,7 +9674,7 @@
       "updated_days": 1.5,
       "health": "active",
       "is_new": true,
-      "rank": 72,
+      "rank": 73,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -9603,7 +9688,7 @@
         }
       ],
       "rank_prev": 48,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 48,
       "tracked_days": 2
     },
@@ -9626,7 +9711,7 @@
       "updated_days": 1.5,
       "health": "active",
       "is_new": true,
-      "rank": 73,
+      "rank": 74,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -9640,7 +9725,7 @@
         }
       ],
       "rank_prev": 49,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 49,
       "tracked_days": 2
     },
@@ -9663,7 +9748,7 @@
       "updated_days": 1.5,
       "health": "active",
       "is_new": true,
-      "rank": 74,
+      "rank": 75,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -9677,7 +9762,7 @@
         }
       ],
       "rank_prev": 50,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 50,
       "tracked_days": 2
     },
@@ -9700,7 +9785,7 @@
       "updated_days": 1.5,
       "health": "active",
       "is_new": true,
-      "rank": 75,
+      "rank": 76,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -10154,7 +10239,7 @@
         }
       ],
       "rank_prev": 51,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 6,
       "tracked_days": 90
     },
@@ -10177,7 +10262,7 @@
       "updated_days": 1.5,
       "health": "active",
       "is_new": true,
-      "rank": 76,
+      "rank": 77,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -10216,7 +10301,7 @@
         }
       ],
       "rank_prev": 52,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 52,
       "tracked_days": 7
     },
@@ -10242,7 +10327,7 @@
       "updated_days": 1.5,
       "health": "active",
       "is_new": true,
-      "rank": 77,
+      "rank": 78,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -10281,7 +10366,7 @@
         }
       ],
       "rank_prev": 53,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 2,
       "tracked_days": 7
     },
@@ -10306,7 +10391,7 @@
       "updated_days": 1.5,
       "health": "active",
       "is_new": true,
-      "rank": 78,
+      "rank": 79,
       "rank_history": [
         {
           "date": "2026-09-22",
@@ -10505,7 +10590,7 @@
         }
       ],
       "rank_prev": 54,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 13,
       "tracked_days": 39
     },
@@ -10528,7 +10613,7 @@
       "updated_days": 1.5,
       "health": "active",
       "is_new": true,
-      "rank": 79,
+      "rank": 80,
       "rank_history": [
         {
           "date": "2026-10-02",
@@ -10677,7 +10762,7 @@
         }
       ],
       "rank_prev": 55,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 17,
       "tracked_days": 29
     },
@@ -10697,10 +10782,10 @@
       "updated_at": "2026-10-28T23:40:53.584316Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 1.5,
+      "updated_days": 1.6,
       "health": "active",
       "is_new": true,
-      "rank": 80,
+      "rank": 81,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -10714,7 +10799,7 @@
         }
       ],
       "rank_prev": 56,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 56,
       "tracked_days": 2
     },
@@ -10737,7 +10822,7 @@
       "updated_days": 1.6,
       "health": "active",
       "is_new": true,
-      "rank": 81,
+      "rank": 82,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -10751,7 +10836,7 @@
         }
       ],
       "rank_prev": 57,
-      "rank_delta": -24,
+      "rank_delta": -25,
       "peak_rank": 57,
       "tracked_days": 2
     },
@@ -10774,7 +10859,7 @@
       "updated_days": 1.6,
       "health": "active",
       "is_new": true,
-      "rank": 82,
+      "rank": 83,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -10788,7 +10873,7 @@
         }
       ],
       "rank_prev": 59,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 59,
       "tracked_days": 2
     },
@@ -10811,7 +10896,7 @@
       "updated_days": 1.6,
       "health": "active",
       "is_new": true,
-      "rank": 83,
+      "rank": 84,
       "rank_history": [
         {
           "date": "2026-10-06",
@@ -10940,7 +11025,7 @@
         }
       ],
       "rank_prev": 60,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 7,
       "tracked_days": 25
     },
@@ -10963,7 +11048,7 @@
       "updated_days": 1.7,
       "health": "active",
       "is_new": true,
-      "rank": 84,
+      "rank": 85,
       "rank_history": [
         {
           "date": "2026-08-25",
@@ -11302,7 +11387,7 @@
         }
       ],
       "rank_prev": 61,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 19,
       "tracked_days": 67
     },
@@ -11325,7 +11410,7 @@
       "updated_days": 1.7,
       "health": "active",
       "is_new": true,
-      "rank": 85,
+      "rank": 86,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -11339,7 +11424,7 @@
         }
       ],
       "rank_prev": 62,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 62,
       "tracked_days": 2
     },
@@ -11362,7 +11447,7 @@
       "updated_days": 1.7,
       "health": "active",
       "is_new": true,
-      "rank": 86,
+      "rank": 87,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -11376,7 +11461,7 @@
         }
       ],
       "rank_prev": 63,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 63,
       "tracked_days": 2
     },
@@ -11399,7 +11484,7 @@
       "updated_days": 1.8,
       "health": "active",
       "is_new": true,
-      "rank": 87,
+      "rank": 88,
       "rank_history": [
         {
           "date": "2026-10-29",
@@ -11413,7 +11498,7 @@
         }
       ],
       "rank_prev": 64,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 64,
       "tracked_days": 2
     },
@@ -11436,7 +11521,7 @@
       "updated_days": 1.8,
       "health": "active",
       "is_new": true,
-      "rank": 88,
+      "rank": 89,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -11470,7 +11555,7 @@
         }
       ],
       "rank_prev": 65,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 1,
       "tracked_days": 6
     },
@@ -11493,7 +11578,7 @@
       "updated_days": 1.8,
       "health": "active",
       "is_new": true,
-      "rank": 89,
+      "rank": 90,
       "rank_history": [
         {
           "date": "2026-10-08",
@@ -11612,7 +11697,7 @@
         }
       ],
       "rank_prev": 66,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 5,
       "tracked_days": 23
     },
@@ -11638,7 +11723,7 @@
       "updated_days": 1.8,
       "health": "active",
       "is_new": true,
-      "rank": 90,
+      "rank": 91,
       "rank_history": [
         {
           "date": "2026-09-22",
@@ -11837,7 +11922,7 @@
         }
       ],
       "rank_prev": 67,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 4,
       "tracked_days": 39
     },
@@ -11860,7 +11945,7 @@
       "updated_days": 1.8,
       "health": "active",
       "is_new": true,
-      "rank": 91,
+      "rank": 92,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -12314,7 +12399,7 @@
         }
       ],
       "rank_prev": 68,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 17,
       "tracked_days": 90
     },
@@ -12337,7 +12422,7 @@
       "updated_days": 1.9,
       "health": "active",
       "is_new": true,
-      "rank": 92,
+      "rank": 93,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -12376,7 +12461,7 @@
         }
       ],
       "rank_prev": 69,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 69,
       "tracked_days": 7
     },
@@ -12402,7 +12487,7 @@
       "updated_days": 1.9,
       "health": "active",
       "is_new": true,
-      "rank": 93,
+      "rank": 94,
       "rank_history": [
         {
           "date": "2026-09-08",
@@ -12671,7 +12756,7 @@
         }
       ],
       "rank_prev": 70,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 2,
       "tracked_days": 53
     },
@@ -12696,7 +12781,7 @@
       "updated_days": 1.9,
       "health": "active",
       "is_new": true,
-      "rank": 94,
+      "rank": 95,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -12735,7 +12820,7 @@
         }
       ],
       "rank_prev": 71,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 2,
       "tracked_days": 7
     },
@@ -12758,7 +12843,7 @@
       "updated_days": 1.9,
       "health": "active",
       "is_new": true,
-      "rank": 95,
+      "rank": 96,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -12777,7 +12862,7 @@
         }
       ],
       "rank_prev": 72,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 5,
       "tracked_days": 3
     },
@@ -12800,7 +12885,7 @@
       "updated_days": 1.9,
       "health": "active",
       "is_new": true,
-      "rank": 96,
+      "rank": 97,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -12819,7 +12904,7 @@
         }
       ],
       "rank_prev": 73,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 6,
       "tracked_days": 3
     },
@@ -12842,7 +12927,7 @@
       "updated_days": 2.0,
       "health": "active",
       "is_new": true,
-      "rank": 97,
+      "rank": 98,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -12861,7 +12946,7 @@
         }
       ],
       "rank_prev": 74,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 9,
       "tracked_days": 3
     },
@@ -12884,7 +12969,7 @@
       "updated_days": 2.0,
       "health": "active",
       "is_new": true,
-      "rank": 98,
+      "rank": 99,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -12903,7 +12988,7 @@
         }
       ],
       "rank_prev": 75,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 10,
       "tracked_days": 3
     },
@@ -12926,7 +13011,7 @@
       "updated_days": 2.0,
       "health": "active",
       "is_new": true,
-      "rank": 99,
+      "rank": 100,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -13380,7 +13465,7 @@
         }
       ],
       "rank_prev": 76,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 12,
       "tracked_days": 90
     },
@@ -13403,7 +13488,7 @@
       "updated_days": 2.0,
       "health": "active",
       "is_new": true,
-      "rank": 100,
+      "rank": 101,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -13422,7 +13507,7 @@
         }
       ],
       "rank_prev": 77,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 14,
       "tracked_days": 3
     },
@@ -13445,7 +13530,7 @@
       "updated_days": 2.1,
       "health": "active",
       "is_new": true,
-      "rank": 101,
+      "rank": 102,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -13899,7 +13984,7 @@
         }
       ],
       "rank_prev": 78,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 15,
       "tracked_days": 90
     },
@@ -13922,7 +14007,7 @@
       "updated_days": 2.1,
       "health": "active",
       "is_new": true,
-      "rank": 102,
+      "rank": 103,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -13941,7 +14026,7 @@
         }
       ],
       "rank_prev": 79,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 16,
       "tracked_days": 3
     },
@@ -13967,7 +14052,7 @@
       "updated_days": 2.1,
       "health": "active",
       "is_new": true,
-      "rank": 103,
+      "rank": 104,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -14421,7 +14506,7 @@
         }
       ],
       "rank_prev": 80,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 4,
       "tracked_days": 90
     },
@@ -14444,7 +14529,7 @@
       "updated_days": 2.1,
       "health": "active",
       "is_new": true,
-      "rank": 104,
+      "rank": 105,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -14898,7 +14983,7 @@
         }
       ],
       "rank_prev": 81,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 18,
       "tracked_days": 90
     },
@@ -14921,7 +15006,7 @@
       "updated_days": 2.2,
       "health": "active",
       "is_new": true,
-      "rank": 105,
+      "rank": 106,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -14940,7 +15025,7 @@
         }
       ],
       "rank_prev": 82,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 19,
       "tracked_days": 3
     },
@@ -14963,7 +15048,7 @@
       "updated_days": 2.2,
       "health": "active",
       "is_new": true,
-      "rank": 106,
+      "rank": 107,
       "rank_history": [
         {
           "date": "2026-10-16",
@@ -15042,7 +15127,7 @@
         }
       ],
       "rank_prev": 83,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 9,
       "tracked_days": 15
     },
@@ -15065,7 +15150,7 @@
       "updated_days": 2.3,
       "health": "active",
       "is_new": true,
-      "rank": 107,
+      "rank": 108,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -15084,7 +15169,7 @@
         }
       ],
       "rank_prev": 84,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 22,
       "tracked_days": 3
     },
@@ -15109,7 +15194,7 @@
       "updated_days": 2.3,
       "health": "active",
       "is_new": true,
-      "rank": 108,
+      "rank": 109,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -15128,7 +15213,7 @@
         }
       ],
       "rank_prev": 85,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 23,
       "tracked_days": 3
     },
@@ -15151,7 +15236,7 @@
       "updated_days": 2.3,
       "health": "active",
       "is_new": true,
-      "rank": 109,
+      "rank": 110,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -15170,7 +15255,7 @@
         }
       ],
       "rank_prev": 86,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 24,
       "tracked_days": 3
     },
@@ -15193,7 +15278,7 @@
       "updated_days": 2.3,
       "health": "active",
       "is_new": true,
-      "rank": 110,
+      "rank": 111,
       "rank_history": [
         {
           "date": "2026-10-09",
@@ -15307,7 +15392,7 @@
         }
       ],
       "rank_prev": 87,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 6,
       "tracked_days": 22
     },
@@ -15327,10 +15412,10 @@
       "updated_at": "2026-10-28T04:30:42.73853Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 2.3,
+      "updated_days": 2.4,
       "health": "active",
       "is_new": true,
-      "rank": 111,
+      "rank": 112,
       "rank_history": [
         {
           "date": "2026-10-19",
@@ -15394,7 +15479,7 @@
         }
       ],
       "rank_prev": 88,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 26,
       "tracked_days": 12
     },
@@ -15417,7 +15502,7 @@
       "updated_days": 2.4,
       "health": "active",
       "is_new": true,
-      "rank": 112,
+      "rank": 113,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -15436,7 +15521,7 @@
         }
       ],
       "rank_prev": 89,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 27,
       "tracked_days": 3
     },
@@ -15459,7 +15544,7 @@
       "updated_days": 2.4,
       "health": "active",
       "is_new": true,
-      "rank": 113,
+      "rank": 114,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -15498,7 +15583,7 @@
         }
       ],
       "rank_prev": 90,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 20,
       "tracked_days": 7
     },
@@ -15521,7 +15606,7 @@
       "updated_days": 2.4,
       "health": "active",
       "is_new": true,
-      "rank": 114,
+      "rank": 115,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -15560,7 +15645,7 @@
         }
       ],
       "rank_prev": 91,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 29,
       "tracked_days": 7
     },
@@ -15583,7 +15668,7 @@
       "updated_days": 2.4,
       "health": "active",
       "is_new": true,
-      "rank": 115,
+      "rank": 116,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -15622,7 +15707,7 @@
         }
       ],
       "rank_prev": 92,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 19,
       "tracked_days": 7
     },
@@ -15645,7 +15730,7 @@
       "updated_days": 2.5,
       "health": "active",
       "is_new": true,
-      "rank": 116,
+      "rank": 117,
       "rank_history": [
         {
           "date": "2026-09-02",
@@ -15944,7 +16029,7 @@
         }
       ],
       "rank_prev": 93,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 7,
       "tracked_days": 59
     },
@@ -15969,7 +16054,7 @@
       "updated_days": 2.5,
       "health": "active",
       "is_new": true,
-      "rank": 117,
+      "rank": 118,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -15988,7 +16073,7 @@
         }
       ],
       "rank_prev": 94,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 33,
       "tracked_days": 3
     },
@@ -16014,7 +16099,7 @@
       "updated_days": 2.5,
       "health": "active",
       "is_new": true,
-      "rank": 118,
+      "rank": 119,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -16053,7 +16138,7 @@
         }
       ],
       "rank_prev": 95,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 35,
       "tracked_days": 7
     },
@@ -16076,7 +16161,7 @@
       "updated_days": 2.6,
       "health": "active",
       "is_new": true,
-      "rank": 119,
+      "rank": 120,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -16095,7 +16180,7 @@
         }
       ],
       "rank_prev": 96,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 36,
       "tracked_days": 3
     },
@@ -16118,7 +16203,7 @@
       "updated_days": 2.6,
       "health": "active",
       "is_new": true,
-      "rank": 120,
+      "rank": 121,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -16137,7 +16222,7 @@
         }
       ],
       "rank_prev": 97,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 37,
       "tracked_days": 3
     },
@@ -16158,7 +16243,7 @@
       "updated_days": 2.6,
       "health": "active",
       "is_new": true,
-      "rank": 121,
+      "rank": 122,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -16177,7 +16262,7 @@
         }
       ],
       "rank_prev": 98,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 38,
       "tracked_days": 3
     },
@@ -16202,7 +16287,7 @@
       "updated_days": 2.6,
       "health": "active",
       "is_new": true,
-      "rank": 122,
+      "rank": 123,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -16241,7 +16326,7 @@
         }
       ],
       "rank_prev": 99,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 40,
       "tracked_days": 7
     },
@@ -16264,7 +16349,7 @@
       "updated_days": 2.6,
       "health": "active",
       "is_new": true,
-      "rank": 123,
+      "rank": 124,
       "rank_history": [
         {
           "date": "2026-10-18",
@@ -16333,7 +16418,7 @@
         }
       ],
       "rank_prev": 100,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 16,
       "tracked_days": 13
     },
@@ -16356,7 +16441,7 @@
       "updated_days": 2.6,
       "health": "active",
       "is_new": true,
-      "rank": 124,
+      "rank": 125,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -16375,7 +16460,7 @@
         }
       ],
       "rank_prev": 101,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 42,
       "tracked_days": 3
     },
@@ -16398,7 +16483,7 @@
       "updated_days": 2.6,
       "health": "active",
       "is_new": true,
-      "rank": 125,
+      "rank": 126,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -16432,7 +16517,7 @@
         }
       ],
       "rank_prev": 102,
-      "rank_delta": -23,
+      "rank_delta": -24,
       "peak_rank": 23,
       "tracked_days": 6
     },
@@ -16458,7 +16543,7 @@
       "updated_days": 2.7,
       "health": "active",
       "is_new": true,
-      "rank": 126,
+      "rank": 127,
       "rank_history": [
         {
           "date": "2026-08-21",
@@ -16817,7 +16902,7 @@
         }
       ],
       "rank_prev": 104,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 1,
       "tracked_days": 71
     },
@@ -16840,7 +16925,7 @@
       "updated_days": 2.8,
       "health": "active",
       "is_new": true,
-      "rank": 127,
+      "rank": 128,
       "rank_history": [
         {
           "date": "2026-09-13",
@@ -17084,7 +17169,7 @@
         }
       ],
       "rank_prev": 105,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 41,
       "tracked_days": 48
     },
@@ -17111,7 +17196,7 @@
       "updated_days": 2.8,
       "health": "active",
       "is_new": true,
-      "rank": 128,
+      "rank": 129,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -17565,7 +17650,7 @@
         }
       ],
       "rank_prev": 106,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 1,
       "tracked_days": 90
     },
@@ -17588,7 +17673,7 @@
       "updated_days": 2.8,
       "health": "active",
       "is_new": true,
-      "rank": 129,
+      "rank": 130,
       "rank_history": [
         {
           "date": "2026-08-14",
@@ -17982,7 +18067,7 @@
         }
       ],
       "rank_prev": 107,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 38,
       "tracked_days": 78
     },
@@ -18005,7 +18090,7 @@
       "updated_days": 2.8,
       "health": "active",
       "is_new": true,
-      "rank": 130,
+      "rank": 131,
       "rank_history": [
         {
           "date": "2026-10-21",
@@ -18059,7 +18144,7 @@
         }
       ],
       "rank_prev": 108,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 50,
       "tracked_days": 10
     },
@@ -18082,7 +18167,7 @@
       "updated_days": 2.8,
       "health": "active",
       "is_new": true,
-      "rank": 131,
+      "rank": 132,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -18536,7 +18621,7 @@
         }
       ],
       "rank_prev": 109,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 6,
       "tracked_days": 90
     },
@@ -18556,10 +18641,10 @@
       "updated_at": "2026-10-27T16:29:21.594741Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 2.8,
+      "updated_days": 2.9,
       "health": "active",
       "is_new": true,
-      "rank": 132,
+      "rank": 133,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -18578,7 +18663,7 @@
         }
       ],
       "rank_prev": 110,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 52,
       "tracked_days": 3
     },
@@ -18601,7 +18686,7 @@
       "updated_days": 2.9,
       "health": "active",
       "is_new": true,
-      "rank": 133,
+      "rank": 134,
       "rank_history": [
         {
           "date": "2026-10-28",
@@ -18620,7 +18705,7 @@
         }
       ],
       "rank_prev": 111,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 53,
       "tracked_days": 3
     },
@@ -18643,7 +18728,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 134,
+      "rank": 135,
       "rank_history": [
         {
           "date": "2026-10-17",
@@ -18717,7 +18802,7 @@
         }
       ],
       "rank_prev": 112,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 6,
       "tracked_days": 14
     },
@@ -18740,7 +18825,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 135,
+      "rank": 136,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -18764,7 +18849,7 @@
         }
       ],
       "rank_prev": 113,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 7,
       "tracked_days": 4
     },
@@ -18787,7 +18872,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 136,
+      "rank": 137,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -18826,7 +18911,7 @@
         }
       ],
       "rank_prev": 114,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 8,
       "tracked_days": 7
     },
@@ -18849,7 +18934,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 137,
+      "rank": 138,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -18888,7 +18973,7 @@
         }
       ],
       "rank_prev": 115,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 9,
       "tracked_days": 7
     },
@@ -18911,7 +18996,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 138,
+      "rank": 139,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -18950,7 +19035,7 @@
         }
       ],
       "rank_prev": 116,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 10,
       "tracked_days": 7
     },
@@ -18973,7 +19058,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 139,
+      "rank": 140,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -19012,7 +19097,7 @@
         }
       ],
       "rank_prev": 117,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 11,
       "tracked_days": 7
     },
@@ -19035,7 +19120,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 140,
+      "rank": 141,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -19074,7 +19159,7 @@
         }
       ],
       "rank_prev": 118,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 12,
       "tracked_days": 7
     },
@@ -19097,7 +19182,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 141,
+      "rank": 142,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -19136,7 +19221,7 @@
         }
       ],
       "rank_prev": 119,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 13,
       "tracked_days": 7
     },
@@ -19159,7 +19244,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 142,
+      "rank": 143,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -19198,7 +19283,7 @@
         }
       ],
       "rank_prev": 120,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 14,
       "tracked_days": 7
     },
@@ -19221,7 +19306,7 @@
       "updated_days": 3.0,
       "health": "active",
       "is_new": true,
-      "rank": 143,
+      "rank": 144,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -19260,7 +19345,7 @@
         }
       ],
       "rank_prev": 121,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 15,
       "tracked_days": 7
     },
@@ -19283,7 +19368,7 @@
       "updated_days": 3.1,
       "health": "active",
       "is_new": true,
-      "rank": 144,
+      "rank": 145,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -19307,7 +19392,7 @@
         }
       ],
       "rank_prev": 122,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 16,
       "tracked_days": 4
     },
@@ -19330,7 +19415,7 @@
       "updated_days": 3.1,
       "health": "active",
       "is_new": true,
-      "rank": 145,
+      "rank": 146,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -19354,7 +19439,7 @@
         }
       ],
       "rank_prev": 123,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 19,
       "tracked_days": 4
     },
@@ -19380,7 +19465,7 @@
       "updated_days": 3.1,
       "health": "active",
       "is_new": true,
-      "rank": 146,
+      "rank": 147,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -19419,7 +19504,7 @@
         }
       ],
       "rank_prev": 124,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 20,
       "tracked_days": 7
     },
@@ -19442,7 +19527,7 @@
       "updated_days": 3.2,
       "health": "active",
       "is_new": true,
-      "rank": 147,
+      "rank": 148,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -19896,7 +19981,7 @@
         }
       ],
       "rank_prev": 125,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 14,
       "tracked_days": 90
     },
@@ -19919,7 +20004,7 @@
       "updated_days": 3.3,
       "health": "active",
       "is_new": true,
-      "rank": 148,
+      "rank": 149,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -19943,7 +20028,7 @@
         }
       ],
       "rank_prev": 126,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 27,
       "tracked_days": 4
     },
@@ -19966,7 +20051,7 @@
       "updated_days": 3.4,
       "health": "active",
       "is_new": true,
-      "rank": 149,
+      "rank": 150,
       "rank_history": [
         {
           "date": "2026-10-01",
@@ -20120,7 +20205,7 @@
         }
       ],
       "rank_prev": 127,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 7,
       "tracked_days": 30
     },
@@ -20145,7 +20230,7 @@
       "updated_days": 3.4,
       "health": "active",
       "is_new": true,
-      "rank": 150,
+      "rank": 151,
       "rank_history": [
         {
           "date": "2026-08-22",
@@ -20499,7 +20584,7 @@
         }
       ],
       "rank_prev": 128,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 9,
       "tracked_days": 70
     },
@@ -20522,7 +20607,7 @@
       "updated_days": 3.4,
       "health": "active",
       "is_new": true,
-      "rank": 151,
+      "rank": 152,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -20546,7 +20631,7 @@
         }
       ],
       "rank_prev": 129,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 32,
       "tracked_days": 4
     },
@@ -20569,7 +20654,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 152,
+      "rank": 153,
       "rank_history": [
         {
           "date": "2026-09-03",
@@ -20863,7 +20948,7 @@
         }
       ],
       "rank_prev": 130,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 33,
       "tracked_days": 58
     },
@@ -20886,7 +20971,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 153,
+      "rank": 154,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -20910,7 +20995,7 @@
         }
       ],
       "rank_prev": 131,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 34,
       "tracked_days": 4
     },
@@ -20933,7 +21018,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 154,
+      "rank": 155,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -20957,7 +21042,7 @@
         }
       ],
       "rank_prev": 132,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 35,
       "tracked_days": 4
     },
@@ -20980,7 +21065,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 155,
+      "rank": 156,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21004,7 +21089,7 @@
         }
       ],
       "rank_prev": 133,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 36,
       "tracked_days": 4
     },
@@ -21027,7 +21112,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 156,
+      "rank": 157,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21051,7 +21136,7 @@
         }
       ],
       "rank_prev": 134,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 37,
       "tracked_days": 4
     },
@@ -21074,7 +21159,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 157,
+      "rank": 158,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21098,7 +21183,7 @@
         }
       ],
       "rank_prev": 135,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 38,
       "tracked_days": 4
     },
@@ -21121,7 +21206,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 158,
+      "rank": 159,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21145,7 +21230,7 @@
         }
       ],
       "rank_prev": 136,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 39,
       "tracked_days": 4
     },
@@ -21168,7 +21253,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 159,
+      "rank": 160,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21192,7 +21277,7 @@
         }
       ],
       "rank_prev": 137,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 40,
       "tracked_days": 4
     },
@@ -21215,7 +21300,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 160,
+      "rank": 161,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21239,7 +21324,7 @@
         }
       ],
       "rank_prev": 138,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 41,
       "tracked_days": 4
     },
@@ -21262,7 +21347,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 161,
+      "rank": 162,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21286,7 +21371,7 @@
         }
       ],
       "rank_prev": 139,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 42,
       "tracked_days": 4
     },
@@ -21309,7 +21394,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 162,
+      "rank": 163,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21333,7 +21418,7 @@
         }
       ],
       "rank_prev": 140,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 43,
       "tracked_days": 4
     },
@@ -21356,7 +21441,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 163,
+      "rank": 164,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21380,7 +21465,7 @@
         }
       ],
       "rank_prev": 141,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 44,
       "tracked_days": 4
     },
@@ -21403,7 +21488,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 164,
+      "rank": 165,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21427,7 +21512,7 @@
         }
       ],
       "rank_prev": 142,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 45,
       "tracked_days": 4
     },
@@ -21450,7 +21535,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 165,
+      "rank": 166,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21474,7 +21559,7 @@
         }
       ],
       "rank_prev": 143,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 46,
       "tracked_days": 4
     },
@@ -21497,7 +21582,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 166,
+      "rank": 167,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21521,7 +21606,7 @@
         }
       ],
       "rank_prev": 144,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 47,
       "tracked_days": 4
     },
@@ -21544,7 +21629,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 167,
+      "rank": 168,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21568,7 +21653,7 @@
         }
       ],
       "rank_prev": 145,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 48,
       "tracked_days": 4
     },
@@ -21591,7 +21676,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 168,
+      "rank": 169,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21615,7 +21700,7 @@
         }
       ],
       "rank_prev": 146,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 49,
       "tracked_days": 4
     },
@@ -21638,7 +21723,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 169,
+      "rank": 170,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21662,7 +21747,7 @@
         }
       ],
       "rank_prev": 147,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 50,
       "tracked_days": 4
     },
@@ -21685,7 +21770,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 170,
+      "rank": 171,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21709,7 +21794,7 @@
         }
       ],
       "rank_prev": 148,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 51,
       "tracked_days": 4
     },
@@ -21732,7 +21817,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 171,
+      "rank": 172,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -21756,7 +21841,7 @@
         }
       ],
       "rank_prev": 149,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 52,
       "tracked_days": 4
     },
@@ -21779,7 +21864,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 172,
+      "rank": 173,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -22233,7 +22318,7 @@
         }
       ],
       "rank_prev": 150,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 54,
       "tracked_days": 90
     },
@@ -22256,7 +22341,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 173,
+      "rank": 174,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -22280,7 +22365,7 @@
         }
       ],
       "rank_prev": 151,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 55,
       "tracked_days": 4
     },
@@ -22303,7 +22388,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 174,
+      "rank": 175,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -22327,7 +22412,7 @@
         }
       ],
       "rank_prev": 152,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 56,
       "tracked_days": 4
     },
@@ -22348,7 +22433,7 @@
       "updated_days": 3.5,
       "health": "active",
       "is_new": true,
-      "rank": 175,
+      "rank": 176,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -22397,7 +22482,7 @@
         }
       ],
       "rank_prev": 153,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 28,
       "tracked_days": 9
     },
@@ -22420,7 +22505,7 @@
       "updated_days": 3.6,
       "health": "active",
       "is_new": true,
-      "rank": 176,
+      "rank": 177,
       "rank_history": [
         {
           "date": "2026-09-26",
@@ -22599,7 +22684,7 @@
         }
       ],
       "rank_prev": 154,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 7,
       "tracked_days": 35
     },
@@ -22622,7 +22707,7 @@
       "updated_days": 3.6,
       "health": "active",
       "is_new": true,
-      "rank": 177,
+      "rank": 178,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -22646,7 +22731,7 @@
         }
       ],
       "rank_prev": 155,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 60,
       "tracked_days": 4
     },
@@ -22669,7 +22754,7 @@
       "updated_days": 3.7,
       "health": "active",
       "is_new": true,
-      "rank": 178,
+      "rank": 179,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -22693,7 +22778,7 @@
         }
       ],
       "rank_prev": 156,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 61,
       "tracked_days": 4
     },
@@ -22716,7 +22801,7 @@
       "updated_days": 3.7,
       "health": "active",
       "is_new": true,
-      "rank": 179,
+      "rank": 180,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -22740,7 +22825,7 @@
         }
       ],
       "rank_prev": 157,
-      "rank_delta": -22,
+      "rank_delta": -23,
       "peak_rank": 62,
       "tracked_days": 4
     },
@@ -22763,7 +22848,7 @@
       "updated_days": 3.7,
       "health": "active",
       "is_new": true,
-      "rank": 180,
+      "rank": 181,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -23217,7 +23302,7 @@
         }
       ],
       "rank_prev": 160,
-      "rank_delta": -20,
+      "rank_delta": -21,
       "peak_rank": 66,
       "tracked_days": 90
     },
@@ -23240,7 +23325,7 @@
       "updated_days": 3.7,
       "health": "active",
       "is_new": true,
-      "rank": 181,
+      "rank": 182,
       "rank_history": [
         {
           "date": "2026-09-14",
@@ -23479,7 +23564,7 @@
         }
       ],
       "rank_prev": 161,
-      "rank_delta": -20,
+      "rank_delta": -21,
       "peak_rank": 2,
       "tracked_days": 47
     },
@@ -23502,7 +23587,7 @@
       "updated_days": 3.7,
       "health": "active",
       "is_new": true,
-      "rank": 182,
+      "rank": 183,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -23526,7 +23611,7 @@
         }
       ],
       "rank_prev": 162,
-      "rank_delta": -20,
+      "rank_delta": -21,
       "peak_rank": 68,
       "tracked_days": 4
     },
@@ -23549,7 +23634,7 @@
       "updated_days": 3.8,
       "health": "active",
       "is_new": true,
-      "rank": 183,
+      "rank": 184,
       "rank_history": [
         {
           "date": "2026-09-23",
@@ -23743,7 +23828,7 @@
         }
       ],
       "rank_prev": 163,
-      "rank_delta": -20,
+      "rank_delta": -21,
       "peak_rank": 33,
       "tracked_days": 38
     },
@@ -23766,7 +23851,7 @@
       "updated_days": 3.8,
       "health": "active",
       "is_new": true,
-      "rank": 184,
+      "rank": 185,
       "rank_history": [
         {
           "date": "2026-10-27",
@@ -23790,7 +23875,7 @@
         }
       ],
       "rank_prev": 164,
-      "rank_delta": -20,
+      "rank_delta": -21,
       "peak_rank": 72,
       "tracked_days": 4
     },
@@ -23815,7 +23900,7 @@
       "updated_days": 3.8,
       "health": "active",
       "is_new": true,
-      "rank": 185,
+      "rank": 186,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -24269,7 +24354,7 @@
         }
       ],
       "rank_prev": 166,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 15,
       "tracked_days": 90
     },
@@ -24292,7 +24377,7 @@
       "updated_days": 3.8,
       "health": "active",
       "is_new": true,
-      "rank": 186,
+      "rank": 187,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -24331,7 +24416,7 @@
         }
       ],
       "rank_prev": 167,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 76,
       "tracked_days": 7
     },
@@ -24357,7 +24442,7 @@
       "updated_days": 3.9,
       "health": "active",
       "is_new": true,
-      "rank": 187,
+      "rank": 188,
       "rank_history": [
         {
           "date": "2026-10-07",
@@ -24481,7 +24566,7 @@
         }
       ],
       "rank_prev": 168,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 45,
       "tracked_days": 24
     },
@@ -24506,7 +24591,7 @@
       "updated_days": 4.0,
       "health": "active",
       "is_new": true,
-      "rank": 188,
+      "rank": 189,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -24535,7 +24620,7 @@
         }
       ],
       "rank_prev": 169,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 3,
       "tracked_days": 5
     },
@@ -24561,7 +24646,7 @@
       "updated_days": 4.0,
       "health": "active",
       "is_new": true,
-      "rank": 189,
+      "rank": 190,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -24600,7 +24685,7 @@
         }
       ],
       "rank_prev": 170,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 4,
       "tracked_days": 7
     },
@@ -24623,7 +24708,7 @@
       "updated_days": 4.0,
       "health": "active",
       "is_new": true,
-      "rank": 190,
+      "rank": 191,
       "rank_history": [
         {
           "date": "2026-10-21",
@@ -24677,7 +24762,7 @@
         }
       ],
       "rank_prev": 171,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 8,
       "tracked_days": 10
     },
@@ -24700,7 +24785,7 @@
       "updated_days": 4.1,
       "health": "active",
       "is_new": true,
-      "rank": 191,
+      "rank": 192,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -25154,7 +25239,7 @@
         }
       ],
       "rank_prev": 172,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 1,
       "tracked_days": 90
     },
@@ -25177,7 +25262,7 @@
       "updated_days": 4.1,
       "health": "active",
       "is_new": true,
-      "rank": 192,
+      "rank": 193,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -25216,7 +25301,7 @@
         }
       ],
       "rank_prev": 173,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 11,
       "tracked_days": 7
     },
@@ -25239,7 +25324,7 @@
       "updated_days": 4.2,
       "health": "active",
       "is_new": true,
-      "rank": 193,
+      "rank": 194,
       "rank_history": [
         {
           "date": "2026-08-03",
@@ -25688,7 +25773,7 @@
         }
       ],
       "rank_prev": 174,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 14,
       "tracked_days": 89
     },
@@ -25711,7 +25796,7 @@
       "updated_days": 4.2,
       "health": "active",
       "is_new": true,
-      "rank": 194,
+      "rank": 195,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -25740,7 +25825,7 @@
         }
       ],
       "rank_prev": 175,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 15,
       "tracked_days": 5
     },
@@ -25763,7 +25848,7 @@
       "updated_days": 4.2,
       "health": "active",
       "is_new": true,
-      "rank": 195,
+      "rank": 196,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -25792,7 +25877,7 @@
         }
       ],
       "rank_prev": 176,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 16,
       "tracked_days": 5
     },
@@ -25812,10 +25897,10 @@
       "updated_at": "2026-10-26T06:55:33.557897Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 4.2,
+      "updated_days": 4.3,
       "health": "active",
       "is_new": true,
-      "rank": 196,
+      "rank": 197,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -25844,7 +25929,7 @@
         }
       ],
       "rank_prev": 177,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 17,
       "tracked_days": 5
     },
@@ -25867,7 +25952,7 @@
       "updated_days": 4.3,
       "health": "active",
       "is_new": true,
-      "rank": 197,
+      "rank": 198,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -25906,7 +25991,7 @@
         }
       ],
       "rank_prev": 178,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 9,
       "tracked_days": 7
     },
@@ -25927,7 +26012,7 @@
       "updated_days": 4.3,
       "health": "active",
       "is_new": true,
-      "rank": 198,
+      "rank": 199,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -26381,7 +26466,7 @@
         }
       ],
       "rank_prev": 179,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 4,
       "tracked_days": 90
     },
@@ -26404,7 +26489,7 @@
       "updated_days": 4.4,
       "health": "active",
       "is_new": true,
-      "rank": 199,
+      "rank": 200,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -26433,7 +26518,7 @@
         }
       ],
       "rank_prev": 180,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 22,
       "tracked_days": 5
     },
@@ -26456,7 +26541,7 @@
       "updated_days": 4.4,
       "health": "active",
       "is_new": true,
-      "rank": 200,
+      "rank": 201,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -26485,7 +26570,7 @@
         }
       ],
       "rank_prev": 181,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 24,
       "tracked_days": 5
     },
@@ -26510,7 +26595,7 @@
       "updated_days": 4.4,
       "health": "active",
       "is_new": true,
-      "rank": 201,
+      "rank": 202,
       "rank_history": [
         {
           "date": "2026-08-06",
@@ -26944,7 +27029,7 @@
         }
       ],
       "rank_prev": 182,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 11,
       "tracked_days": 86
     },
@@ -26967,7 +27052,7 @@
       "updated_days": 4.6,
       "health": "active",
       "is_new": true,
-      "rank": 202,
+      "rank": 203,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -26996,7 +27081,7 @@
         }
       ],
       "rank_prev": 183,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 30,
       "tracked_days": 5
     },
@@ -27021,7 +27106,7 @@
       "updated_days": 4.6,
       "health": "active",
       "is_new": true,
-      "rank": 203,
+      "rank": 204,
       "rank_history": [
         {
           "date": "2026-10-03",
@@ -27165,7 +27250,7 @@
         }
       ],
       "rank_prev": 184,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 15,
       "tracked_days": 28
     },
@@ -27190,7 +27275,7 @@
       "updated_days": 4.6,
       "health": "active",
       "is_new": true,
-      "rank": 204,
+      "rank": 205,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -27219,7 +27304,7 @@
         }
       ],
       "rank_prev": 185,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 32,
       "tracked_days": 5
     },
@@ -27242,7 +27327,7 @@
       "updated_days": 4.6,
       "health": "active",
       "is_new": true,
-      "rank": 205,
+      "rank": 206,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -27271,7 +27356,7 @@
         }
       ],
       "rank_prev": 186,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 33,
       "tracked_days": 5
     },
@@ -27294,7 +27379,7 @@
       "updated_days": 4.6,
       "health": "active",
       "is_new": true,
-      "rank": 206,
+      "rank": 207,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -27333,7 +27418,7 @@
         }
       ],
       "rank_prev": 187,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 34,
       "tracked_days": 7
     },
@@ -27356,7 +27441,7 @@
       "updated_days": 4.6,
       "health": "active",
       "is_new": true,
-      "rank": 207,
+      "rank": 208,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -27385,7 +27470,7 @@
         }
       ],
       "rank_prev": 188,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 35,
       "tracked_days": 5
     },
@@ -27408,7 +27493,7 @@
       "updated_days": 4.6,
       "health": "active",
       "is_new": true,
-      "rank": 208,
+      "rank": 209,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -27862,7 +27947,7 @@
         }
       ],
       "rank_prev": 189,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 36,
       "tracked_days": 90
     },
@@ -27888,7 +27973,7 @@
       "updated_days": 4.7,
       "health": "active",
       "is_new": true,
-      "rank": 209,
+      "rank": 210,
       "rank_history": [
         {
           "date": "2026-09-16",
@@ -28117,7 +28202,7 @@
         }
       ],
       "rank_prev": 190,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 3,
       "tracked_days": 45
     },
@@ -28140,7 +28225,7 @@
       "updated_days": 4.7,
       "health": "active",
       "is_new": true,
-      "rank": 210,
+      "rank": 211,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -28169,7 +28254,7 @@
         }
       ],
       "rank_prev": 191,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 38,
       "tracked_days": 5
     },
@@ -28192,7 +28277,7 @@
       "updated_days": 4.8,
       "health": "active",
       "is_new": true,
-      "rank": 211,
+      "rank": 212,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -28221,7 +28306,7 @@
         }
       ],
       "rank_prev": 192,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 43,
       "tracked_days": 5
     },
@@ -28244,7 +28329,7 @@
       "updated_days": 4.9,
       "health": "active",
       "is_new": true,
-      "rank": 212,
+      "rank": 213,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -28273,7 +28358,7 @@
         }
       ],
       "rank_prev": 193,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 45,
       "tracked_days": 5
     },
@@ -28296,7 +28381,7 @@
       "updated_days": 4.9,
       "health": "active",
       "is_new": true,
-      "rank": 213,
+      "rank": 214,
       "rank_history": [
         {
           "date": "2026-10-26",
@@ -28325,7 +28410,7 @@
         }
       ],
       "rank_prev": 194,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 46,
       "tracked_days": 5
     },
@@ -28348,7 +28433,7 @@
       "updated_days": 4.9,
       "health": "active",
       "is_new": true,
-      "rank": 214,
+      "rank": 215,
       "rank_history": [
         {
           "date": "2026-10-14",
@@ -28437,7 +28522,7 @@
         }
       ],
       "rank_prev": 195,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 20,
       "tracked_days": 17
     },
@@ -28460,7 +28545,7 @@
       "updated_days": 5.1,
       "health": "active",
       "is_new": true,
-      "rank": 215,
+      "rank": 216,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -28499,7 +28584,7 @@
         }
       ],
       "rank_prev": 196,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 8,
       "tracked_days": 7
     },
@@ -28519,10 +28604,10 @@
       "updated_at": "2026-10-25T06:53:03.068866Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 5.2,
+      "updated_days": 5.3,
       "health": "active",
       "is_new": true,
-      "rank": 216,
+      "rank": 217,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -28556,7 +28641,7 @@
         }
       ],
       "rank_prev": 197,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 10,
       "tracked_days": 6
     },
@@ -28579,7 +28664,7 @@
       "updated_days": 5.4,
       "health": "active",
       "is_new": true,
-      "rank": 217,
+      "rank": 218,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -28618,7 +28703,7 @@
         }
       ],
       "rank_prev": 198,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 13,
       "tracked_days": 7
     },
@@ -28641,7 +28726,7 @@
       "updated_days": 5.4,
       "health": "active",
       "is_new": true,
-      "rank": 218,
+      "rank": 219,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -28675,7 +28760,7 @@
         }
       ],
       "rank_prev": 199,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 14,
       "tracked_days": 6
     },
@@ -28698,7 +28783,7 @@
       "updated_days": 5.5,
       "health": "active",
       "is_new": true,
-      "rank": 219,
+      "rank": 220,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -28747,7 +28832,7 @@
         }
       ],
       "rank_prev": 200,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 18,
       "tracked_days": 9
     },
@@ -28770,7 +28855,7 @@
       "updated_days": 5.6,
       "health": "active",
       "is_new": true,
-      "rank": 220,
+      "rank": 221,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -28804,7 +28889,7 @@
         }
       ],
       "rank_prev": 201,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 21,
       "tracked_days": 6
     },
@@ -28827,7 +28912,7 @@
       "updated_days": 5.7,
       "health": "active",
       "is_new": true,
-      "rank": 221,
+      "rank": 222,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -28861,7 +28946,7 @@
         }
       ],
       "rank_prev": 202,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 22,
       "tracked_days": 6
     },
@@ -28886,7 +28971,7 @@
       "updated_days": 5.7,
       "health": "active",
       "is_new": true,
-      "rank": 222,
+      "rank": 223,
       "rank_history": [
         {
           "date": "2026-08-05",
@@ -29325,7 +29410,7 @@
         }
       ],
       "rank_prev": 203,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 17,
       "tracked_days": 87
     },
@@ -29348,7 +29433,7 @@
       "updated_days": 5.7,
       "health": "active",
       "is_new": true,
-      "rank": 223,
+      "rank": 224,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -29382,7 +29467,7 @@
         }
       ],
       "rank_prev": 204,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 25,
       "tracked_days": 6
     },
@@ -29405,7 +29490,7 @@
       "updated_days": 5.8,
       "health": "active",
       "is_new": true,
-      "rank": 224,
+      "rank": 225,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -29439,7 +29524,7 @@
         }
       ],
       "rank_prev": 205,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 26,
       "tracked_days": 6
     },
@@ -29462,7 +29547,7 @@
       "updated_days": 5.9,
       "health": "active",
       "is_new": true,
-      "rank": 225,
+      "rank": 226,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -29496,7 +29581,7 @@
         }
       ],
       "rank_prev": 206,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 30,
       "tracked_days": 6
     },
@@ -29519,7 +29604,7 @@
       "updated_days": 6.0,
       "health": "active",
       "is_new": true,
-      "rank": 226,
+      "rank": 227,
       "rank_history": [
         {
           "date": "2026-10-25",
@@ -29553,7 +29638,7 @@
         }
       ],
       "rank_prev": 207,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 31,
       "tracked_days": 6
     },
@@ -29576,7 +29661,7 @@
       "updated_days": 6.0,
       "health": "active",
       "is_new": true,
-      "rank": 227,
+      "rank": 228,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -29615,7 +29700,7 @@
         }
       ],
       "rank_prev": 208,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 2,
       "tracked_days": 7
     },
@@ -29638,7 +29723,7 @@
       "updated_days": 6.1,
       "health": "active",
       "is_new": true,
-      "rank": 228,
+      "rank": 229,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -29677,7 +29762,7 @@
         }
       ],
       "rank_prev": 209,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 8,
       "tracked_days": 7
     },
@@ -29700,7 +29785,7 @@
       "updated_days": 6.1,
       "health": "active",
       "is_new": true,
-      "rank": 229,
+      "rank": 230,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -29739,7 +29824,7 @@
         }
       ],
       "rank_prev": 210,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 10,
       "tracked_days": 7
     },
@@ -29764,7 +29849,7 @@
       "updated_days": 6.1,
       "health": "active",
       "is_new": true,
-      "rank": 230,
+      "rank": 231,
       "rank_history": [
         {
           "date": "2026-10-20",
@@ -29823,7 +29908,7 @@
         }
       ],
       "rank_prev": 211,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 12,
       "tracked_days": 11
     },
@@ -29846,7 +29931,7 @@
       "updated_days": 6.2,
       "health": "active",
       "is_new": true,
-      "rank": 231,
+      "rank": 232,
       "rank_history": [
         {
           "date": "2026-10-09",
@@ -29960,7 +30045,7 @@
         }
       ],
       "rank_prev": 212,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 15,
       "tracked_days": 22
     },
@@ -29983,7 +30068,7 @@
       "updated_days": 6.2,
       "health": "active",
       "is_new": true,
-      "rank": 232,
+      "rank": 233,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -30022,7 +30107,7 @@
         }
       ],
       "rank_prev": 213,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 16,
       "tracked_days": 7
     },
@@ -30045,7 +30130,7 @@
       "updated_days": 6.2,
       "health": "active",
       "is_new": true,
-      "rank": 233,
+      "rank": 234,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -30084,7 +30169,7 @@
         }
       ],
       "rank_prev": 214,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 17,
       "tracked_days": 7
     },
@@ -30109,7 +30194,7 @@
       "updated_days": 6.3,
       "health": "active",
       "is_new": true,
-      "rank": 234,
+      "rank": 235,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -30158,7 +30243,7 @@
         }
       ],
       "rank_prev": 215,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 8,
       "tracked_days": 9
     },
@@ -30181,7 +30266,7 @@
       "updated_days": 6.3,
       "health": "active",
       "is_new": true,
-      "rank": 235,
+      "rank": 236,
       "rank_history": [
         {
           "date": "2026-09-07",
@@ -30455,7 +30540,7 @@
         }
       ],
       "rank_prev": 216,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 1,
       "tracked_days": 54
     },
@@ -30478,7 +30563,7 @@
       "updated_days": 6.4,
       "health": "active",
       "is_new": true,
-      "rank": 236,
+      "rank": 237,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -30517,7 +30602,7 @@
         }
       ],
       "rank_prev": 217,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 21,
       "tracked_days": 7
     },
@@ -30540,7 +30625,7 @@
       "updated_days": 6.5,
       "health": "active",
       "is_new": true,
-      "rank": 237,
+      "rank": 238,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -30994,7 +31079,7 @@
         }
       ],
       "rank_prev": 218,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 23,
       "tracked_days": 90
     },
@@ -31017,7 +31102,7 @@
       "updated_days": 6.5,
       "health": "active",
       "is_new": true,
-      "rank": 238,
+      "rank": 239,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31056,7 +31141,7 @@
         }
       ],
       "rank_prev": 219,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 25,
       "tracked_days": 7
     },
@@ -31079,7 +31164,7 @@
       "updated_days": 6.5,
       "health": "active",
       "is_new": true,
-      "rank": 239,
+      "rank": 240,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31118,7 +31203,7 @@
         }
       ],
       "rank_prev": 220,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 26,
       "tracked_days": 7
     },
@@ -31141,7 +31226,7 @@
       "updated_days": 6.6,
       "health": "active",
       "is_new": true,
-      "rank": 240,
+      "rank": 241,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31180,7 +31265,7 @@
         }
       ],
       "rank_prev": 221,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 29,
       "tracked_days": 7
     },
@@ -31203,7 +31288,7 @@
       "updated_days": 6.7,
       "health": "active",
       "is_new": true,
-      "rank": 241,
+      "rank": 242,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31242,7 +31327,7 @@
         }
       ],
       "rank_prev": 222,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 33,
       "tracked_days": 7
     },
@@ -31265,7 +31350,7 @@
       "updated_days": 6.8,
       "health": "active",
       "is_new": true,
-      "rank": 242,
+      "rank": 243,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31304,7 +31389,7 @@
         }
       ],
       "rank_prev": 223,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 35,
       "tracked_days": 7
     },
@@ -31327,7 +31412,7 @@
       "updated_days": 6.8,
       "health": "active",
       "is_new": true,
-      "rank": 243,
+      "rank": 244,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31366,7 +31451,7 @@
         }
       ],
       "rank_prev": 224,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 36,
       "tracked_days": 7
     },
@@ -31389,7 +31474,7 @@
       "updated_days": 6.8,
       "health": "active",
       "is_new": true,
-      "rank": 244,
+      "rank": 245,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31428,7 +31513,7 @@
         }
       ],
       "rank_prev": 225,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 37,
       "tracked_days": 7
     },
@@ -31451,7 +31536,7 @@
       "updated_days": 6.8,
       "health": "active",
       "is_new": true,
-      "rank": 245,
+      "rank": 246,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31490,7 +31575,7 @@
         }
       ],
       "rank_prev": 226,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 38,
       "tracked_days": 7
     },
@@ -31513,7 +31598,7 @@
       "updated_days": 6.9,
       "health": "active",
       "is_new": true,
-      "rank": 246,
+      "rank": 247,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31552,7 +31637,7 @@
         }
       ],
       "rank_prev": 227,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 40,
       "tracked_days": 7
     },
@@ -31575,7 +31660,7 @@
       "updated_days": 6.9,
       "health": "active",
       "is_new": true,
-      "rank": 247,
+      "rank": 248,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -31619,7 +31704,7 @@
         }
       ],
       "rank_prev": 228,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 25,
       "tracked_days": 8
     },
@@ -31642,7 +31727,7 @@
       "updated_days": 6.9,
       "health": "active",
       "is_new": true,
-      "rank": 248,
+      "rank": 249,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31681,7 +31766,7 @@
         }
       ],
       "rank_prev": 229,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 42,
       "tracked_days": 7
     },
@@ -31707,7 +31792,7 @@
       "updated_days": 6.9,
       "health": "active",
       "is_new": true,
-      "rank": 249,
+      "rank": 250,
       "rank_history": [
         {
           "date": "2026-10-21",
@@ -31761,7 +31846,7 @@
         }
       ],
       "rank_prev": 230,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 3,
       "tracked_days": 10
     },
@@ -31784,7 +31869,7 @@
       "updated_days": 6.9,
       "health": "active",
       "is_new": true,
-      "rank": 250,
+      "rank": 251,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -31823,7 +31908,7 @@
         }
       ],
       "rank_prev": 231,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 45,
       "tracked_days": 7
     },
@@ -31849,7 +31934,7 @@
       "updated_days": 7.0,
       "health": "active",
       "is_new": true,
-      "rank": 251,
+      "rank": 252,
       "rank_history": [
         {
           "date": "2026-08-28",
@@ -32173,7 +32258,7 @@
         }
       ],
       "rank_prev": 232,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 1,
       "tracked_days": 64
     },
@@ -32196,7 +32281,7 @@
       "updated_days": 7.0,
       "health": "active",
       "is_new": false,
-      "rank": 252,
+      "rank": 253,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -32235,7 +32320,7 @@
         }
       ],
       "rank_prev": 233,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 49,
       "tracked_days": 7
     },
@@ -32258,7 +32343,7 @@
       "updated_days": 7.1,
       "health": "active",
       "is_new": false,
-      "rank": 253,
+      "rank": 254,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -32302,7 +32387,7 @@
         }
       ],
       "rank_prev": 234,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 4,
       "tracked_days": 8
     },
@@ -32325,7 +32410,7 @@
       "updated_days": 7.1,
       "health": "active",
       "is_new": false,
-      "rank": 254,
+      "rank": 255,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -32369,7 +32454,7 @@
         }
       ],
       "rank_prev": 235,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 5,
       "tracked_days": 8
     },
@@ -32392,7 +32477,7 @@
       "updated_days": 7.1,
       "health": "active",
       "is_new": false,
-      "rank": 255,
+      "rank": 256,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -32436,7 +32521,7 @@
         }
       ],
       "rank_prev": 236,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 7,
       "tracked_days": 8
     },
@@ -32459,7 +32544,7 @@
       "updated_days": 7.1,
       "health": "active",
       "is_new": false,
-      "rank": 256,
+      "rank": 257,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -32498,7 +32583,7 @@
         }
       ],
       "rank_prev": 237,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 53,
       "tracked_days": 7
     },
@@ -32521,7 +32606,7 @@
       "updated_days": 7.1,
       "health": "active",
       "is_new": false,
-      "rank": 257,
+      "rank": 258,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -32565,7 +32650,7 @@
         }
       ],
       "rank_prev": 238,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 8,
       "tracked_days": 8
     },
@@ -32588,7 +32673,7 @@
       "updated_days": 7.2,
       "health": "active",
       "is_new": false,
-      "rank": 258,
+      "rank": 259,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -32627,7 +32712,7 @@
         }
       ],
       "rank_prev": 239,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 58,
       "tracked_days": 7
     },
@@ -32650,7 +32735,7 @@
       "updated_days": 7.2,
       "health": "active",
       "is_new": false,
-      "rank": 259,
+      "rank": 260,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -32699,7 +32784,7 @@
         }
       ],
       "rank_prev": 240,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 12,
       "tracked_days": 9
     },
@@ -32722,7 +32807,7 @@
       "updated_days": 7.2,
       "health": "active",
       "is_new": false,
-      "rank": 260,
+      "rank": 261,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -32766,7 +32851,7 @@
         }
       ],
       "rank_prev": 241,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 13,
       "tracked_days": 8
     },
@@ -32789,7 +32874,7 @@
       "updated_days": 7.2,
       "health": "active",
       "is_new": false,
-      "rank": 261,
+      "rank": 262,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -32828,7 +32913,7 @@
         }
       ],
       "rank_prev": 242,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 61,
       "tracked_days": 7
     },
@@ -32851,7 +32936,7 @@
       "updated_days": 7.2,
       "health": "active",
       "is_new": false,
-      "rank": 262,
+      "rank": 263,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -32895,7 +32980,7 @@
         }
       ],
       "rank_prev": 243,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 14,
       "tracked_days": 8
     },
@@ -32918,7 +33003,7 @@
       "updated_days": 7.3,
       "health": "active",
       "is_new": false,
-      "rank": 263,
+      "rank": 264,
       "rank_history": [
         {
           "date": "2026-10-05",
@@ -33052,7 +33137,7 @@
         }
       ],
       "rank_prev": 244,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 10,
       "tracked_days": 26
     },
@@ -33075,7 +33160,7 @@
       "updated_days": 7.3,
       "health": "active",
       "is_new": false,
-      "rank": 264,
+      "rank": 265,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -33114,7 +33199,7 @@
         }
       ],
       "rank_prev": 245,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 64,
       "tracked_days": 7
     },
@@ -33137,7 +33222,7 @@
       "updated_days": 7.3,
       "health": "active",
       "is_new": false,
-      "rank": 265,
+      "rank": 266,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -33176,7 +33261,7 @@
         }
       ],
       "rank_prev": 246,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 65,
       "tracked_days": 7
     },
@@ -33199,7 +33284,7 @@
       "updated_days": 7.4,
       "health": "active",
       "is_new": false,
-      "rank": 266,
+      "rank": 267,
       "rank_history": [
         {
           "date": "2026-10-13",
@@ -33293,7 +33378,7 @@
         }
       ],
       "rank_prev": 247,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 3,
       "tracked_days": 18
     },
@@ -33316,7 +33401,7 @@
       "updated_days": 7.4,
       "health": "active",
       "is_new": false,
-      "rank": 267,
+      "rank": 268,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -33360,7 +33445,7 @@
         }
       ],
       "rank_prev": 248,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 20,
       "tracked_days": 8
     },
@@ -33383,7 +33468,7 @@
       "updated_days": 7.6,
       "health": "active",
       "is_new": false,
-      "rank": 268,
+      "rank": 269,
       "rank_history": [
         {
           "date": "2026-10-19",
@@ -33447,7 +33532,7 @@
         }
       ],
       "rank_prev": 249,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 23,
       "tracked_days": 12
     },
@@ -33470,7 +33555,7 @@
       "updated_days": 7.6,
       "health": "active",
       "is_new": false,
-      "rank": 269,
+      "rank": 270,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -33509,7 +33594,7 @@
         }
       ],
       "rank_prev": 250,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 71,
       "tracked_days": 7
     },
@@ -33532,7 +33617,7 @@
       "updated_days": 7.6,
       "health": "active",
       "is_new": false,
-      "rank": 270,
+      "rank": 271,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -33571,7 +33656,7 @@
         }
       ],
       "rank_prev": 251,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 73,
       "tracked_days": 7
     },
@@ -33594,7 +33679,7 @@
       "updated_days": 7.7,
       "health": "active",
       "is_new": false,
-      "rank": 271,
+      "rank": 272,
       "rank_history": [
         {
           "date": "2026-10-05",
@@ -33728,7 +33813,7 @@
         }
       ],
       "rank_prev": 252,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 26,
       "tracked_days": 26
     },
@@ -33751,7 +33836,7 @@
       "updated_days": 7.7,
       "health": "active",
       "is_new": false,
-      "rank": 272,
+      "rank": 273,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -33795,7 +33880,7 @@
         }
       ],
       "rank_prev": 253,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 27,
       "tracked_days": 8
     },
@@ -33818,7 +33903,7 @@
       "updated_days": 7.7,
       "health": "active",
       "is_new": false,
-      "rank": 273,
+      "rank": 274,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -33862,7 +33947,7 @@
         }
       ],
       "rank_prev": 254,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 28,
       "tracked_days": 8
     },
@@ -33885,7 +33970,7 @@
       "updated_days": 7.7,
       "health": "active",
       "is_new": false,
-      "rank": 274,
+      "rank": 275,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -33924,7 +34009,7 @@
         }
       ],
       "rank_prev": 255,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 78,
       "tracked_days": 7
     },
@@ -33947,7 +34032,7 @@
       "updated_days": 7.7,
       "health": "active",
       "is_new": false,
-      "rank": 275,
+      "rank": 276,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -33991,7 +34076,7 @@
         }
       ],
       "rank_prev": 256,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 30,
       "tracked_days": 8
     },
@@ -34014,7 +34099,7 @@
       "updated_days": 7.8,
       "health": "active",
       "is_new": false,
-      "rank": 276,
+      "rank": 277,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -34058,7 +34143,7 @@
         }
       ],
       "rank_prev": 257,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 31,
       "tracked_days": 8
     },
@@ -34081,7 +34166,7 @@
       "updated_days": 7.8,
       "health": "active",
       "is_new": false,
-      "rank": 277,
+      "rank": 278,
       "rank_history": [
         {
           "date": "2026-10-21",
@@ -34135,7 +34220,7 @@
         }
       ],
       "rank_prev": 258,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 32,
       "tracked_days": 10
     },
@@ -34158,7 +34243,7 @@
       "updated_days": 7.9,
       "health": "active",
       "is_new": false,
-      "rank": 278,
+      "rank": 279,
       "rank_history": [
         {
           "date": "2026-10-23",
@@ -34202,7 +34287,7 @@
         }
       ],
       "rank_prev": 259,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 33,
       "tracked_days": 8
     },
@@ -34225,7 +34310,7 @@
       "updated_days": 7.9,
       "health": "active",
       "is_new": false,
-      "rank": 279,
+      "rank": 280,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -34264,7 +34349,7 @@
         }
       ],
       "rank_prev": 260,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 84,
       "tracked_days": 7
     },
@@ -34287,7 +34372,7 @@
       "updated_days": 7.9,
       "health": "active",
       "is_new": false,
-      "rank": 280,
+      "rank": 281,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -34336,7 +34421,7 @@
         }
       ],
       "rank_prev": 261,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 2,
       "tracked_days": 9
     },
@@ -34359,7 +34444,7 @@
       "updated_days": 8.0,
       "health": "active",
       "is_new": false,
-      "rank": 281,
+      "rank": 282,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -34408,7 +34493,7 @@
         }
       ],
       "rank_prev": 262,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 4,
       "tracked_days": 9
     },
@@ -34431,7 +34516,7 @@
       "updated_days": 8.0,
       "health": "active",
       "is_new": false,
-      "rank": 282,
+      "rank": 283,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -34470,7 +34555,7 @@
         }
       ],
       "rank_prev": 263,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 88,
       "tracked_days": 7
     },
@@ -34493,7 +34578,7 @@
       "updated_days": 8.0,
       "health": "active",
       "is_new": false,
-      "rank": 283,
+      "rank": 284,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -34542,7 +34627,7 @@
         }
       ],
       "rank_prev": 264,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 7,
       "tracked_days": 9
     },
@@ -34565,7 +34650,7 @@
       "updated_days": 8.0,
       "health": "active",
       "is_new": false,
-      "rank": 284,
+      "rank": 285,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -34614,7 +34699,7 @@
         }
       ],
       "rank_prev": 265,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 9,
       "tracked_days": 9
     },
@@ -34637,7 +34722,7 @@
       "updated_days": 8.0,
       "health": "active",
       "is_new": false,
-      "rank": 285,
+      "rank": 286,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -34686,7 +34771,7 @@
         }
       ],
       "rank_prev": 266,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 10,
       "tracked_days": 9
     },
@@ -34709,7 +34794,7 @@
       "updated_days": 8.0,
       "health": "active",
       "is_new": false,
-      "rank": 286,
+      "rank": 287,
       "rank_history": [
         {
           "date": "2026-10-21",
@@ -34763,7 +34848,7 @@
         }
       ],
       "rank_prev": 267,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 19,
       "tracked_days": 10
     },
@@ -34786,7 +34871,7 @@
       "updated_days": 8.0,
       "health": "active",
       "is_new": false,
-      "rank": 287,
+      "rank": 288,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -34825,7 +34910,7 @@
         }
       ],
       "rank_prev": 268,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 101,
       "tracked_days": 7
     },
@@ -34848,7 +34933,7 @@
       "updated_days": 8.1,
       "health": "active",
       "is_new": false,
-      "rank": 288,
+      "rank": 289,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -34887,7 +34972,7 @@
         }
       ],
       "rank_prev": 269,
-      "rank_delta": -19,
+      "rank_delta": -20,
       "peak_rank": 102,
       "tracked_days": 7
     },
@@ -34913,7 +34998,7 @@
       "updated_days": 8.2,
       "health": "active",
       "is_new": false,
-      "rank": 289,
+      "rank": 290,
       "rank_history": [
         {
           "date": "2026-10-19",
@@ -34977,7 +35062,7 @@
         }
       ],
       "rank_prev": 271,
-      "rank_delta": -18,
+      "rank_delta": -19,
       "peak_rank": 24,
       "tracked_days": 12
     },
@@ -35000,7 +35085,7 @@
       "updated_days": 8.2,
       "health": "active",
       "is_new": false,
-      "rank": 290,
+      "rank": 291,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -35049,7 +35134,7 @@
         }
       ],
       "rank_prev": 272,
-      "rank_delta": -18,
+      "rank_delta": -19,
       "peak_rank": 28,
       "tracked_days": 9
     },
@@ -35074,7 +35159,7 @@
       "updated_days": 8.2,
       "health": "active",
       "is_new": false,
-      "rank": 291,
+      "rank": 292,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -35528,7 +35613,7 @@
         }
       ],
       "rank_prev": 273,
-      "rank_delta": -18,
+      "rank_delta": -19,
       "peak_rank": 29,
       "tracked_days": 90
     },
@@ -35551,7 +35636,7 @@
       "updated_days": 8.2,
       "health": "active",
       "is_new": false,
-      "rank": 292,
+      "rank": 293,
       "rank_history": [
         {
           "date": "2026-10-08",
@@ -35670,7 +35755,7 @@
         }
       ],
       "rank_prev": 274,
-      "rank_delta": -18,
+      "rank_delta": -19,
       "peak_rank": 8,
       "tracked_days": 23
     },
@@ -35693,7 +35778,7 @@
       "updated_days": 8.2,
       "health": "active",
       "is_new": false,
-      "rank": 293,
+      "rank": 294,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -35732,7 +35817,7 @@
         }
       ],
       "rank_prev": 275,
-      "rank_delta": -18,
+      "rank_delta": -19,
       "peak_rank": 109,
       "tracked_days": 7
     },
@@ -35755,7 +35840,7 @@
       "updated_days": 8.2,
       "health": "active",
       "is_new": false,
-      "rank": 294,
+      "rank": 295,
       "rank_history": [
         {
           "date": "2026-10-22",
@@ -35804,94 +35889,9 @@
         }
       ],
       "rank_prev": 276,
-      "rank_delta": -18,
+      "rank_delta": -19,
       "peak_rank": 32,
       "tracked_days": 9
-    },
-    {
-      "name": "ai.achromat/mcp-server",
-      "title": "Achromat MOM",
-      "description": "Recall and calibrate agent tool calls against verified policy lessons from Achromat MOM.",
-      "version": "0.1.3",
-      "transport": "Remote",
-      "registries": [
-        "hosted",
-        "npm"
-      ],
-      "pkg_ids": {
-        "npm": "@achromat-ai/mcp-server"
-      },
-      "repository": "https://github.com/achromat-ai/achromat-mcp-server",
-      "website": "https://mom.achromat.ai",
-      "published_at": "2026-10-22T08:00:48.478963Z",
-      "updated_at": "2026-10-22T08:00:48.478963Z",
-      "is_latest": true,
-      "category": "AI & Models",
-      "updated_days": 8.2,
-      "health": "active",
-      "is_new": false,
-      "rank": 295,
-      "rank_history": [
-        {
-          "date": "2026-10-20",
-          "rank": 41,
-          "score": "2026-10-19T16:40:53.960211Z"
-        },
-        {
-          "date": "2026-10-21",
-          "rank": 114,
-          "score": "2026-10-19T16:40:53.960211Z"
-        },
-        {
-          "date": "2026-10-22",
-          "rank": 33,
-          "score": "2026-10-22T08:00:48.478963Z"
-        },
-        {
-          "date": "2026-10-23",
-          "rank": 49,
-          "score": "2026-10-22T08:00:48.478963Z"
-        },
-        {
-          "date": "2026-10-24",
-          "rank": 111,
-          "score": "2026-10-22T08:00:48.478963Z"
-        },
-        {
-          "date": "2026-10-25",
-          "rank": 130,
-          "score": "2026-10-22T08:00:48.478963Z"
-        },
-        {
-          "date": "2026-10-26",
-          "rank": 161,
-          "score": "2026-10-22T08:00:48.478963Z"
-        },
-        {
-          "date": "2026-10-27",
-          "rank": 210,
-          "score": "2026-10-22T08:00:48.478963Z"
-        },
-        {
-          "date": "2026-10-28",
-          "rank": 242,
-          "score": "2026-10-22T08:00:48.478963Z"
-        },
-        {
-          "date": "2026-10-29",
-          "rank": 277,
-          "score": "2026-10-22T08:00:48.478963Z"
-        },
-        {
-          "date": "2026-10-30",
-          "rank": 288,
-          "score": "2026-10-22T08:00:48.478963Z"
-        }
-      ],
-      "rank_prev": 277,
-      "rank_delta": -18,
-      "peak_rank": 33,
-      "tracked_days": 11
     },
     {
       "name": "ai.glassflow/rius",
@@ -37407,7 +37407,7 @@
       "updated_at": "2026-10-21T18:54:41.353667Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 8.7,
+      "updated_days": 8.8,
       "health": "active",
       "is_new": false,
       "rank": 304,
@@ -48761,7 +48761,7 @@
       "updated_at": "2026-10-18T16:32:35.521748Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 11.8,
+      "updated_days": 11.9,
       "health": "active",
       "is_new": false,
       "rank": 425,
@@ -50194,7 +50194,7 @@
       "updated_at": "2026-10-17T23:44:42.630809Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 12.5,
+      "updated_days": 12.6,
       "health": "active",
       "is_new": false,
       "rank": 439,
@@ -53132,7 +53132,7 @@
       "updated_at": "2026-10-16T14:06:17.815052Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 13.9,
+      "updated_days": 14.0,
       "health": "active",
       "is_new": false,
       "rank": 469,
@@ -55849,7 +55849,7 @@
       "updated_at": "2026-10-15T18:53:56.396189Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 14.7,
+      "updated_days": 14.8,
       "health": "active",
       "is_new": false,
       "rank": 489,
@@ -57768,7 +57768,7 @@
       "updated_at": "2026-10-15T06:55:05.372611Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 15.2,
+      "updated_days": 15.3,
       "health": "active",
       "is_new": false,
       "rank": 502,
@@ -63455,7 +63455,7 @@
       "updated_at": "2026-10-13T18:53:42.583071Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 16.7,
+      "updated_days": 16.8,
       "health": "active",
       "is_new": false,
       "rank": 542,
@@ -65235,7 +65235,7 @@
       "updated_at": "2026-10-13T11:42:31.964208Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 17.0,
+      "updated_days": 17.1,
       "health": "active",
       "is_new": false,
       "rank": 552,
@@ -66397,7 +66397,7 @@
       "updated_at": "2026-10-13T02:05:59.065718Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 17.4,
+      "updated_days": 17.5,
       "health": "active",
       "is_new": false,
       "rank": 562,
@@ -90363,7 +90363,7 @@
       "updated_at": "2026-10-06T02:04:46.224688Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 24.4,
+      "updated_days": 24.5,
       "health": "active",
       "is_new": false,
       "rank": 705,
@@ -97666,7 +97666,7 @@
       "updated_at": "2026-10-03T14:09:40.783985Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 26.9,
+      "updated_days": 27.0,
       "health": "active",
       "is_new": false,
       "rank": 747,
@@ -98644,7 +98644,7 @@
       "updated_at": "2026-10-03T11:44:28.404959Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 27.0,
+      "updated_days": 27.1,
       "health": "active",
       "is_new": false,
       "rank": 751,
@@ -106155,7 +106155,7 @@
       "updated_at": "2026-09-29T18:56:33.75371Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 30.7,
+      "updated_days": 30.8,
       "health": "maintained",
       "is_new": false,
       "rank": 801,
@@ -109428,7 +109428,7 @@
       "updated_at": "2026-09-28T16:32:47.674973Z",
       "is_latest": true,
       "category": "Finance",
-      "updated_days": 31.8,
+      "updated_days": 31.9,
       "health": "maintained",
       "is_new": false,
       "rank": 823,
@@ -111315,7 +111315,7 @@
       "updated_at": "2026-09-27T21:16:47.406301Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 32.6,
+      "updated_days": 32.7,
       "health": "maintained",
       "is_new": false,
       "rank": 835,
@@ -112549,7 +112549,7 @@
       "updated_at": "2026-09-27T02:06:17.640652Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 33.4,
+      "updated_days": 33.5,
       "health": "maintained",
       "is_new": false,
       "rank": 842,
@@ -112808,7 +112808,7 @@
       "updated_at": "2026-09-26T23:42:16.020667Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 33.5,
+      "updated_days": 33.6,
       "health": "maintained",
       "is_new": false,
       "rank": 844,
@@ -115755,7 +115755,7 @@
       "updated_at": "2026-09-25T06:55:03.985728Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 35.2,
+      "updated_days": 35.3,
       "health": "maintained",
       "is_new": false,
       "rank": 860,
@@ -116656,7 +116656,7 @@
       "updated_at": "2026-09-24T14:09:38.861984Z",
       "is_latest": true,
       "category": "Files & Storage",
-      "updated_days": 35.9,
+      "updated_days": 36.0,
       "health": "maintained",
       "is_new": false,
       "rank": 866,
@@ -122748,7 +122748,7 @@
       "updated_at": "2026-09-20T21:20:31.600961Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 39.6,
+      "updated_days": 39.7,
       "health": "maintained",
       "is_new": false,
       "rank": 897,
@@ -123431,7 +123431,7 @@
       "updated_at": "2026-09-20T16:33:06.187417Z",
       "is_latest": true,
       "category": "Productivity",
-      "updated_days": 39.8,
+      "updated_days": 39.9,
       "health": "maintained",
       "is_new": false,
       "rank": 900,
@@ -134284,7 +134284,7 @@
       "updated_at": "2026-09-14T16:28:46.328134Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 45.8,
+      "updated_days": 45.9,
       "health": "maintained",
       "is_new": false,
       "rank": 945,
@@ -141671,7 +141671,7 @@
       "updated_at": "2026-09-09T21:18:57.983998Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 50.6,
+      "updated_days": 50.7,
       "health": "maintained",
       "is_new": false,
       "rank": 976,
@@ -143674,7 +143674,7 @@
       "updated_at": "2026-09-08T14:07:45.408742Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 51.9,
+      "updated_days": 52.0,
       "health": "maintained",
       "is_new": false,
       "rank": 985,
@@ -144744,7 +144744,7 @@
       "updated_at": "2026-09-07T23:45:07.59222Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 52.5,
+      "updated_days": 52.6,
       "health": "maintained",
       "is_new": false,
       "rank": 990,
@@ -146630,7 +146630,7 @@
       "updated_at": "2026-09-07T04:29:13.690099Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 53.3,
+      "updated_days": 53.4,
       "health": "maintained",
       "is_new": false,
       "rank": 998,
@@ -154215,7 +154215,7 @@
       "updated_at": "2026-09-03T11:43:36.821222Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1028,
@@ -154549,7 +154549,7 @@
       "updated_at": "2026-09-03T11:43:36.102796Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1029,
@@ -154883,7 +154883,7 @@
       "updated_at": "2026-09-03T11:43:34.530918Z",
       "is_latest": true,
       "category": "Productivity",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1030,
@@ -155217,7 +155217,7 @@
       "updated_at": "2026-09-03T11:43:33.859191Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1031,
@@ -155549,7 +155549,7 @@
       "updated_at": "2026-09-03T11:40:42.828146Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1032,
@@ -155866,7 +155866,7 @@
       "updated_at": "2026-09-03T11:40:42.399227Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1033,
@@ -156183,7 +156183,7 @@
       "updated_at": "2026-09-03T11:40:41.947615Z",
       "is_latest": true,
       "category": "Data & DB",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1034,
@@ -156500,7 +156500,7 @@
       "updated_at": "2026-09-03T11:40:41.510625Z",
       "is_latest": true,
       "category": "Data & DB",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1035,
@@ -156817,7 +156817,7 @@
       "updated_at": "2026-09-03T11:40:41.076047Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1036,
@@ -157134,7 +157134,7 @@
       "updated_at": "2026-09-03T11:40:40.645819Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1037,
@@ -157451,7 +157451,7 @@
       "updated_at": "2026-09-03T11:40:40.223573Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1038,
@@ -157768,7 +157768,7 @@
       "updated_at": "2026-09-03T11:40:39.789095Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1039,
@@ -158085,7 +158085,7 @@
       "updated_at": "2026-09-03T11:40:38.068632Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1040,
@@ -158402,7 +158402,7 @@
       "updated_at": "2026-09-03T11:40:37.63391Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1041,
@@ -158719,7 +158719,7 @@
       "updated_at": "2026-09-03T11:40:36.740385Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1042,
@@ -159036,7 +159036,7 @@
       "updated_at": "2026-09-03T11:40:36.308455Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 57.0,
+      "updated_days": 57.1,
       "health": "maintained",
       "is_new": false,
       "rank": 1043,
@@ -214092,7 +214092,7 @@
       "updated_at": "2026-08-22T16:29:05.632026Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 68.8,
+      "updated_days": 68.9,
       "health": "maintained",
       "is_new": false,
       "rank": 1222,
@@ -222705,7 +222705,7 @@
       "updated_at": "2026-08-17T23:44:40.582316Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 73.5,
+      "updated_days": 73.6,
       "health": "maintained",
       "is_new": false,
       "rank": 1249,
@@ -223112,7 +223112,7 @@
       "updated_at": "2026-08-17T23:42:09.357222Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 73.5,
+      "updated_days": 73.6,
       "health": "maintained",
       "is_new": false,
       "rank": 1250,
@@ -225827,7 +225827,7 @@
       "updated_at": "2026-08-17T09:17:40.729239Z",
       "is_latest": true,
       "category": "Productivity",
-      "updated_days": 74.1,
+      "updated_days": 74.2,
       "health": "maintained",
       "is_new": false,
       "rank": 1260,
@@ -251066,7 +251066,7 @@
       "updated_at": "2026-08-05T14:07:36.70305Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 85.9,
+      "updated_days": 86.0,
       "health": "maintained",
       "is_new": false,
       "rank": 1329,
@@ -269743,7 +269743,7 @@
       "updated_at": "2026-07-27T04:28:55.036536Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 95.3,
+      "updated_days": 95.4,
       "health": "maintained",
       "is_new": false,
       "rank": 1378,
@@ -271176,7 +271176,7 @@
       "updated_at": "2026-07-26T04:28:56.846304Z",
       "is_latest": true,
       "category": "Finance",
-      "updated_days": 96.3,
+      "updated_days": 96.4,
       "health": "maintained",
       "is_new": false,
       "rank": 1381,
@@ -280014,7 +280014,7 @@
       "updated_at": "2026-07-21T23:43:13.692003Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 100.5,
+      "updated_days": 100.6,
       "health": "maintained",
       "is_new": false,
       "rank": 1403,
@@ -308098,7 +308098,7 @@
       "updated_at": "2026-07-10T04:31:42.484368Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 112.3,
+      "updated_days": 112.4,
       "health": "maintained",
       "is_new": false,
       "rank": 1480,
@@ -313475,7 +313475,7 @@
       "updated_at": "2026-07-07T21:17:12.620633Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 114.6,
+      "updated_days": 114.7,
       "health": "maintained",
       "is_new": false,
       "rank": 1493,
@@ -319450,7 +319450,7 @@
       "updated_at": "2026-07-01T18:54:25.720204Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 120.7,
+      "updated_days": 120.8,
       "health": "stale",
       "is_new": false,
       "rank": 1509,
@@ -377016,7 +377016,7 @@
       "updated_at": "2026-04-07T14:05:48.832804Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 205.9,
+      "updated_days": 206.0,
       "health": "stale",
       "is_new": false,
       "rank": 1667,
@@ -384014,7 +384014,7 @@
       "updated_at": "2026-03-07T09:20:43.263852Z",
       "is_latest": true,
       "category": "AI & Models",
-      "updated_days": 237.1,
+      "updated_days": 237.2,
       "health": "stale",
       "is_new": false,
       "rank": 1686,
@@ -389868,7 +389868,7 @@
       "updated_at": "2026-02-09T18:54:17.964435Z",
       "is_latest": true,
       "category": "Finance",
-      "updated_days": 262.7,
+      "updated_days": 262.8,
       "health": "stale",
       "is_new": false,
       "rank": 1700,
@@ -401139,7 +401139,7 @@
       "updated_at": "2025-10-07T21:20:15.688859Z",
       "is_latest": true,
       "category": "Productivity",
-      "updated_days": 387.6,
+      "updated_days": 387.7,
       "health": "stale",
       "is_new": false,
       "rank": 1741,
@@ -402751,7 +402751,7 @@
       "updated_at": "2025-10-04T16:31:58.771823Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 390.8,
+      "updated_days": 390.9,
       "health": "stale",
       "is_new": false,
       "rank": 1767,
@@ -402999,7 +402999,7 @@
       "updated_at": "2025-10-04T02:06:51.365096Z",
       "is_latest": true,
       "category": "Other",
-      "updated_days": 391.4,
+      "updated_days": 391.5,
       "health": "stale",
       "is_new": false,
       "rank": 1771,
@@ -404921,7 +404921,7 @@
       "updated_at": "2025-10-02T06:57:33.936879Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 393.2,
+      "updated_days": 393.3,
       "health": "stale",
       "is_new": false,
       "rank": 1802,
@@ -407243,68 +407243,6 @@
       "tracked_days": 7
     },
     {
-      "name": "ai.smithery/ramadasmr-networkcalc-mcp",
-      "title": "ramadasmr-networkcalc-mcp",
-      "description": "Look up DNS information for any domain to troubleshoot issues and gather insights. Get fast, relia\u2026",
-      "version": "1.13.0",
-      "transport": "Remote",
-      "registries": [
-        "hosted"
-      ],
-      "pkg_ids": {},
-      "repository": "https://github.com/ramadasmr/networkcalc-mcp",
-      "website": null,
-      "published_at": "2025-09-20T10:10:47.321873Z",
-      "updated_at": "2025-09-20T10:10:47.321873Z",
-      "is_latest": true,
-      "category": "Other",
-      "updated_days": 405.1,
-      "health": "stale",
-      "is_new": false,
-      "rank": 1833,
-      "rank_history": [
-        {
-          "date": "2026-10-24",
-          "rank": 1853,
-          "score": "2025-09-20T10:10:47.321873Z"
-        },
-        {
-          "date": "2026-10-25",
-          "rank": 1837,
-          "score": "2025-09-20T10:10:47.321873Z"
-        },
-        {
-          "date": "2026-10-26",
-          "rank": 1812,
-          "score": "2025-09-20T10:10:47.321873Z"
-        },
-        {
-          "date": "2026-10-27",
-          "rank": 1839,
-          "score": "2025-09-20T10:10:47.321873Z"
-        },
-        {
-          "date": "2026-10-28",
-          "rank": 1855,
-          "score": "2025-09-20T10:10:47.321873Z"
-        },
-        {
-          "date": "2026-10-29",
-          "rank": 1838,
-          "score": "2025-09-20T10:10:47.321873Z"
-        },
-        {
-          "date": "2026-10-30",
-          "rank": 1834,
-          "score": "2025-09-20T10:10:47.321873Z"
-        }
-      ],
-      "rank_prev": 1838,
-      "rank_delta": 5,
-      "peak_rank": 1812,
-      "tracked_days": 7
-    },
-    {
       "name": "ai.smithery/anirbanbasu-pymcp",
       "title": "anirbanbasu-pymcp",
       "description": "Primarily to be used as a template repository for developing MCP servers with FastMCP in Python, P\u2026",
@@ -407323,7 +407261,7 @@
       "updated_days": 405.3,
       "health": "stale",
       "is_new": false,
-      "rank": 1834,
+      "rank": 1833,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407362,7 +407300,7 @@
         }
       ],
       "rank_prev": 1839,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1813,
       "tracked_days": 7
     },
@@ -407385,7 +407323,7 @@
       "updated_days": 405.4,
       "health": "stale",
       "is_new": false,
-      "rank": 1835,
+      "rank": 1834,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407424,7 +407362,7 @@
         }
       ],
       "rank_prev": 1840,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1814,
       "tracked_days": 7
     },
@@ -407447,7 +407385,7 @@
       "updated_days": 405.5,
       "health": "stale",
       "is_new": false,
-      "rank": 1836,
+      "rank": 1835,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407486,7 +407424,7 @@
         }
       ],
       "rank_prev": 1841,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1815,
       "tracked_days": 7
     },
@@ -407509,7 +407447,7 @@
       "updated_days": 405.7,
       "health": "stale",
       "is_new": false,
-      "rank": 1837,
+      "rank": 1836,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407548,7 +407486,7 @@
         }
       ],
       "rank_prev": 1842,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1816,
       "tracked_days": 7
     },
@@ -407571,7 +407509,7 @@
       "updated_days": 405.9,
       "health": "stale",
       "is_new": false,
-      "rank": 1838,
+      "rank": 1837,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407610,7 +407548,7 @@
         }
       ],
       "rank_prev": 1843,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1818,
       "tracked_days": 7
     },
@@ -407633,7 +407571,7 @@
       "updated_days": 406.2,
       "health": "stale",
       "is_new": false,
-      "rank": 1839,
+      "rank": 1838,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407672,7 +407610,7 @@
         }
       ],
       "rank_prev": 1844,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1819,
       "tracked_days": 7
     },
@@ -407695,7 +407633,7 @@
       "updated_days": 406.2,
       "health": "stale",
       "is_new": false,
-      "rank": 1840,
+      "rank": 1839,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407734,7 +407672,7 @@
         }
       ],
       "rank_prev": 1845,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1820,
       "tracked_days": 7
     },
@@ -407757,7 +407695,7 @@
       "updated_days": 406.2,
       "health": "stale",
       "is_new": false,
-      "rank": 1841,
+      "rank": 1840,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407796,7 +407734,7 @@
         }
       ],
       "rank_prev": 1846,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1821,
       "tracked_days": 7
     },
@@ -407819,7 +407757,7 @@
       "updated_days": 406.4,
       "health": "stale",
       "is_new": false,
-      "rank": 1842,
+      "rank": 1841,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407858,7 +407796,7 @@
         }
       ],
       "rank_prev": 1847,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1822,
       "tracked_days": 7
     },
@@ -407881,7 +407819,7 @@
       "updated_days": 406.4,
       "health": "stale",
       "is_new": false,
-      "rank": 1843,
+      "rank": 1842,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407920,7 +407858,7 @@
         }
       ],
       "rank_prev": 1848,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1823,
       "tracked_days": 7
     },
@@ -407943,7 +407881,7 @@
       "updated_days": 406.6,
       "health": "stale",
       "is_new": false,
-      "rank": 1844,
+      "rank": 1843,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -407982,7 +407920,7 @@
         }
       ],
       "rank_prev": 1849,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1824,
       "tracked_days": 7
     },
@@ -408005,7 +407943,7 @@
       "updated_days": 406.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1845,
+      "rank": 1844,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408044,7 +407982,7 @@
         }
       ],
       "rank_prev": 1850,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1825,
       "tracked_days": 7
     },
@@ -408067,7 +408005,7 @@
       "updated_days": 406.9,
       "health": "stale",
       "is_new": false,
-      "rank": 1846,
+      "rank": 1845,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408106,7 +408044,7 @@
         }
       ],
       "rank_prev": 1851,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1826,
       "tracked_days": 7
     },
@@ -408129,7 +408067,7 @@
       "updated_days": 406.9,
       "health": "stale",
       "is_new": false,
-      "rank": 1847,
+      "rank": 1846,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408168,7 +408106,7 @@
         }
       ],
       "rank_prev": 1852,
-      "rank_delta": 5,
+      "rank_delta": 6,
       "peak_rank": 1827,
       "tracked_days": 7
     },
@@ -408191,7 +408129,7 @@
       "updated_days": 407.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1848,
+      "rank": 1847,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408230,7 +408168,7 @@
         }
       ],
       "rank_prev": 1854,
-      "rank_delta": 6,
+      "rank_delta": 7,
       "peak_rank": 1829,
       "tracked_days": 7
     },
@@ -408253,7 +408191,7 @@
       "updated_days": 407.1,
       "health": "stale",
       "is_new": false,
-      "rank": 1849,
+      "rank": 1848,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408292,7 +408230,7 @@
         }
       ],
       "rank_prev": 1855,
-      "rank_delta": 6,
+      "rank_delta": 7,
       "peak_rank": 1830,
       "tracked_days": 7
     },
@@ -408315,7 +408253,7 @@
       "updated_days": 407.1,
       "health": "stale",
       "is_new": false,
-      "rank": 1850,
+      "rank": 1849,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408354,7 +408292,7 @@
         }
       ],
       "rank_prev": 1856,
-      "rank_delta": 6,
+      "rank_delta": 7,
       "peak_rank": 1831,
       "tracked_days": 7
     },
@@ -408377,7 +408315,7 @@
       "updated_days": 407.1,
       "health": "stale",
       "is_new": false,
-      "rank": 1851,
+      "rank": 1850,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408416,7 +408354,7 @@
         }
       ],
       "rank_prev": 1857,
-      "rank_delta": 6,
+      "rank_delta": 7,
       "peak_rank": 1832,
       "tracked_days": 7
     },
@@ -408439,7 +408377,7 @@
       "updated_days": 407.1,
       "health": "stale",
       "is_new": false,
-      "rank": 1852,
+      "rank": 1851,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408478,70 +408416,8 @@
         }
       ],
       "rank_prev": 1858,
-      "rank_delta": 6,
+      "rank_delta": 7,
       "peak_rank": 1833,
-      "tracked_days": 7
-    },
-    {
-      "name": "ai.smithery/rainbowgore-stealthee-mcp-tools",
-      "title": "rainbowgore-stealthee-mcp-tools",
-      "description": "Spot pre-launch products before they trend. Search the web and tech sites, extract and parse pages\u2026",
-      "version": "1.14.0",
-      "transport": "Remote",
-      "registries": [
-        "hosted"
-      ],
-      "pkg_ids": {},
-      "repository": "https://github.com/rainbowgore/stealthee-MCP-tools",
-      "website": null,
-      "published_at": "2025-09-18T08:35:04.917713Z",
-      "updated_at": "2025-09-18T08:35:04.917713Z",
-      "is_latest": true,
-      "category": "Web & Search",
-      "updated_days": 407.2,
-      "health": "stale",
-      "is_new": false,
-      "rank": 1853,
-      "rank_history": [
-        {
-          "date": "2026-10-24",
-          "rank": 1875,
-          "score": "2025-09-18T08:35:04.917713Z"
-        },
-        {
-          "date": "2026-10-25",
-          "rank": 1859,
-          "score": "2025-09-18T08:35:04.917713Z"
-        },
-        {
-          "date": "2026-10-26",
-          "rank": 1834,
-          "score": "2025-09-18T08:35:04.917713Z"
-        },
-        {
-          "date": "2026-10-27",
-          "rank": 1861,
-          "score": "2025-09-18T08:35:04.917713Z"
-        },
-        {
-          "date": "2026-10-28",
-          "rank": 1877,
-          "score": "2025-09-18T08:35:04.917713Z"
-        },
-        {
-          "date": "2026-10-29",
-          "rank": 1859,
-          "score": "2025-09-18T08:35:04.917713Z"
-        },
-        {
-          "date": "2026-10-30",
-          "rank": 1854,
-          "score": "2025-09-18T08:35:04.917713Z"
-        }
-      ],
-      "rank_prev": 1859,
-      "rank_delta": 6,
-      "peak_rank": 1834,
       "tracked_days": 7
     },
     {
@@ -408563,7 +408439,7 @@
       "updated_days": 407.2,
       "health": "stale",
       "is_new": false,
-      "rank": 1854,
+      "rank": 1852,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408602,7 +408478,7 @@
         }
       ],
       "rank_prev": 1860,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1835,
       "tracked_days": 7
     },
@@ -408625,7 +408501,7 @@
       "updated_days": 407.2,
       "health": "stale",
       "is_new": false,
-      "rank": 1855,
+      "rank": 1853,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408664,7 +408540,7 @@
         }
       ],
       "rank_prev": 1861,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1836,
       "tracked_days": 7
     },
@@ -408687,7 +408563,7 @@
       "updated_days": 407.2,
       "health": "stale",
       "is_new": false,
-      "rank": 1856,
+      "rank": 1854,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408726,7 +408602,7 @@
         }
       ],
       "rank_prev": 1862,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1837,
       "tracked_days": 7
     },
@@ -408749,7 +408625,7 @@
       "updated_days": 407.7,
       "health": "stale",
       "is_new": false,
-      "rank": 1857,
+      "rank": 1855,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408788,7 +408664,7 @@
         }
       ],
       "rank_prev": 1863,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1838,
       "tracked_days": 7
     },
@@ -408811,7 +408687,7 @@
       "updated_days": 408.1,
       "health": "stale",
       "is_new": false,
-      "rank": 1858,
+      "rank": 1856,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408850,7 +408726,7 @@
         }
       ],
       "rank_prev": 1864,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1839,
       "tracked_days": 7
     },
@@ -408873,7 +408749,7 @@
       "updated_days": 408.1,
       "health": "stale",
       "is_new": false,
-      "rank": 1859,
+      "rank": 1857,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408912,7 +408788,7 @@
         }
       ],
       "rank_prev": 1865,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1840,
       "tracked_days": 7
     },
@@ -408932,10 +408808,10 @@
       "updated_at": "2025-09-17T06:55:47.401979Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 408.2,
+      "updated_days": 408.3,
       "health": "stale",
       "is_new": false,
-      "rank": 1860,
+      "rank": 1858,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -408974,7 +408850,7 @@
         }
       ],
       "rank_prev": 1866,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1841,
       "tracked_days": 7
     },
@@ -408997,7 +408873,7 @@
       "updated_days": 408.3,
       "health": "stale",
       "is_new": false,
-      "rank": 1861,
+      "rank": 1859,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409036,7 +408912,7 @@
         }
       ],
       "rank_prev": 1867,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1842,
       "tracked_days": 7
     },
@@ -409059,7 +408935,7 @@
       "updated_days": 408.4,
       "health": "stale",
       "is_new": false,
-      "rank": 1862,
+      "rank": 1860,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409098,7 +408974,7 @@
         }
       ],
       "rank_prev": 1868,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1843,
       "tracked_days": 7
     },
@@ -409121,7 +408997,7 @@
       "updated_days": 408.4,
       "health": "stale",
       "is_new": false,
-      "rank": 1863,
+      "rank": 1861,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409160,7 +409036,7 @@
         }
       ],
       "rank_prev": 1869,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1844,
       "tracked_days": 7
     },
@@ -409183,7 +409059,7 @@
       "updated_days": 408.6,
       "health": "stale",
       "is_new": false,
-      "rank": 1864,
+      "rank": 1862,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409222,7 +409098,7 @@
         }
       ],
       "rank_prev": 1870,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1845,
       "tracked_days": 7
     },
@@ -409248,7 +409124,7 @@
       "updated_days": 408.6,
       "health": "stale",
       "is_new": false,
-      "rank": 1865,
+      "rank": 1863,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409287,7 +409163,7 @@
         }
       ],
       "rank_prev": 1871,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1846,
       "tracked_days": 7
     },
@@ -409310,7 +409186,7 @@
       "updated_days": 408.7,
       "health": "stale",
       "is_new": false,
-      "rank": 1866,
+      "rank": 1864,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409349,7 +409225,7 @@
         }
       ],
       "rank_prev": 1872,
-      "rank_delta": 6,
+      "rank_delta": 8,
       "peak_rank": 1847,
       "tracked_days": 7
     },
@@ -409372,7 +409248,7 @@
       "updated_days": 409.3,
       "health": "stale",
       "is_new": false,
-      "rank": 1867,
+      "rank": 1865,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409411,7 +409287,7 @@
         }
       ],
       "rank_prev": 1874,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1849,
       "tracked_days": 7
     },
@@ -409434,7 +409310,7 @@
       "updated_days": 409.3,
       "health": "stale",
       "is_new": false,
-      "rank": 1868,
+      "rank": 1866,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409473,7 +409349,7 @@
         }
       ],
       "rank_prev": 1875,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1850,
       "tracked_days": 7
     },
@@ -409496,7 +409372,7 @@
       "updated_days": 409.5,
       "health": "stale",
       "is_new": false,
-      "rank": 1869,
+      "rank": 1867,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409535,7 +409411,7 @@
         }
       ],
       "rank_prev": 1876,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1851,
       "tracked_days": 7
     },
@@ -409558,7 +409434,7 @@
       "updated_days": 409.5,
       "health": "stale",
       "is_new": false,
-      "rank": 1870,
+      "rank": 1868,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409597,7 +409473,7 @@
         }
       ],
       "rank_prev": 1877,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1852,
       "tracked_days": 7
     },
@@ -409620,7 +409496,7 @@
       "updated_days": 409.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1871,
+      "rank": 1869,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409659,7 +409535,7 @@
         }
       ],
       "rank_prev": 1878,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1853,
       "tracked_days": 7
     },
@@ -409679,10 +409555,10 @@
       "updated_at": "2025-09-15T11:45:18.173946Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 410.0,
+      "updated_days": 410.1,
       "health": "stale",
       "is_new": false,
-      "rank": 1872,
+      "rank": 1870,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409721,7 +409597,7 @@
         }
       ],
       "rank_prev": 1879,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1854,
       "tracked_days": 7
     },
@@ -409744,7 +409620,7 @@
       "updated_days": 410.4,
       "health": "stale",
       "is_new": false,
-      "rank": 1873,
+      "rank": 1871,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409783,7 +409659,7 @@
         }
       ],
       "rank_prev": 1880,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1855,
       "tracked_days": 7
     },
@@ -409806,7 +409682,7 @@
       "updated_days": 410.4,
       "health": "stale",
       "is_new": false,
-      "rank": 1874,
+      "rank": 1872,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409845,7 +409721,7 @@
         }
       ],
       "rank_prev": 1881,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1856,
       "tracked_days": 7
     },
@@ -409868,7 +409744,7 @@
       "updated_days": 410.5,
       "health": "stale",
       "is_new": false,
-      "rank": 1875,
+      "rank": 1873,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409907,7 +409783,7 @@
         }
       ],
       "rank_prev": 1882,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1857,
       "tracked_days": 7
     },
@@ -409930,7 +409806,7 @@
       "updated_days": 410.6,
       "health": "stale",
       "is_new": false,
-      "rank": 1876,
+      "rank": 1874,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -409969,7 +409845,7 @@
         }
       ],
       "rank_prev": 1883,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1858,
       "tracked_days": 7
     },
@@ -409992,7 +409868,7 @@
       "updated_days": 410.6,
       "health": "stale",
       "is_new": false,
-      "rank": 1877,
+      "rank": 1875,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410031,7 +409907,7 @@
         }
       ],
       "rank_prev": 1884,
-      "rank_delta": 7,
+      "rank_delta": 9,
       "peak_rank": 1859,
       "tracked_days": 7
     },
@@ -410054,7 +409930,7 @@
       "updated_days": 410.6,
       "health": "stale",
       "is_new": false,
-      "rank": 1878,
+      "rank": 1876,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410093,7 +409969,7 @@
         }
       ],
       "rank_prev": 1886,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1861,
       "tracked_days": 7
     },
@@ -410113,10 +409989,10 @@
       "updated_at": "2025-09-14T21:19:18.64908Z",
       "is_latest": true,
       "category": "Web & Search",
-      "updated_days": 410.6,
+      "updated_days": 410.7,
       "health": "stale",
       "is_new": false,
-      "rank": 1879,
+      "rank": 1877,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410155,7 +410031,7 @@
         }
       ],
       "rank_prev": 1887,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1862,
       "tracked_days": 7
     },
@@ -410178,7 +410054,7 @@
       "updated_days": 410.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1880,
+      "rank": 1878,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410217,7 +410093,7 @@
         }
       ],
       "rank_prev": 1888,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1863,
       "tracked_days": 7
     },
@@ -410240,7 +410116,7 @@
       "updated_days": 410.9,
       "health": "stale",
       "is_new": false,
-      "rank": 1881,
+      "rank": 1879,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410279,7 +410155,7 @@
         }
       ],
       "rank_prev": 1889,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1864,
       "tracked_days": 7
     },
@@ -410302,7 +410178,7 @@
       "updated_days": 410.9,
       "health": "stale",
       "is_new": false,
-      "rank": 1882,
+      "rank": 1880,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410341,7 +410217,7 @@
         }
       ],
       "rank_prev": 1890,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1865,
       "tracked_days": 7
     },
@@ -410364,7 +410240,7 @@
       "updated_days": 411.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1883,
+      "rank": 1881,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410403,7 +410279,7 @@
         }
       ],
       "rank_prev": 1891,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1866,
       "tracked_days": 7
     },
@@ -410426,7 +410302,7 @@
       "updated_days": 411.3,
       "health": "stale",
       "is_new": false,
-      "rank": 1884,
+      "rank": 1882,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410465,7 +410341,7 @@
         }
       ],
       "rank_prev": 1892,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1867,
       "tracked_days": 7
     },
@@ -410488,7 +410364,7 @@
       "updated_days": 411.4,
       "health": "stale",
       "is_new": false,
-      "rank": 1885,
+      "rank": 1883,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410527,7 +410403,7 @@
         }
       ],
       "rank_prev": 1893,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1868,
       "tracked_days": 7
     },
@@ -410550,7 +410426,7 @@
       "updated_days": 411.5,
       "health": "stale",
       "is_new": false,
-      "rank": 1886,
+      "rank": 1884,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410589,7 +410465,7 @@
         }
       ],
       "rank_prev": 1894,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1869,
       "tracked_days": 7
     },
@@ -410612,7 +410488,7 @@
       "updated_days": 411.6,
       "health": "stale",
       "is_new": false,
-      "rank": 1887,
+      "rank": 1885,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410651,7 +410527,7 @@
         }
       ],
       "rank_prev": 1895,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1870,
       "tracked_days": 7
     },
@@ -410671,10 +410547,10 @@
       "updated_at": "2025-09-13T21:20:44.610658Z",
       "is_latest": true,
       "category": "Dev Tools",
-      "updated_days": 411.6,
+      "updated_days": 411.7,
       "health": "stale",
       "is_new": false,
-      "rank": 1888,
+      "rank": 1886,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410713,7 +410589,7 @@
         }
       ],
       "rank_prev": 1896,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1871,
       "tracked_days": 7
     },
@@ -410736,7 +410612,7 @@
       "updated_days": 411.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1889,
+      "rank": 1887,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410775,7 +410651,7 @@
         }
       ],
       "rank_prev": 1897,
-      "rank_delta": 8,
+      "rank_delta": 10,
       "peak_rank": 1872,
       "tracked_days": 7
     },
@@ -410798,7 +410674,7 @@
       "updated_days": 412.3,
       "health": "stale",
       "is_new": false,
-      "rank": 1890,
+      "rank": 1888,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410837,7 +410713,7 @@
         }
       ],
       "rank_prev": 1899,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1874,
       "tracked_days": 7
     },
@@ -410860,7 +410736,7 @@
       "updated_days": 412.7,
       "health": "stale",
       "is_new": false,
-      "rank": 1891,
+      "rank": 1889,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410899,7 +410775,7 @@
         }
       ],
       "rank_prev": 1900,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1875,
       "tracked_days": 7
     },
@@ -410922,7 +410798,7 @@
       "updated_days": 412.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1892,
+      "rank": 1890,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -410961,7 +410837,7 @@
         }
       ],
       "rank_prev": 1901,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1876,
       "tracked_days": 7
     },
@@ -410984,7 +410860,7 @@
       "updated_days": 412.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1893,
+      "rank": 1891,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411023,7 +410899,7 @@
         }
       ],
       "rank_prev": 1902,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1877,
       "tracked_days": 7
     },
@@ -411046,7 +410922,7 @@
       "updated_days": 413.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1894,
+      "rank": 1892,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411085,7 +410961,7 @@
         }
       ],
       "rank_prev": 1903,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1878,
       "tracked_days": 7
     },
@@ -411108,7 +410984,7 @@
       "updated_days": 413.5,
       "health": "stale",
       "is_new": false,
-      "rank": 1895,
+      "rank": 1893,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411147,7 +411023,7 @@
         }
       ],
       "rank_prev": 1904,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1879,
       "tracked_days": 7
     },
@@ -411170,7 +411046,7 @@
       "updated_days": 413.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1896,
+      "rank": 1894,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411209,7 +411085,7 @@
         }
       ],
       "rank_prev": 1905,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1881,
       "tracked_days": 7
     },
@@ -411232,7 +411108,7 @@
       "updated_days": 413.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1897,
+      "rank": 1895,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411271,7 +411147,7 @@
         }
       ],
       "rank_prev": 1906,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1882,
       "tracked_days": 7
     },
@@ -411294,7 +411170,7 @@
       "updated_days": 414.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1898,
+      "rank": 1896,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411333,7 +411209,7 @@
         }
       ],
       "rank_prev": 1907,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1883,
       "tracked_days": 7
     },
@@ -411356,7 +411232,7 @@
       "updated_days": 414.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1899,
+      "rank": 1897,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411395,7 +411271,7 @@
         }
       ],
       "rank_prev": 1908,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1884,
       "tracked_days": 7
     },
@@ -411418,7 +411294,7 @@
       "updated_days": 414.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1900,
+      "rank": 1898,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411457,7 +411333,7 @@
         }
       ],
       "rank_prev": 1909,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1885,
       "tracked_days": 7
     },
@@ -411480,7 +411356,7 @@
       "updated_days": 414.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1901,
+      "rank": 1899,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411519,7 +411395,7 @@
         }
       ],
       "rank_prev": 1910,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1886,
       "tracked_days": 7
     },
@@ -411542,7 +411418,7 @@
       "updated_days": 414.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1902,
+      "rank": 1900,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411581,7 +411457,7 @@
         }
       ],
       "rank_prev": 1911,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1887,
       "tracked_days": 7
     },
@@ -411604,7 +411480,7 @@
       "updated_days": 414.3,
       "health": "stale",
       "is_new": false,
-      "rank": 1903,
+      "rank": 1901,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411643,7 +411519,7 @@
         }
       ],
       "rank_prev": 1912,
-      "rank_delta": 9,
+      "rank_delta": 11,
       "peak_rank": 1888,
       "tracked_days": 7
     },
@@ -411666,7 +411542,7 @@
       "updated_days": 414.5,
       "health": "stale",
       "is_new": false,
-      "rank": 1904,
+      "rank": 1902,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411705,7 +411581,7 @@
         }
       ],
       "rank_prev": 1915,
-      "rank_delta": 11,
+      "rank_delta": 13,
       "peak_rank": 1891,
       "tracked_days": 7
     },
@@ -411728,7 +411604,7 @@
       "updated_days": 414.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1905,
+      "rank": 1903,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411767,7 +411643,7 @@
         }
       ],
       "rank_prev": 1921,
-      "rank_delta": 16,
+      "rank_delta": 18,
       "peak_rank": 1897,
       "tracked_days": 7
     },
@@ -411790,7 +411666,7 @@
       "updated_days": 414.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1906,
+      "rank": 1904,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411829,7 +411705,7 @@
         }
       ],
       "rank_prev": 1922,
-      "rank_delta": 16,
+      "rank_delta": 18,
       "peak_rank": 1898,
       "tracked_days": 7
     },
@@ -411852,7 +411728,7 @@
       "updated_days": 414.8,
       "health": "stale",
       "is_new": false,
-      "rank": 1907,
+      "rank": 1905,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411891,7 +411767,7 @@
         }
       ],
       "rank_prev": 1923,
-      "rank_delta": 16,
+      "rank_delta": 18,
       "peak_rank": 1899,
       "tracked_days": 7
     },
@@ -411914,7 +411790,7 @@
       "updated_days": 415.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1908,
+      "rank": 1906,
       "rank_history": [
         {
           "date": "2026-10-24",
@@ -411953,7 +411829,7 @@
         }
       ],
       "rank_prev": 1926,
-      "rank_delta": 18,
+      "rank_delta": 20,
       "peak_rank": 1902,
       "tracked_days": 7
     },
@@ -411976,7 +411852,7 @@
       "updated_days": 415.0,
       "health": "stale",
       "is_new": false,
-      "rank": 1909,
+      "rank": 1907,
       "rank_history": [
         {
           "date": "2026-08-02",
@@ -412430,7 +412306,7 @@
         }
       ],
       "rank_prev": 1927,
-      "rank_delta": 18,
+      "rank_delta": 20,
       "peak_rank": 1189,
       "tracked_days": 90
     }
