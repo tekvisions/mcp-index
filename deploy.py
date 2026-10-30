@@ -11,6 +11,8 @@ Env:
   VERCEL_PROJECT (default: stacktracker)
 """
 import hashlib, json, os, sys, urllib.request, urllib.error
+import http.client, socket, ssl, time
+from urllib.parse import urlsplit
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 TOKEN = os.environ.get("VERCEL_TOKEN", "").strip()
@@ -23,12 +25,33 @@ INCLUDE_EXT = {".html", ".css", ".js", ".json", ".svg", ".png", ".jpg", ".jpeg",
 
 
 def req(url, data=None, headers=None, method=None):
-    r = urllib.request.Request(url, data=data, headers=headers or {}, method=method)
-    try:
-        with urllib.request.urlopen(r, timeout=60) as resp:
-            return resp.status, resp.read()
-    except urllib.error.HTTPError as e:
-        return e.code, e.read()
+    # File uploads are content-addressed and safe to repeat. Deployment creation
+    # is not: after an uncertain response, inspect native state before retrying.
+    parsed = urlsplit(url)
+    effective_method = method or ("POST" if data is not None else "GET")
+    safe_retry = effective_method == "GET" or (
+        effective_method == "POST" and parsed.hostname == "api.vercel.com"
+        and parsed.path == "/v2/files"
+    )
+    attempts = 4 if safe_retry else 1
+    for attempt in range(attempts):
+        r = urllib.request.Request(url, data=data, headers=headers or {}, method=method)
+        try:
+            with urllib.request.urlopen(r, timeout=60) as resp:
+                return resp.status, resp.read()
+        except urllib.error.HTTPError as e:
+            body = e.read()
+            if e.code not in (429, 500, 502, 503, 504) or attempt == attempts - 1:
+                return e.code, body
+            retry_after = e.headers.get("Retry-After", "")
+            delay = min(60, max(1, int(retry_after))) if retry_after.isdigit() else 2 ** attempt
+        except (urllib.error.URLError, TimeoutError, ConnectionError, http.client.RemoteDisconnected) as e:
+            reason = e.reason if isinstance(e, urllib.error.URLError) else e
+            transient = isinstance(reason, (TimeoutError, ConnectionError, socket.timeout, http.client.RemoteDisconnected))
+            if isinstance(reason, ssl.SSLError) or not transient or attempt == attempts - 1:
+                raise
+            delay = 2 ** attempt
+        time.sleep(delay)
 
 
 
@@ -100,6 +123,9 @@ def main():
                              "Content-Type": "application/octet-stream",
                              "x-vercel-digest": sha}, method="POST")
         print(f"  upload {rel}: {st}", file=sys.stderr)
+        if st >= 400:
+            print(f"Upload failed for {rel}; no deployment created.", file=sys.stderr)
+            return 1
         payload.append({"file": rel, "sha": sha, "size": len(body)})
 
     dep = {"name": PROJECT, "project": PROJECT, "target": "production", "files": payload,
