@@ -40,6 +40,9 @@ jobs:
           else
             echo "No data change."
           fi
+      - name: Check deployment upload safety
+        run: python -m unittest discover -s tests -p test_deploy_retry.py
+
       - name: Deploy to Vercel
         if: ${{ env.VERCEL_TOKEN != '' }}
         run: python deploy.py
