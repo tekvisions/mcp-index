@@ -1,5 +1,5 @@
 /* The MCP Index — search + filter + sort, rendered from the official registry data.
-   Vanilla JS, no deps. Data: data.json (built daily by build_data.py). */
+   Vanilla JS, no deps. Public registry data: data.json. */
 (function(){
   "use strict";
   var W = window, D = document;
@@ -20,7 +20,7 @@
     try{ return escaped.replace(new RegExp("("+rx(esc(q))+")","ig"),'<mark>$1</mark>'); }
     catch(e){ return escaped; }
   }
-  // URL-safe slug from a server name — MUST match build_data.py.slugify()
+  // Stable catalog URL slug from the public server name.
   function slugify(name){
     var s=String(name||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/-+/g,"-").replace(/^-|-$/g,"");
     return s||"server";
