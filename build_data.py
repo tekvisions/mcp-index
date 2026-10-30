@@ -325,7 +325,7 @@ def generate_rss(data, out_dir=None) -> None:
     rfc = format_datetime(dt)
     title = "The MCP Index — every Model Context Protocol server"
     desc = ("A living, freshness-tracked index of MCP servers from the official registry — "
-            "categorized and recomputed daily by autonomous agents.")
+            "categorized and updated daily from public source signals.")
     items = []
     for s in servers:
         slug = s.get("slug") or slugify(s.get("name"))
@@ -518,7 +518,7 @@ def generate_details(data, out_dir=None, badge_slugs=None):
         '<h2>The registry of record, made <em>browsable.</em></h2>'
         '<p>The MCP Index pulls the <a class="inl" href="https://registry.modelcontextprotocol.io/" target="_blank" rel="noopener">official Model Context Protocol registry</a> '
         'every day, dedupes to the latest version of each server, infers a category, and checks freshness. '
-        'It\'s the registry\'s own data, made fast to search and pleasant to read, by the agent stack that runs '
+        'It\'s the registry\'s own data, made fast to search and pleasant to read. Published by '
         '<a class="inl" href="https://kymatalabs.com/" target="_blank" rel="noopener">Kymata Labs</a>.</p>'
         '<div class="foot-row"><span>Updated daily from the official registry</span>'
         '<span>© 2026 Kymata Labs · The MCP Index</span><a href="https://kymatalabs.com/">kymatalabs ↗</a></div></div></footer>\n'
