@@ -622,11 +622,11 @@ def generate_details(data, out_dir=None, badge_slugs=None):
             f'<meta property="og:description" content="{attr(meta_desc)}">\n'
             f'<meta property="og:type" content="website">\n'
             f'<meta property="og:url" content="{attr(canon)}">\n'
-            f'<meta property="og:image" content="{SITE}/og.png">\n'
+            f'<meta property="og:image" content="{SITE}/og-20261030.png">\n'
             f'<meta name="twitter:card" content="summary_large_image">\n'
             f'<meta name="twitter:title" content="{attr(title + " — MCP server")}">\n'
             f'<meta name="twitter:description" content="{attr(meta_desc)}">\n'
-            f'<meta name="twitter:image" content="{SITE}/og.png">\n'
+            f'<meta name="twitter:image" content="{SITE}/og-20261030.png">\n'
             f'<script type="application/ld+json">{ld}</script>\n'
         )
 
