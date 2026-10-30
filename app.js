@@ -275,6 +275,6 @@
   }
 
   fetch("data.json",{cache:"no-store"}).then(function(r){return r.json();}).then(build).catch(function(e){
-    D.getElementById("rows").innerHTML='<div class="loading">Could not load the index. '+esc(e.message||e)+'</div>';
+    D.getElementById("rows").innerHTML='<div class="loading">Could not load the index. Refresh to retry.</div>';
   });
 })();
