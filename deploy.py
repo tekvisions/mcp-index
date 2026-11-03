@@ -99,6 +99,12 @@ def _preflight_overwrite_guard():
 
 
 def main():
+    from release_guard import PublicationHeld, require_reviewed_pipeline
+    try:
+        require_reviewed_pipeline()
+    except PublicationHeld as error:
+        print(str(error), file=sys.stderr)
+        return 2
     if not TOKEN:
         print("VERCEL_TOKEN not set", file=sys.stderr)
         return 1

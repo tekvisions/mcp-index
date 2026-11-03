@@ -6,7 +6,7 @@ Action (after deploy.py) so every refresh re-submits the fleet to Bing/Yandex/Se
 Self-contained (stdlib only). Reads ./sitemap.xml, derives the host from its first <loc>,
 and POSTs the URL list. Retries 403/429 (api.indexnow.org rate-limits rapid submissions).
 
-Exit 0 always (best-effort; never fail a deploy on a submission hiccup).
+Publication hold exits 2. Subsequent submission errors remain best-effort.
 """
 import json, os, re, sys, time, urllib.request, urllib.error
 
@@ -30,6 +30,12 @@ def post(host, urls):
 
 
 def main():
+    from release_guard import PublicationHeld, require_reviewed_pipeline
+    try:
+        require_reviewed_pipeline()
+    except PublicationHeld as error:
+        print(str(error), file=sys.stderr)
+        return 2
     sm = os.path.join(ROOT, "sitemap.xml")
     if not os.path.exists(sm):
         print("indexnow: no sitemap.xml, skipping"); return
@@ -50,7 +56,8 @@ def main():
 
 if __name__ == "__main__":
     try:
-        main()
+        result = main()
     except Exception as e:  # never fail the deploy
         print(f"indexnow: error {e}", file=sys.stderr)
-    sys.exit(0)
+        result = 0
+    sys.exit(result or 0)

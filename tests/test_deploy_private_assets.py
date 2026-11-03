@@ -16,7 +16,7 @@ class PrivateBuildInventoryTests(unittest.TestCase):
             root=Path(folder);(root/'index.html').write_text('public fixture')
             for name in ['.build-assets','.og-venv','.venv']:
                 (root/name).mkdir();(root/name/'private.json').write_text('private fixture')
-            with patch.object(deployment,'ROOT',folder),patch.object(deployment,'TOKEN','fixture'),patch.object(deployment,'_preflight_overwrite_guard'),patch.object(deployment,'req',side_effect=request):
+            with patch.object(deployment,'ROOT',folder),patch.object(deployment,'TOKEN','fixture'),patch('release_guard.require_reviewed_pipeline'),patch.object(deployment,'_preflight_overwrite_guard'),patch.object(deployment,'req',side_effect=request):
                 self.assertEqual(deployment.main(),0)
             payload=json.loads(calls[-1][1]);self.assertEqual([x['file'] for x in payload['files']],['index.html'])
             self.assertEqual(len(calls),2)

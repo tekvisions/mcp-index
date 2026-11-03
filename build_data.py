@@ -899,6 +899,12 @@ The MCP Index is the registry of record made browsable. It pulls the official MC
 
 
 def main():
+    from release_guard import PublicationHeld, require_reviewed_pipeline
+    try:
+        require_reviewed_pipeline()
+    except PublicationHeld as error:
+        print(str(error), file=sys.stderr)
+        return 2
     # read the prior data.json to extend each server's rank_history — the daily
     # "registry position" series (rank = position in the freshest-first list; the
     # score behind that rank is the server's updated_at timestamp). Keyed on the

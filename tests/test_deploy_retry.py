@@ -64,7 +64,7 @@ class DeploymentRetryTests(unittest.TestCase):
     def test_rejected_upload_never_creates_a_partial_deployment(self):
         with tempfile.TemporaryDirectory() as folder:
             Path(folder, 'index.html').write_text('fixture')
-            with patch.object(deployment, 'ROOT', folder), patch.object(deployment, 'TOKEN', 'fixture'), patch.object(deployment, '_preflight_overwrite_guard'), patch.object(deployment, 'req', return_value=(403, b'failure')) as request:
+            with patch.object(deployment, 'ROOT', folder), patch.object(deployment, 'TOKEN', 'fixture'),patch('release_guard.require_reviewed_pipeline'), patch.object(deployment, '_preflight_overwrite_guard'), patch.object(deployment, 'req', return_value=(403, b'failure')) as request:
                 self.assertEqual(deployment.main(), 1)
                 self.assertEqual(request.call_count, 1)
 
