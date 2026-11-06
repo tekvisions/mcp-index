@@ -1,5 +1,10 @@
-Discovery remediation candidate — not released
-==============================================
+Historical discovery remediation candidate
+=========================================
+
+This was the incomplete 1,813-record local candidate before full capture and
+release integration. It is not the current publication status. The reviewed
+replacement was released on 2026-11-06; see RELEASE_ACCEPTANCE.md. The original
+candidate limits below are retained rather than presented as current facts.
 
 The public MCP release remains held by MCP_PUBLICATION_HOLD.md and release_guard.py. The legacy scheduled refresh and deployment controls are unchanged.
 
