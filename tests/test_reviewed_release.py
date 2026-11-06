@@ -27,6 +27,16 @@ class ReviewedRelease(unittest.TestCase):
   with self.assertRaises(ReleaseError):verify_package(self.out)
   p.write_bytes(original);(p.parent/'private.json').write_text('private')
   with self.assertRaises(ReleaseError):verify_package(self.out)
+ def test_changed_route_state_and_duplicate_prior_inventory_are_rejected(self):
+  import hashlib
+  self.build()
+  for name,body in [('route-history.json',b'{"schema_version":1,"routes":{}}'),('previous-route-slugs.json',b'["removed","removed","removed"]')]:
+   p=self.out/name;original=p.read_bytes();p.write_bytes(body)
+   with self.assertRaisesRegex(ReleaseError,'state hash mismatch'):verify_package(self.out)
+   manifest=json.loads((self.out/'package-manifest.json').read_text());old=manifest['state_files'][name]
+   manifest['state_files'][name]={'sha256':hashlib.sha256(body).hexdigest(),'bytes':len(body)};(self.out/'package-manifest.json').write_text(json.dumps(manifest))
+   with self.assertRaisesRegex(ReleaseError,'identities differ|duplicates'):verify_package(self.out)
+   p.write_bytes(original);manifest['state_files'][name]=old;(self.out/'package-manifest.json').write_text(json.dumps(manifest))
  def test_incomplete_capture_cannot_create_package(self):
   p=self.capture/'receipt.json';j=json.loads(p.read_text());j['complete']=False;p.write_text(json.dumps(j))
   with self.assertRaises(ValueError):self.build()
@@ -85,12 +95,15 @@ class ReviewedRelease(unittest.TestCase):
   with self.assertRaisesRegex(ReleaseError,'source inputs'):publish(self.out,self.root/'receipts',root=self.repo,runner=lambda *a:self.fail('network'))
  def test_first_promotion_checks_all_old_routes_and_stops_on_state_push_failure(self):
   from publish_release import publish
+  from publication_state import BOOTSTRAP_DEPLOYMENT
   self.build();calls=[];checks=[]
   def runner(args,*rest):
-   calls.append(args[0]);return {'deployment':{'id':'dpl_fixture','url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+   calls.append(args[0]);identity=BOOTSTRAP_DEPLOYMENT if args[1]=='https://mcp.kymatalabs.com' else 'dpl_fixture'
+   return {'deployment':{'id':'dpl_fixture','url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':identity,'name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
   def persist(*a):raise ReleaseError('state push failed')
-  with self.assertRaisesRegex(ReleaseError,'state push'):publish(self.out,self.root/'receipts',True,root=self.repo,runner=runner,checker=lambda *a:checks.append(a[3]),state_checker=lambda *a:None,state_writer=persist)
-  self.assertEqual(checks,[True]);self.assertNotIn('promote',calls)
+  for i,prior in enumerate([None,{'status':'candidate_verified_pending_promotion'}]):
+   with self.assertRaisesRegex(ReleaseError,'state push'):publish(self.out,self.root/('receipts-'+str(i)),True,root=self.repo,runner=runner,checker=lambda *a:checks.append(a[3]),state_checker=lambda *a:prior,state_writer=persist)
+  self.assertEqual(checks,[True,True]);self.assertNotIn('promote',calls)
  def test_rollback_cannot_replace_a_newer_production(self):
   from publish_release import publish
   self.build();calls=[]

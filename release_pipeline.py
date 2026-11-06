@@ -212,6 +212,7 @@ def build(capture,out,root=ROOT):
  if len(files)>MAX_FILES or sum(x['bytes'] for x in files)>MAX_PACKAGE_BYTES:raise ReleaseError('Deployment file/byte budget exceeded')
  if sum(p.stat().st_size for p in func.iterdir())>MAX_FUNCTION_BYTES:raise ReleaseError('Function budget exceeded')
  manifest={'schema_version':1,'created_at':data['generated_at'],'target_host':'mcp.kymatalabs.com','target_project':'prj_SAGAzK3ApYyopzV82TdMlS6vNXqO','target_team':'team_L6hpqgg8pEHznOzrnU66JuoW','source_records_sha256':receipt['records_sha256'],'snapshot':snapshot,'historical_routes_before':len(original),'historical_routes_missing':sorted(original-set(pages)),'routes':len(pages),'files':files,'static_pagination':presentation,'source_binding':source_binding(root),'release_status':'candidate_not_deployed'}
+ manifest['state_files']={name:{'sha256':sha((out/name).read_bytes()),'bytes':(out/name).stat().st_size} for name in ('route-history.json','.catalog-state.json.gz','previous-route-slugs.json')}
  writejson(out/'package-manifest.json',manifest);verify_package(out)
  return manifest
 
@@ -241,6 +242,23 @@ def verify_package(out):
  if end!=len(pack):raise ReleaseError('Trailing or missing packed pages')
  data=(root/'static/data.json').read_bytes();home=(root/'static/index.html').read_text()
  if manifest['snapshot']['data_sha256']!=sha(data) or f'data-snapshot-sha256="{sha(data)}"' not in home:raise ReleaseError('Client/snapshot binding failure')
+ names=('route-history.json','.catalog-state.json.gz','previous-route-slugs.json')
+ if set(manifest.get('state_files',{}))!=set(names):raise ReleaseError('Missing bound publication state')
+ for name in names:
+  p=out/name;row=manifest['state_files'][name]
+  if p.is_symlink() or p.stat().st_size>30_000_000:raise ReleaseError('Unsafe publication state file')
+  raw=p.read_bytes()
+  if len(raw)!=row['bytes'] or sha(raw)!=row['sha256']:raise ReleaseError('Publication state hash mismatch: '+name)
+ history=json.loads((out/'route-history.json').read_text())
+ if history.get('schema_version')!=1 or {k:v['name'] for k,v in history['routes'].items()}!={k:v['identity'] for k,v in pages.items()}:raise ReleaseError('Publication route identities differ')
+ old=json.loads((out/'previous-route-slugs.json').read_text())
+ if not isinstance(old,list) or any(not isinstance(s,str) for s in old) or len(old)!=len(set(old)) or len(old)!=manifest['historical_routes_before'] or not set(old)<=set(pages):raise ReleaseError('Historical route inventory differs or contains duplicates')
+ with gzip.open(out/'.catalog-state.json.gz','rb') as stream:
+  raw=stream.read(50_000_001)
+  if len(raw)>50_000_000:raise ReleaseError('Expanded catalog state exceeds bound')
+ state=json.loads(raw);public=json.loads(data)
+ expected_state={x['name']:(x['slug'],x['rank']) for x in public['servers']}
+ if len(state['servers'])!=len(expected_state) or {x['name']:(x['slug'],x['rank']) for x in state['servers']}!=expected_state or state['generated_at']!=public['generated_at'] or any('packages' in x or 'remotes' in x for x in state['servers']):raise ReleaseError('Catalog state differs from the verified public snapshot')
  return manifest
 
 if __name__=='__main__':

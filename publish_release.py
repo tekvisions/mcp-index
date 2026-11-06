@@ -33,13 +33,14 @@ def publish(package,receipts,promote=False,all_historical=False,runner=cli,check
  previous=runner(['inspect','https://mcp.kymatalabs.com','--format','json'],package,receipts,'resume-before' if resume else 'before')
  if previous.get('name')!='mcp-index' or previous.get('target')!='production' or previous.get('readyState')!='READY' or not re.fullmatch('dpl_[A-Za-z0-9]+',previous.get('id','')):raise ReleaseError('Current deployment identity unverified')
  prior_state=state_checker(root,previous['id']) if promote else None
- if promote and prior_state is None:all_historical=True
+ first_release=promote and (prior_state is None or previous['id']==publication_state.BOOTSTRAP_DEPLOYMENT)
+ if first_release:all_historical=True
  manifest_sha=hashlib.sha256((package/'package-manifest.json').read_bytes()).hexdigest()
  if resume:
   saved=json.loads((receipts/'release.json').read_text());proof=json.loads((receipts/'candidate-verification.json').read_text())
   if saved.get('status')!='candidate_verified' or saved.get('promoted') is not False or saved.get('previous_id')!=previous['id'] or saved.get('package_sha256')!=manifest_sha:raise ReleaseError('Candidate resume state differs')
   proof_age=(datetime.datetime.now(datetime.timezone.utc)-datetime.datetime.fromisoformat(proof['finished_at'])).total_seconds()
-  if proof.get('status')!='passed' or proof.get('package_sha256')!=manifest_sha or proof.get('origin')!=saved['origin'] or not 0<=proof_age<=3600 or (prior_state is None and proof.get('all_historical') is not True):raise ReleaseError('Candidate verification is missing, stale, or incomplete')
+  if proof.get('status')!='passed' or proof.get('package_sha256')!=manifest_sha or proof.get('origin')!=saved['origin'] or not 0<=proof_age<=3600 or (first_release and proof.get('all_historical') is not True):raise ReleaseError('Candidate verification is missing, stale, or incomplete')
   deployment={'url':saved['origin'],'id':saved['deployment_id']}
  else:
   deployment=runner(['deploy','--prebuilt','--prod','--skip-domain','--yes','--format','json','--meta','reviewedPackage='+manifest_sha],package,receipts,'candidate-deploy')

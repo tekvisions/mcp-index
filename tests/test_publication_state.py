@@ -1,4 +1,4 @@
-import json, pathlib, subprocess, tempfile, unittest
+import contextlib, hashlib, io, json, pathlib, shutil, subprocess, tempfile, unittest
 import publication_state as state
 from release_pipeline import ReleaseError
 
@@ -6,14 +6,20 @@ class DurableState(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=pathlib.Path(self.temp.name);self.repo=self.root/'repo';self.repo.mkdir()
-        self.remote=self.root/'remote.git';self.package=self.root/'package';self.package.mkdir()
+        self.remote=self.root/'remote.git';self.package=self.root/'package'
         self.git('init','--bare',str(self.remote),cwd=self.root)
         self.git('init','-b','main');self.git('config','user.name','Finite test');self.git('config','user.email','test@example.invalid')
-        (self.repo/'source').write_text('source');self.git('add','source');self.git('commit','-m','initial')
+        from test_reviewed_release import SOURCE, source_page
+        from registry_collect import collect
+        from release_pipeline import build
+        for name in ['index.source.html','packed_pages.js','vercel.json','style.css','app.js']:shutil.copyfile(SOURCE/name,self.repo/name)
+        (self.repo/'route-history.json').write_text(json.dumps({'schema_version':1,'routes':{'current':{'name':'org.example/current','title':'Current'}}}))
+        self.git('add','.');self.git('commit','-m','initial')
         self.git('remote','add','origin',str(self.remote));self.git('push','origin','main')
-        (self.package/'route-history.json').write_text('{"routes":{"new":"preserved"}}')
-        (self.package/'.catalog-state.json.gz').write_bytes(b'bounded fixture state')
-        self.result={'previous_id':state.BOOTSTRAP_DEPLOYMENT,'deployment_id':'dpl_candidate','origin':'https://fixture.vercel.app','package_sha256':'a'*64}
+        with contextlib.redirect_stdout(io.StringIO()):
+            collect(self.root/'capture',fetch=lambda _:source_page(),delay=0)
+            build(self.root/'capture',self.package,self.repo)
+        self.result={'previous_id':state.BOOTSTRAP_DEPLOYMENT,'deployment_id':'dpl_candidate','origin':'https://fixture.vercel.app','package_sha256':hashlib.sha256((self.package/'package-manifest.json').read_bytes()).hexdigest()}
     def git(self,*args,cwd=None):
         p=subprocess.run(['git',*args],cwd=cwd or self.repo,capture_output=True,text=True)
         if p.returncode:raise RuntimeError(p.stderr)

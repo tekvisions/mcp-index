@@ -1,6 +1,6 @@
 """Durable, repository-owned route state. A failed push never permits promotion."""
 import hashlib, json, os, pathlib, shutil, subprocess
-from release_pipeline import ReleaseError
+from release_pipeline import ReleaseError, verify_package
 
 BOOTSTRAP_DEPLOYMENT = 'dpl_BmhNqkCRCcGdNLRm2aJ2JmDA3jXS'
 FILES = ('route-history.json', '.catalog-state.json.gz')
@@ -48,6 +48,9 @@ def store(root, state):
 
 def persist(root, package, result):
     root, package = pathlib.Path(root), pathlib.Path(package)
+    verify_package(package)
+    if hashlib.sha256((package/'package-manifest.json').read_bytes()).hexdigest() != result['package_sha256']:
+        raise ReleaseError('Publication package differs from the verified candidate')
     if git(root, 'status', '--porcelain'):
         raise ReleaseError('Source must be clean before persisting publication state')
     revision = git(root, 'rev-parse', 'HEAD')
