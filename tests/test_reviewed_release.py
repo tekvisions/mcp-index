@@ -52,4 +52,38 @@ class ReviewedRelease(unittest.TestCase):
   from verify_release import verify
   self.build()
   with self.assertRaisesRegex(ReleaseError,'host'):verify(self.out,'https://example.com',self.root/'verify.json',fetcher=lambda *a: self.fail('network'))
+ def test_publisher_never_promotes_failed_candidate(self):
+  from publish_release import publish
+  self.build();calls=[]
+  def runner(args,*rest):
+   calls.append(args[0])
+   return {'status':'ok','deployment':{'url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+  def checker(*args):raise ReleaseError('fixture response mismatch')
+  with self.assertRaisesRegex(ReleaseError,'fixture'):publish(self.out,self.root/'receipts',True,runner=runner,checker=checker)
+  self.assertEqual(calls,['inspect','deploy'])
+ def test_publisher_rolls_back_failed_production_verification(self):
+  from publish_release import publish
+  self.build();calls=[]
+  def runner(args,*rest):
+   calls.append(args[0])
+   return {'status':'ok','deployment':{'url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+  def checker(package,origin,*rest):
+   if origin=='https://mcp.kymatalabs.com':raise ReleaseError('fixture public mismatch')
+   return {'status':'passed'}
+  with self.assertRaisesRegex(ReleaseError,'fixture'):publish(self.out,self.root/'receipts',True,runner=runner,checker=checker)
+  self.assertEqual(calls,['inspect','deploy','inspect','promote','rollback'])
+ def test_publisher_default_preserves_production(self):
+  from publish_release import publish
+  self.build();calls=[]
+  def runner(args,*rest):
+   calls.append(args[0]);return {'status':'ok','deployment':{'url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+  r=publish(self.out,self.root/'receipts',runner=runner,checker=lambda *a:{'status':'passed'})
+  self.assertFalse(r['promoted']);self.assertEqual(calls,['inspect','deploy'])
+ def test_large_static_catalog_has_bounded_sequential_navigation(self):
+  from render_catalog import render
+  data={'generated_at':'2026-11-06T00:00:00Z','servers':[{'name':'test/'+str(i),'title':'Test','slug':'test-'+str(i)} for i in range(1201)]}
+  root=self.root/'navigation';root.mkdir();(root/'data.json').write_text(json.dumps(data));render(root,(self.repo/'index.source.html').read_text())
+  import re
+  html=(root/'catalog/5/index.html').read_text();nav=re.search(r'<nav aria-label="Catalog pages".*?</nav>',html).group()
+  self.assertIn('/catalog/4/',nav);self.assertIn('/catalog/6/',nav);self.assertIn('/catalog/11/',nav);self.assertLess(nav.count('<a '),10)
 if __name__=='__main__':unittest.main()

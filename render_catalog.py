@@ -13,10 +13,18 @@ def render(root,template):
   for x in part:
    esc=lambda k:html.escape(str(x.get(k) or ''),quote=True)
    cards.append(f'<a class="row" href="/s/{esc("slug")}/"><div class="nm"><h3>{esc("title")}</h3><div class="ns">{esc("name")}</div><p>{esc("description")}</p></div><div class="cat">{esc("category")}</div><div class="health">Registry updated {esc("updated_at")}</div><div class="cat tcell">{esc("transport")}</div></a>')
-  nav=' '.join(f'<a href="{("/" if n==1 else "/catalog/"+str(n)+"/")}"'+(' aria-current="page"' if n==page else '')+f'>{n}</a>' for n in range(1,pages+1))
+  visible=sorted({1,pages,*range(max(1,page-2),min(pages,page+2)+1)})
+  link=lambda n,label:f'<a class="chip" href="{("/" if n==1 else "/catalog/"+str(n)+"/")}"'+(' aria-current="page"' if n==page else '')+f'>{label}</a>'
+  links=([link(page-1,'Previous')] if page>1 else [])
+  for n in visible:
+   if links and n>1 and n-1 not in visible:links.append('<span aria-hidden="true">…</span>')
+   links.append(link(n,str(n)))
+  if page<pages:links.append(link(page+1,'Next'))
+  nav=' '.join(links)
+
   start=text.index('  <div class="rows" id="rows">');end=text.index('</section>',start)
   status='Latest-version cursor traversal completed; registry-deleted records are excluded from search. Availability and safety are not independently verified.' if data.get('collection_complete') is True else 'Completeness unverified; refresh paused.'
-  text=text[:start]+f'<p>Snapshot {html.escape(data["generated_at"])} · {len(rows):,} saved records · page {page} of {pages}. {status}</p>\n  <div class="rows" id="rows">'+''.join(cards)+'</div>\n<div class="more" id="more"></div>\n<nav aria-label="Catalog pages">'+nav+'</nav></div>\n'+text[end:]
+  text=text[:start]+f'<p>Snapshot {html.escape(data["generated_at"])} · {len(rows):,} saved records · page {page} of {pages}. {status}</p>\n  <div class="rows" id="rows">'+''.join(cards)+'</div>\n<div class="more" id="more"></div>\n<nav aria-label="Catalog pages" style="display:flex;flex-wrap:wrap;gap:8px;margin:24px 0;align-items:center">'+nav+'</nav></div>\n'+text[end:]
   text=text.replace('href="style.css"','href="/style.css"').replace('href="favicon.svg"','href="/favicon.svg"')
   if page>1:
    text=text.replace(f'<link rel="canonical" href="{SITE}/">',f'<link rel="canonical" href="{SITE}/catalog/{page}/">')

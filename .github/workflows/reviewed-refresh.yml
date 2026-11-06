@@ -1,0 +1,39 @@
+name: Reviewed MCP refresh candidate
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: update
+  cancel-in-progress: false
+jobs:
+  verify-candidate:
+    timeout-minutes: 40
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: pip install Pillow==11.3.0
+      - run: npm install --global vercel@53.1.0
+      - run: python -m unittest discover -s tests
+      - run: node --test tests/*.test.mjs
+      - name: Complete bounded registry traversal
+        run: python registry_collect.py --out .release/capture
+      - name: Build and verify immutable output
+        run: python release_pipeline.py build --capture .release/capture --out .release/candidate
+      - name: Verify candidate without promoting public domains
+        run: python publish_release.py --package .release/candidate --receipts .release/receipts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reviewed-mcp-candidate
+          path: .release/
+          include-hidden-files: true
+          retention-days: 7

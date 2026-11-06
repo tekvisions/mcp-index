@@ -21,13 +21,13 @@ def verify(out,base,receipt,all_historical=False,fetcher=fetch,delay=.15):
  if u.scheme!='https' or u.username or u.password or u.port not in (None,443) or u.path not in ('','/') or u.query or u.fragment:raise ReleaseError('Invalid release origin')
  if u.hostname!='mcp.kymatalabs.com' and not (u.hostname or '').endswith('-techtalevisions-projects.vercel.app'):raise ReleaseError('Unapproved release host')
  root=out/'.vercel/output';files={x['path']:x for x in m['files']};routes=json.loads((root/'functions/details.func/pages.json').read_text())
- observations=[];result={'schema_version':1,'origin':base,'started_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'package_sha256':hashlib.sha256((out/'package-manifest.json').read_bytes()).hexdigest(),'all_historical':all_historical,'status':'failed','observations':observations}
+ observations=[];result={'schema_version':1,'origin':base,'started_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'package_sha256':hashlib.sha256((out/'package-manifest.json').read_bytes()).hexdigest(),'all_historical':all_historical,'candidate_noindex':'Preserved provider exclusion on unassigned deployment hosts; public canonical must be indexable.','status':'failed','observations':observations}
  def check(path,expected=None,method='GET',status=200):
   code,h,b=fetcher(base.rstrip('/')+path,method);h={k.lower():v for k,v in h.items()};d=hashlib.sha256(b).hexdigest() if method=='GET' else h.get('x-content-sha256')
   row={'path':path,'method':method,'status':code,'sha256':d,'bytes':len(b),'content_type':h.get('content-type'),'x_robots_tag':h.get('x-robots-tag')};observations.append(row)
   if code!=status or (expected and d!=expected):raise ReleaseError('Release response mismatch: '+path)
   if code==200 and (h.get('x-content-type-options')!='nosniff' or 'frame-ancestors' not in h.get('content-security-policy','')):raise ReleaseError('Security headers missing: '+path)
-  if code==200 and h.get('x-robots-tag') and 'noindex' in h['x-robots-tag'].lower():raise ReleaseError('Unexpected provider noindex: '+path)
+  if u.hostname=='mcp.kymatalabs.com' and code==200 and h.get('x-robots-tag') and 'noindex' in h['x-robots-tag'].lower():raise ReleaseError('Unexpected provider noindex: '+path)
   if delay:time.sleep(delay)
  try:
   static=['index.html','data.json','snapshot.json','app.js','style.css','privacy.html','robots.txt','llms.txt','ai.txt','og.png','sitemap.xml']+[p[7:] for p in files if p.startswith('static/sitemap-')]
