@@ -412,35 +412,31 @@ def _pkg_ident(server, regtype):
 # registry TYPE + name. No fabricated package versions — these are the canonical
 # invocation shapes the MCP ecosystem uses, with the inferred coordinate.
 def install_snippet(server):
+    """Only display recorded coordinates; registry membership is not validation."""
     regs = server.get("registries") or []
-    name = server.get("name") or ""
-    title = server.get("title") or name
-    web = safe_url(server.get("website"))
-    pkg = _pkg_guess(name, title)
-    if "npm" in regs:
-        c = _pkg_ident(server, "npm") or pkg
-        return ("npx", "npm", f"npx -y {c}",
-                "Run directly with npx, or add to your client's mcpServers config.")
-    if "pypi" in regs:
-        c = _pkg_ident(server, "pypi") or pkg
-        return ("uvx", "PyPI", f"uvx {c}",
-                "Run with uv (uvx), or pip install into your environment.")
-    if "oci" in regs:
-        c = _pkg_ident(server, "oci") or pkg
-        return ("docker", "OCI image", f"docker run -i --rm {c}",
-                "Pull and run the published container over stdio.")
-    if "mcpb" in regs:
-        return ("mcpb", "MCP Bundle", f"# install the .mcpb bundle for “{title}”",
-                "Distributed as an MCP Bundle — install via your client's bundle loader.")
-    if "nuget" in regs:
-        c = _pkg_ident(server, "nuget") or pkg
-        return ("dotnet", "NuGet", f"dnx {c}",
-                "Run the published .NET tool.")
-    if "hosted" in regs or server.get("transport") == "Remote":
-        url = web or "https://<server-endpoint>"
-        return ("remote", "hosted", url,
-                "A hosted server — point your client at its remote endpoint (HTTP/SSE).")
-    return (None, None, None, None)
+    commands = {"npm": ("npx", "npm", "npx -y"), "pypi": ("uvx", "PyPI", "uvx"),
+                "oci": ("docker", "OCI image", "docker run -i --rm"), "nuget": ("dotnet", "NuGet", "dnx")}
+    for registry, (verb, label, prefix) in commands.items():
+        if registry not in regs:
+            continue
+        coordinate = _pkg_ident(server, registry)
+        # Reject guessed names, option injection and shell metacharacters. Display
+        # canonical publisher coordinates; never execute a catalog entry here.
+        if isinstance(coordinate, str) and re.fullmatch(r"[A-Za-z0-9@][A-Za-z0-9@._/:-]*", coordinate):
+            return (verb, label, f"{prefix} {coordinate}",
+                    "Publisher-declared package identifier. Verify current package, permissions and client configuration before running; execution has not been tested here.")
+    for remote in server.get("remotes") or []:
+        if not isinstance(remote, dict):
+            continue
+        endpoint = remote.get("url")
+        if not isinstance(endpoint, str) or re.search(r"[\s<>\{\}]", endpoint):
+            continue
+        parsed = urllib.parse.urlsplit(endpoint)
+        if parsed.scheme == "https" and parsed.hostname and not parsed.username and not parsed.password:
+            return ("remote", "publisher endpoint", endpoint,
+                    "Publisher-declared remote endpoint. Availability, authentication and client compatibility are not independently verified here.")
+    return (None, None, None,
+            "Connection details are not available in this saved record. Check the publisher documentation or official registry; a website URL is not assumed to be an MCP endpoint.")
 
 
 # A small, HONEST recency timeline. The registry exposes a single publish moment
@@ -480,8 +476,8 @@ def generate_details(data, out_dir=None, badge_slugs=None):
     cat_total = {c: len(v) for c, v in by_cat.items()}
 
     s_root = os.path.join(out_dir, "s")
-    if os.path.isdir(s_root):
-        shutil.rmtree(s_root)  # avoid orphaned pages from renamed/removed servers
+    # A discovery window is not a retirement decision. Keep prior public routes;
+    # the held release still requires a reviewed union/retention manifest.
     os.makedirs(s_root, exist_ok=True)
 
     # built once — shared chrome
@@ -723,7 +719,8 @@ def generate_details(data, out_dir=None, badge_slugs=None):
                 )
             install_block = f'<section class="d-card run"><h2 class="d-h">Install &amp; connect</h2>{install_inner}</section>'
         else:
-            install_block = ""
+            install_block = ('<section class="d-card run"><h2 class="d-h">Install &amp; connect</h2>'
+                             f'<p class="run-note">{e(snippet_note)}</p></section>')
 
         # ── recency lifecycle arc (honest: existence span + freshness) ──
         # position the freshness marker on a log-ish 0–365d axis

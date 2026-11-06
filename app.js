@@ -116,7 +116,7 @@
     var anim = (animFrom!=null && i>=animFrom && i<animFrom+40)
       ? ' style="animation-delay:'+Math.min((i-animFrom)*22,420)+'ms"' : '';
     var cls = (animFrom!=null && i>=animFrom) ? 'row reveal' : 'row';
-    return '<a class="'+cls+'" href="/s/'+esc(slugify(s.name))+'/"'+anim+'>'
+    return '<a class="'+cls+'" href="/s/'+esc(s.slug||slugify(s.name))+'/"'+anim+'>'
       +'<div class="nm"><h3>'+title+' '+nw+moveBadge(s)+'</h3><div class="ns">'+name+'</div>'
         +desc+(reg?'<div class="reg">'+reg+'</div>':'')+'</div>'
       +'<div class="cat">'+esc(s.category)+'</div>'
@@ -196,6 +196,9 @@
 
   function build(data){
     ALL=data.servers||[];
+    var used={};
+    ALL.forEach(function(s){if(s.slug) used[s.slug]=true;});
+    ALL.forEach(function(s){if(!s.slug){var base=slugify(s.name),slug=base,n=1;while(used[slug]){n+=1;slug=base+'-'+n;}used[slug]=true;s.slug=slug;}});
     injectItemList(data);
     // movers strip — biggest climbers since the prior run (rank_delta), or newest
     // servers on day one before registry-position history exists.
@@ -274,7 +277,16 @@
     render();
   }
 
-  fetch("data.json",{cache:"no-store"}).then(function(r){return r.json();}).then(build).catch(function(e){
-    D.getElementById("rows").innerHTML='<div class="loading">Could not load the index. Refresh to retry.</div>';
+  fetch("/data.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error('Unavailable');return r.text();}).then(async function(raw){
+    var expected=D.documentElement.dataset.snapshotSha256;
+    if(!expected||!W.crypto||!W.crypto.subtle)throw new Error('Unbound snapshot');
+    var bytes=await W.crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw));
+    var actual=Array.from(new Uint8Array(bytes)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+    if(actual!==expected)throw new Error('Snapshot changed');
+    return JSON.parse(raw);
+  }).then(build).catch(function(e){
+    var rows=D.getElementById("rows");
+    if(rows.innerHTML.indexOf('href="/s/')<0)rows.innerHTML='<div class="loading">Could not load the index. Refresh to retry.</div>';
+    else D.getElementById("count").textContent='Live filters are unavailable. Browse the saved catalog pages below or refresh to retry.';
   });
 })();
