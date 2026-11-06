@@ -20,6 +20,16 @@ class ReleaseError(ValueError): pass
 def sha(b):return hashlib.sha256(b).hexdigest()
 def encoded(x):return json.dumps(x,ensure_ascii=False,separators=(',',':')).encode()
 def writejson(path,x):path.write_bytes(encoded(x))
+def source_binding(root):
+ root=pathlib.Path(root)
+ names=set(ASSETS)|{'index.source.html','vercel.json','.catalog-state.json.gz','publication-state.json'}
+ names.update(p.name for p in root.iterdir() if p.is_file() and p.suffix in ('.py','.js'))
+ files={name:sha((root/name).read_bytes()) for name in sorted(names) if (root/name).is_file()}
+ files['route_identity_manifest']=sha(encoded(identity_manifest(root)))
+ files['historical_badge_paths']=sha(encoded(sorted(p.name for p in (root/'badge').glob('*.svg'))))
+ import subprocess
+ revision=subprocess.run(['git','rev-parse','HEAD'],cwd=root,capture_output=True,text=True)
+ return {'files':files,'revision':revision.stdout.strip() if revision.returncode==0 else None}
 def clean_slug(s):
  if not isinstance(s,str) or not re.fullmatch('[a-z0-9-]{1,300}',s):raise ReleaseError('Invalid route slug')
  return s
@@ -192,14 +202,16 @@ def build(capture,out,root=ROOT):
  security=json.loads((root/'vercel.json').read_text())['headers'][0]['headers']
  config={'version':3,'routes':[{'src':'/(.*)','headers':{x['key']:x['value'] for x in security},'continue':True},{'src':'/s/([a-z0-9-]+)/?','dest':'/details?route=$1'},{'src':'/catalog/([0-9]+)/?','dest':'/catalog/$1/index.html'},{'handle':'filesystem'}]}
  writejson(output/'config.json',config)
- writejson(out/'previous-route-slugs.json',sorted(original));writejson(out/'route-history.json',history);(out/'.catalog-state.json.gz').write_bytes(gzip.compress(encoded(data),mtime=0))
+ writejson(out/'previous-route-slugs.json',sorted(original));writejson(out/'route-history.json',history)
+ state=dict(data);state['servers']=[{k:v for k,v in x.items() if k in ('name','rank','rank_history','first_seen','last_seen','slug')} for x in data['servers']]
+ (out/'.catalog-state.json.gz').write_bytes(gzip.compress(encoded(state),mtime=0))
  files=[]
  for p in sorted(output.rglob('*')):
   if p.is_symlink():raise ReleaseError('Symlink in deployment package')
   if p.is_file():files.append({'path':str(p.relative_to(output)),'bytes':p.stat().st_size,'sha256':sha(p.read_bytes())})
  if len(files)>MAX_FILES or sum(x['bytes'] for x in files)>MAX_PACKAGE_BYTES:raise ReleaseError('Deployment file/byte budget exceeded')
  if sum(p.stat().st_size for p in func.iterdir())>MAX_FUNCTION_BYTES:raise ReleaseError('Function budget exceeded')
- manifest={'schema_version':1,'created_at':data['generated_at'],'target_host':'mcp.kymatalabs.com','target_project':'prj_SAGAzK3ApYyopzV82TdMlS6vNXqO','target_team':'team_L6hpqgg8pEHznOzrnU66JuoW','source_records_sha256':receipt['records_sha256'],'snapshot':snapshot,'historical_routes_before':len(original),'historical_routes_missing':sorted(original-set(pages)),'routes':len(pages),'files':files,'static_pagination':presentation,'source_code':{p.name:sha(p.read_bytes()) for p in root.iterdir() if p.is_file() and p.suffix in ('.py','.js')},'release_status':'candidate_not_deployed'}
+ manifest={'schema_version':1,'created_at':data['generated_at'],'target_host':'mcp.kymatalabs.com','target_project':'prj_SAGAzK3ApYyopzV82TdMlS6vNXqO','target_team':'team_L6hpqgg8pEHznOzrnU66JuoW','source_records_sha256':receipt['records_sha256'],'snapshot':snapshot,'historical_routes_before':len(original),'historical_routes_missing':sorted(original-set(pages)),'routes':len(pages),'files':files,'static_pagination':presentation,'source_binding':source_binding(root),'release_status':'candidate_not_deployed'}
  writejson(out/'package-manifest.json',manifest);verify_package(out)
  return manifest
 

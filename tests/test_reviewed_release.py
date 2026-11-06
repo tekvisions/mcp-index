@@ -57,28 +57,51 @@ class ReviewedRelease(unittest.TestCase):
   self.build();calls=[]
   def runner(args,*rest):
    calls.append(args[0])
-   return {'status':'ok','deployment':{'url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+   return {'status':'ok','deployment':{'id':'dpl_fixture','url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
   def checker(*args):raise ReleaseError('fixture response mismatch')
-  with self.assertRaisesRegex(ReleaseError,'fixture'):publish(self.out,self.root/'receipts',True,runner=runner,checker=checker)
-  self.assertEqual(calls,['inspect','deploy'])
+  with self.assertRaisesRegex(ReleaseError,'fixture'):publish(self.out,self.root/'receipts',True,runner=runner,checker=checker,root=self.repo,state_checker=lambda *a:None)
+  self.assertEqual(calls,['inspect','deploy','inspect'])
  def test_publisher_rolls_back_failed_production_verification(self):
   from publish_release import publish
   self.build();calls=[]
   def runner(args,*rest):
    calls.append(args[0])
-   return {'status':'ok','deployment':{'url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+   return {'status':'ok','deployment':{'id':'dpl_fixture','url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
   def checker(package,origin,*rest):
    if origin=='https://mcp.kymatalabs.com':raise ReleaseError('fixture public mismatch')
    return {'status':'passed'}
-  with self.assertRaisesRegex(ReleaseError,'fixture'):publish(self.out,self.root/'receipts',True,runner=runner,checker=checker)
-  self.assertEqual(calls,['inspect','deploy','inspect','promote','rollback'])
+  with self.assertRaisesRegex(ReleaseError,'fixture'):publish(self.out,self.root/'receipts',True,runner=runner,checker=checker,root=self.repo,state_checker=lambda *a:None,state_writer=lambda *a:{'durable_revision':'fixture'})
+  self.assertEqual(calls,['inspect','deploy','inspect','inspect','promote','inspect','rollback'])
  def test_publisher_default_preserves_production(self):
   from publish_release import publish
   self.build();calls=[]
   def runner(args,*rest):
-   calls.append(args[0]);return {'status':'ok','deployment':{'url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
-  r=publish(self.out,self.root/'receipts',runner=runner,checker=lambda *a:{'status':'passed'})
-  self.assertFalse(r['promoted']);self.assertEqual(calls,['inspect','deploy'])
+   calls.append(args[0]);return {'status':'ok','deployment':{'id':'dpl_fixture','url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+  r=publish(self.out,self.root/'receipts',runner=runner,checker=lambda *a:{'status':'passed'},root=self.repo)
+  self.assertFalse(r['promoted']);self.assertEqual(calls,['inspect','deploy','inspect'])
+ def test_changed_stylesheet_cannot_publish(self):
+  from publish_release import publish
+  self.build();(self.repo/'style.css').write_text('different')
+  with self.assertRaisesRegex(ReleaseError,'source inputs'):publish(self.out,self.root/'receipts',root=self.repo,runner=lambda *a:self.fail('network'))
+ def test_first_promotion_checks_all_old_routes_and_stops_on_state_push_failure(self):
+  from publish_release import publish
+  self.build();calls=[];checks=[]
+  def runner(args,*rest):
+   calls.append(args[0]);return {'deployment':{'id':'dpl_fixture','url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+  def persist(*a):raise ReleaseError('state push failed')
+  with self.assertRaisesRegex(ReleaseError,'state push'):publish(self.out,self.root/'receipts',True,root=self.repo,runner=runner,checker=lambda *a:checks.append(a[3]),state_checker=lambda *a:None,state_writer=persist)
+  self.assertEqual(checks,[True]);self.assertNotIn('promote',calls)
+ def test_rollback_cannot_replace_a_newer_production(self):
+  from publish_release import publish
+  self.build();calls=[]
+  def runner(args,*rest):
+   calls.append(args[0]);identity='dpl_other' if 'promote' in calls and args[0]=='inspect' else 'dpl_fixture'
+   return {'deployment':{'id':'dpl_fixture','url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':identity,'name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+  def checker(package,origin,*a):
+   if origin=='https://mcp.kymatalabs.com':raise ReleaseError('public mismatch')
+  with self.assertRaisesRegex(ReleaseError,'public mismatch'):publish(self.out,self.root/'receipts',True,root=self.repo,runner=runner,checker=checker,state_checker=lambda *a:None,state_writer=lambda *a:{'durable_revision':'fixture'})
+  self.assertNotIn('rollback',calls)
+  self.assertEqual(json.loads((self.root/'receipts/release.json').read_text())['status'],'production_changed_requires_reconciliation')
  def test_large_static_catalog_has_bounded_sequential_navigation(self):
   from render_catalog import render
   data={'generated_at':'2026-11-06T00:00:00Z','servers':[{'name':'test/'+str(i),'title':'Test','slug':'test-'+str(i)} for i in range(1201)]}

@@ -55,19 +55,6 @@ jobs:
             flags+=(--promote)
           fi
           python publish_release.py --package .release/candidate --receipts .release/receipts "${flags[@]}"
-      - name: Persist route union and bounded history only after verified production
-        if: ${{ env.PROMOTE == 'true' }}
-        run: |
-          python -c 'import json; r=json.load(open(".release/receipts/release.json")); assert r["status"]=="production_verified" and r["promoted"] is True'
-          cp .release/candidate/route-history.json route-history.json
-          cp .release/candidate/.catalog-state.json.gz .catalog-state.json.gz
-          git config user.name mcp-index-bot
-          git config user.email actions@users.noreply.github.com
-          git add route-history.json .catalog-state.json.gz
-          if ! git diff --cached --quiet; then
-            git commit -m "data: preserve verified catalog route union and history"
-            git push origin HEAD:main
-          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
