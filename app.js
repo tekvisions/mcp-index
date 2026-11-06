@@ -244,6 +244,7 @@
     var q=D.getElementById("q"), clear=D.getElementById("clear"), tmr;
     // deep-link: ?q= from the advertised SearchAction
     try{ var pq=new URL(location.href).searchParams.get("q"); if(pq){ q.value=pq; state.q=pq.trim(); clear.style.display=state.q?"":"none"; } }catch(e){}
+    state.q=q.value.trim();
     function onQ(){ state.q=q.value.trim(); clear.style.display=state.q?"":"none"; limit=PAGE;
       clearTimeout(tmr); tmr=setTimeout(function(){ render(); syncURL(); }, 90); }
     q.addEventListener("input",onQ);

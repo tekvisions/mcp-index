@@ -29,7 +29,6 @@ module.exports = function(req, res) {
     res.setHeader('Cache-Control','public, max-age=0, s-maxage=86400');
     res.setHeader('X-Content-SHA256',item.sha256);
     res.setHeader('X-Content-Type-Options','nosniff');
-    if (pathname === '/details') res.setHeader('X-Robots-Tag','noindex');
     res.statusCode=200;res.end(req.method==='HEAD'?undefined:body);
   } catch (_) {res.statusCode=503;res.setHeader('Cache-Control','no-store');res.end('Saved page unavailable');}
 };

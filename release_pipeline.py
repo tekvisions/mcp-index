@@ -192,7 +192,7 @@ def build(capture,out,root=ROOT):
  security=json.loads((root/'vercel.json').read_text())['headers'][0]['headers']
  config={'version':3,'routes':[{'src':'/(.*)','headers':{x['key']:x['value'] for x in security},'continue':True},{'src':'/s/([a-z0-9-]+)/?','dest':'/details?route=$1'},{'src':'/catalog/([0-9]+)/?','dest':'/catalog/$1/index.html'},{'handle':'filesystem'}]}
  writejson(output/'config.json',config)
- writejson(out/'route-history.json',history);(out/'.catalog-state.json.gz').write_bytes(gzip.compress(encoded(data),mtime=0))
+ writejson(out/'previous-route-slugs.json',sorted(original));writejson(out/'route-history.json',history);(out/'.catalog-state.json.gz').write_bytes(gzip.compress(encoded(data),mtime=0))
  files=[]
  for p in sorted(output.rglob('*')):
   if p.is_symlink():raise ReleaseError('Symlink in deployment package')

@@ -39,4 +39,17 @@ class ReviewedRelease(unittest.TestCase):
   m=self.build();html=(self.out/'.vercel/output/static/index.html').read_text();self.assertIn(m['snapshot']['data_sha256'],html);self.assertIn('cursor traversal completed',html.lower());self.assertNotIn('Completeness unverified; refresh paused',html)
  def test_provider_function_and_package_are_bounded(self):
   m=self.build();self.assertLess(len(m['files']),1600);self.assertLess(sum(x['bytes'] for x in m['files']),220000000);self.assertEqual(json.loads((self.out/'.vercel/output/functions/details.func/.vc-config.json').read_text())['maxDuration'],5)
+ def test_live_verifier_rejects_noindex_even_when_bytes_match(self):
+  import hashlib
+  from verify_release import verify
+  self.build();root=self.out/'.vercel/output/static'
+  def response(url,method):
+   raw=(root/'index.html').read_bytes()
+   return 200,{'X-Content-Type-Options':'nosniff','Content-Security-Policy':"frame-ancestors 'none'",'X-Robots-Tag':'noindex'},raw
+  with self.assertRaisesRegex(ReleaseError,'noindex'):verify(self.out,'https://mcp.kymatalabs.com',self.root/'verify.json',fetcher=response,delay=0)
+  self.assertEqual(json.loads((self.root/'verify.json').read_text())['status'],'failed')
+ def test_live_verifier_rejects_wrong_target_before_network(self):
+  from verify_release import verify
+  self.build()
+  with self.assertRaisesRegex(ReleaseError,'host'):verify(self.out,'https://example.com',self.root/'verify.json',fetcher=lambda *a: self.fail('network'))
 if __name__=='__main__':unittest.main()
