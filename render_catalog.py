@@ -24,7 +24,7 @@ def render(root,template):
 
   start=text.index('  <div class="rows" id="rows">');end=text.index('</section>',start)
   status='Latest-version cursor traversal completed; registry-deleted records are excluded from search. Availability and safety are not independently verified.' if data.get('collection_complete') is True else 'Completeness unverified; refresh paused.'
-  text=text[:start]+f'<p>Snapshot {html.escape(data["generated_at"])} · {len(rows):,} saved records · page {page} of {pages}. {status}</p>\n  <div class="rows" id="rows">'+''.join(cards)+'</div>\n<div class="more" id="more"></div>\n<nav aria-label="Catalog pages" style="display:flex;flex-wrap:wrap;gap:8px;margin:24px 0;align-items:center">'+nav+'</nav></div>\n'+text[end:]
+  text=text[:start]+f'<p>Snapshot {html.escape(data["generated_at"])} · {len(rows):,} saved records · page {page} of {pages}. {status}</p>\n  <div class="rows" id="rows">'+''.join(cards)+'</div>\n<div class="more" id="more"></div>\n<nav aria-label="Catalog pages" style="position:static;z-index:auto;background:transparent;backdrop-filter:none;border:0;display:flex;flex-wrap:wrap;gap:8px;margin:24px 0;align-items:center">'+nav+'</nav></div>\n'+text[end:]
   text=text.replace('href="style.css"','href="/style.css"').replace('href="favicon.svg"','href="/favicon.svg"')
   if page>1:
    text=text.replace(f'<link rel="canonical" href="{SITE}/">',f'<link rel="canonical" href="{SITE}/catalog/{page}/">')

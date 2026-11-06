@@ -86,4 +86,5 @@ class ReviewedRelease(unittest.TestCase):
   import re
   html=(root/'catalog/5/index.html').read_text();nav=re.search(r'<nav aria-label="Catalog pages".*?</nav>',html).group()
   self.assertIn('/catalog/4/',nav);self.assertIn('/catalog/6/',nav);self.assertIn('/catalog/11/',nav);self.assertLess(nav.count('<a '),10)
+  self.assertIn('position:static',nav);self.assertIn('z-index:auto',nav)
 if __name__=='__main__':unittest.main()
