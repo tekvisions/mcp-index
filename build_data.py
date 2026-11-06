@@ -584,12 +584,9 @@ def generate_details(data, out_dir=None, badge_slugs=None):
             "identifier": name,
             "applicationCategory": "DeveloperApplication",
             "applicationSubCategory": cat,
-            "operatingSystem": "Cross-platform",
             "softwareVersion": version,
             "description": desc or meta_desc,
             "url": canon,
-            "isAccessibleForFree": True,
-            "publisher": {"@type": "Organization", "name": "Kymata Labs", "url": "https://kymatalabs.com/"},
         }
         if repo:
             sw["codeRepository"] = repo
@@ -608,7 +605,7 @@ def generate_details(data, out_dir=None, badge_slugs=None):
                 {"@type": "ListItem", "position": 3, "name": title, "item": canon},
             ],
         }
-        ld = json.dumps([crumbs, sw], separators=(",", ":"))
+        ld = json.dumps([crumbs, sw], separators=(",", ":")).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
 
         head_dyn = (
             f"<title>{e(page_title)}</title>\n"
@@ -680,7 +677,7 @@ def generate_details(data, out_dir=None, badge_slugs=None):
         owner, owner_kind = owner_of(name)
         verb, reg_label, snippet, snippet_note = install_snippet(s)
         phase_cls, phase_label = _recency_phase(ud)
-        health_word = {"active": "Actively maintained", "maintained": "Maintained",
+        health_word = {"active": "Registry updated within 30 days", "maintained": "Registry updated within 120 days",
                        "stale": "Quiet", "unknown": "Unknown freshness"}.get(health, "Unknown")
         transport_note = {
             "Remote": "Hosted — runs on the provider's infrastructure; connect over HTTP/SSE.",
@@ -754,7 +751,7 @@ def generate_details(data, out_dir=None, badge_slugs=None):
             '<div class="d-grid">'
             f'<div class="cell"><span>Category</span><b><a class="cell-link" href="/#index">{e(cat)}</a></b></div>'
             f'<div class="cell"><span>Transport</span><b>{e(transport)}</b></div>'
-            f'<div class="cell"><span>Health</span><b><span class="d {e(health)}"></span>{e(health_word)}</b></div>'
+            f'<div class="cell"><span>Registry freshness</span><b><span class="d {e(health)}"></span>{e(health_word)}</b></div>'
             f'<div class="cell"><span>Version</span><b>{e(version)}</b></div>'
             f'<div class="cell reg"><span>Distribution</span><b>{reg_html}</b></div>'
             f'<div class="cell"><span>Maintainer</span><b>{owner_b}</b></div>'

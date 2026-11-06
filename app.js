@@ -171,7 +171,7 @@
     var ld={"@context":"https://schema.org","@type":"ItemList","name":"The MCP Index — featured servers",
       "numberOfItems":top.length,
       "itemListElement":top.map(function(s,i){return {"@type":"ListItem","position":i+1,
-        "url":"https://mcp.kymatalabs.com/s/"+slugify(s.name),"name":s.title||s.name};})};
+        "url":"https://mcp.kymatalabs.com/s/"+(s.slug||slugify(s.name))+"/","name":s.title||s.name};})};
     var el=D.createElement("script"); el.type="application/ld+json"; el.id="ld-itemlist";
     el.textContent=JSON.stringify(ld); D.head.appendChild(el);
   }
@@ -206,7 +206,7 @@
     D.getElementById("metarow").innerHTML =
       statCell(data.server_count,"Servers indexed")
       + statCell(data.new_this_week,"New this week")
-      + statCell(data.active_count,"Active (&lt;30d)")
+      + statCell(data.active_count,"Registry updated &lt;30d")
       + statCell(data.categories.length,"Categories");
     D.querySelectorAll("#metarow b[data-to]").forEach(function(b){counter(b, +b.getAttribute("data-to"));});
 
@@ -220,7 +220,7 @@
     D.getElementById("toggles").innerHTML =
       chip("New ⚡","onlyNew","new",data.new_this_week)
       + chip("Remote","transport","Remote") + chip("Local","transport","Local")
-      + chip("Active","health","active");
+      + chip("Recent registry update","health","active");
 
     D.querySelector('.chip[data-group="cat"][data-val="All"]').classList.add("active");
 
