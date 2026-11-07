@@ -10,7 +10,7 @@ class StaticCatalogTests(unittest.TestCase):
    texts=[(p/'index.html').read_text(),(p/'catalog/2/index.html').read_text()];urls=[]
    for t in texts:
     self.assertNotIn('<script>bad</script>',t);self.assertNotIn('<img onerror=bad>',t);self.assertIn(hashlib.sha256(raw).hexdigest(),t);urls+=re.findall(r'<a class="row" href="([^"]+)"',t)
-   self.assertEqual(len(urls),121);self.assertEqual(len(set(urls)),121)
+   self.assertEqual(len(urls),121);self.assertEqual(len(set(urls)),121);self.assertTrue(all(not u.endswith('/') for u in urls))
    self.assertIn('href="https://mcp.kymatalabs.com/catalog/2/"',texts[1]);self.assertNotIn('<script src="app.js">',texts[1]);self.assertEqual((p/'data.json').read_bytes(),raw)
  def test_collision_slugs_are_unique_and_stable(self):
   rows=assign_slugs([{'name':'a/b'},{'name':'a.b'}]);self.assertEqual([x['slug'] for x in rows],['a-b','a-b-2']);self.assertEqual(assign_slugs(rows),rows)

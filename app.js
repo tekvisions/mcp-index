@@ -75,7 +75,7 @@
       var tag=climbed?'<span class="mv up">▲'+d+'</span>'
         :(d==null?'<span class="mv new">NEW</span>':'<span class="mv flat" title="Held position">→</span>');
       var sub=climbed?("now #"+m.rank):(d==null?esc(m.category||"new"):("now #"+m.rank));
-      return '<a class="mover" href="/s/'+esc(m.slug||slugify(m.name))+'/" style="--d:'+(i*50)+'ms">'
+      return '<a class="mover" href="/s/'+esc(m.slug||slugify(m.name))+'" style="--d:'+(i*50)+'ms">'
         +tag+'<span class="mvn">'+esc(m.title||m.name)+'</span><span class="mvs">'+sub+'</span></a>';
     }).join("");
     el.innerHTML='<span class="movers-l">Movers</span><div class="movers-track">'+chips+'</div>';
@@ -116,7 +116,7 @@
     var anim = (animFrom!=null && i>=animFrom && i<animFrom+40)
       ? ' style="animation-delay:'+Math.min((i-animFrom)*22,420)+'ms"' : '';
     var cls = (animFrom!=null && i>=animFrom) ? 'row reveal' : 'row';
-    return '<a class="'+cls+'" href="/s/'+esc(s.slug||slugify(s.name))+'/"'+anim+'>'
+    return '<a class="'+cls+'" href="/s/'+esc(s.slug||slugify(s.name))+'"'+anim+'>'
       +'<div class="nm"><h3>'+title+' '+nw+moveBadge(s)+'</h3><div class="ns">'+name+'</div>'
         +desc+(reg?'<div class="reg">'+reg+'</div>':'')+'</div>'
       +'<div class="cat">'+esc(s.category)+'</div>'
@@ -171,7 +171,7 @@
     var ld={"@context":"https://schema.org","@type":"ItemList","name":"The MCP Index — featured servers",
       "numberOfItems":top.length,
       "itemListElement":top.map(function(s,i){return {"@type":"ListItem","position":i+1,
-        "url":"https://mcp.kymatalabs.com/s/"+(s.slug||slugify(s.name))+"/","name":s.title||s.name};})};
+        "url":"https://mcp.kymatalabs.com/s/"+(s.slug||slugify(s.name)),"name":s.title||s.name};})};
     var el=D.createElement("script"); el.type="application/ld+json"; el.id="ld-itemlist";
     el.textContent=JSON.stringify(ld); D.head.appendChild(el);
   }

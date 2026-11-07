@@ -37,6 +37,19 @@ class ReviewedRelease(unittest.TestCase):
    manifest['state_files'][name]={'sha256':hashlib.sha256(body).hexdigest(),'bytes':len(body)};(self.out/'package-manifest.json').write_text(json.dumps(manifest))
    with self.assertRaisesRegex(ReleaseError,'identities differ|duplicates'):verify_package(self.out)
    p.write_bytes(original);manifest['state_files'][name]=old;(self.out/'package-manifest.json').write_text(json.dumps(manifest))
+ def test_current_discovery_targets_match_canonicals_and_exclude_noindex(self):
+  import re,zlib,xml.etree.ElementTree as ET
+  self.build();root=self.out/'.vercel/output';static=root/'static'
+  urls=[e.text for e in ET.parse(static/'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+  self.assertEqual(set(urls),{'https://mcp.kymatalabs.com/','https://mcp.kymatalabs.com/s/original-current'})
+  self.assertNotIn('https://mcp.kymatalabs.com/privacy.html',urls)
+  self.assertIn('href="/s/original-current"',(static/'index.html').read_text())
+  func=root/'functions/details.func';pages=json.loads((func/'pages.json').read_text());pack=(func/'pages.bin').read_bytes();dictionary=(func/'dictionary.bin').read_bytes()
+  for slug,row in pages.items():
+   dec=zlib.decompressobj(-15,zdict=dictionary);body=dec.decompress(pack[row['offset']:row['offset']+row['length']]).decode()
+   canonical=re.search(r'<link rel="canonical" href="([^"]+)"',body).group(1)
+   if row['state']=='current': self.assertIn(canonical,urls)
+   else: self.assertNotIn(canonical,urls);self.assertIn('noindex,follow',body)
  def test_incomplete_capture_cannot_create_package(self):
   p=self.capture/'receipt.json';j=json.loads(p.read_text());j['complete']=False;p.write_text(json.dumps(j))
   with self.assertRaises(ValueError):self.build()

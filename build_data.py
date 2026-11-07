@@ -286,7 +286,7 @@ def generate_feed(data, badge_slugs=None, out_dir=None) -> None:
             "category": s.get("category"),
             "updated_at": s.get("updated_at"),
             "rank_delta": s.get("rank_delta"),
-            "url": f"{SITE}/s/{slug}/",
+            "url": f"{SITE}/s/{slug}",
             "badge": f"{SITE}/badge/{slug}.svg" if slug in badge_slugs else None,
         }
 
@@ -329,7 +329,7 @@ def generate_rss(data, out_dir=None) -> None:
     items = []
     for s in servers:
         slug = s.get("slug") or slugify(s.get("name"))
-        url = f"{SITE}/s/{slug}/"
+        url = f"{SITE}/s/{slug}"
         name = s.get("title") or s.get("name")
         cat, rank = s.get("category"), s.get("rank")
         rd = s.get("rank_delta")
@@ -763,7 +763,7 @@ def generate_details(data, out_dir=None, badge_slugs=None):
         peers_block = ""
         if peers:
             chips = "".join(
-                f'<a class="peer" href="/s/{e(p["slug"])}/"><span class="pd {e(p.get("health") or "unknown")}"></span>'
+                f'<a class="peer" href="/s/{e(p["slug"])}"><span class="pd {e(p.get("health") or "unknown")}"></span>'
                 f'<span class="pn">{e(p.get("title") or p.get("name"))}</span>'
                 f'<span class="pm">{e(p.get("transport") or "")}</span></a>'
                 for p in peers
@@ -792,8 +792,8 @@ def generate_details(data, out_dir=None, badge_slugs=None):
         embed_block = ""
         if slug in badge_slugs:
             badge_url = f"{SITE}/badge/{slug}.svg"
-            embed_md = f"[![MCP Index rank]({badge_url})]({canon}/)"
-            embed_html = f'<a href="{canon}/"><img src="{badge_url}" alt="MCP Index rank"></a>'
+            embed_md = f"[![MCP Index rank]({badge_url})]({canon})"
+            embed_html = f'<a href="{canon}"><img src="{badge_url}" alt="MCP Index rank"></a>'
             embed_block = (
                 '<section class="d-card embed">'
                 '<h2 class="d-h">📛 Embed this badge</h2>'

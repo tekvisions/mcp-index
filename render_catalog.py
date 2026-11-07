@@ -12,7 +12,7 @@ def render(root,template):
   part=rows[(page-1)*PAGE_SIZE:page*PAGE_SIZE];cards=[]
   for x in part:
    esc=lambda k:html.escape(str(x.get(k) or ''),quote=True)
-   cards.append(f'<a class="row" href="/s/{esc("slug")}/"><div class="nm"><h3>{esc("title")}</h3><div class="ns">{esc("name")}</div><p>{esc("description")}</p></div><div class="cat">{esc("category")}</div><div class="health">Registry updated {esc("updated_at")}</div><div class="cat tcell">{esc("transport")}</div></a>')
+   cards.append(f'<a class="row" href="/s/{esc("slug")}"><div class="nm"><h3>{esc("title")}</h3><div class="ns">{esc("name")}</div><p>{esc("description")}</p></div><div class="cat">{esc("category")}</div><div class="health">Registry updated {esc("updated_at")}</div><div class="cat tcell">{esc("transport")}</div></a>')
   visible=sorted({1,pages,*range(max(1,page-2),min(pages,page+2)+1)})
   link=lambda n,label:f'<a class="chip" href="{("/" if n==1 else "/catalog/"+str(n)+"/")}"'+(' aria-current="page"' if n==page else '')+f'>{label}</a>'
   links=([link(page-1,'Previous')] if page>1 else [])

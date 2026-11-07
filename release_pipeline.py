@@ -188,7 +188,7 @@ def build(capture,out,root=ROOT):
   clean_slug(p.stem)
   if not (static/'badge'/p.name).exists():
    (static/'badge'/p.name).write_text('<svg xmlns="http://www.w3.org/2000/svg" width="170" height="20"><title>Historical MCP Index badge; current registry rank is not asserted</title><rect width="170" height="20" fill="#555"/><text x="8" y="14" fill="white" font-size="11">MCP Index · historical reference</text></svg>')
- urls=[SITE+'/',SITE+'/privacy.html']+[SITE+'/s/'+x['slug']+'/' for x in data['servers']]+[SITE+'/catalog/'+str(i)+'/' for i in range(2,presentation['pages']+1)]
+ urls=[SITE+'/']+[SITE+'/s/'+x['slug'] for x in data['servers']]+[SITE+'/catalog/'+str(i)+'/' for i in range(2,presentation['pages']+1)]
  chunks=[urls[i:i+25000] for i in range(0,len(urls),25000)]
  sitemap_names=[]
  for i,chunk in enumerate(chunks,1):
