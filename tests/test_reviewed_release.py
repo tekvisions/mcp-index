@@ -50,6 +50,21 @@ class ReviewedRelease(unittest.TestCase):
    canonical=re.search(r'<link rel="canonical" href="([^"]+)"',body).group(1)
    if row['state']=='current': self.assertIn(canonical,urls)
    else: self.assertNotIn(canonical,urls);self.assertIn('noindex,follow',body)
+ def test_streamed_renderer_matches_file_renderer_without_temporary_html(self):
+  self.build();static=self.out/'.vercel/output/static';data=json.loads((static/'data.json').read_text());disk=self.root/'disk-render';stream=self.root/'stream-render';seen={}
+  with contextlib.redirect_stdout(io.StringIO()),contextlib.redirect_stderr(io.StringIO()):
+   generate_details(data,str(disk),set())
+   generate_details(data,str(stream),set(),page_sink=lambda slug,body:seen.setdefault(slug,body))
+  self.assertEqual(set(seen),{'original-current'})
+  for slug,body in seen.items(): self.assertEqual(body,(disk/'s'/slug/'index.html').read_bytes())
+  self.assertFalse(stream.exists());self.assertFalse(list(self.out.glob('mcp-html-*')))
+ def test_streamed_alias_retains_exact_current_body(self):
+  import zlib
+  p=self.repo/'route-history.json';history=json.loads(p.read_text());history['routes']['zz-alias']={'name':'org.example/current','title':'Old alias'};p.write_text(json.dumps(history));self.build()
+  func=self.out/'.vercel/output/functions/details.func';pages=json.loads((func/'pages.json').read_text());raw=(func/'pages.bin').read_bytes();dictionary=(func/'dictionary.bin').read_bytes()
+  def decode(slug):
+   row=pages[slug];d=zlib.decompressobj(-15,zdict=dictionary);return d.decompress(raw[row['offset']:row['offset']+row['length']])
+  self.assertEqual(pages['zz-alias']['state'],'historical_alias');self.assertEqual(decode('zz-alias'),decode('original-current'));verify_package(self.out)
  def test_incomplete_capture_cannot_create_package(self):
   p=self.capture/'receipt.json';j=json.loads(p.read_text());j['complete']=False;p.write_text(json.dumps(j))
   with self.assertRaises(ValueError):self.build()

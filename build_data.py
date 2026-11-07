@@ -458,7 +458,7 @@ def _recency_phase(ud):
     return "stale", "Dormant · over a year since update"
 
 
-def generate_details(data, out_dir=None, badge_slugs=None):
+def generate_details(data, out_dir=None, badge_slugs=None, page_sink=None):
     """Static-generate /s/<slug>/index.html for every server — the SEO surface.
     Reuses the hub's exact header/nav/footer/theme (style.css). Shared head/footer
     built once for speed; only the per-server body is templated in the loop.
@@ -478,7 +478,8 @@ def generate_details(data, out_dir=None, badge_slugs=None):
     s_root = os.path.join(out_dir, "s")
     # A discovery window is not a retirement decision. Keep prior public routes;
     # the held release still requires a reviewed union/retention manifest.
-    os.makedirs(s_root, exist_ok=True)
+    if page_sink is None:
+        os.makedirs(s_root, exist_ok=True)
 
     # built once — shared chrome
     head_top = (
@@ -837,14 +838,18 @@ def generate_details(data, out_dir=None, badge_slugs=None):
         )
 
         page = head_top + head_dyn + head_static + nav + body + footer + theme_js
-        d = os.path.join(s_root, slug)
-        os.makedirs(d, exist_ok=True)
-        with open(os.path.join(d, "index.html"), "w") as f:
-            f.write(page)
+        if page_sink is not None:
+            page_sink(slug, page.encode('utf-8'))
+        else:
+            d = os.path.join(s_root, slug)
+            os.makedirs(d, exist_ok=True)
+            with open(os.path.join(d, "index.html"), "w") as f:
+                f.write(page)
         count += 1
 
-    write_sitemap(servers, out_dir)
-    write_llms_txt(data, out_dir)
+    if page_sink is None:
+        write_sitemap(servers, out_dir)
+        write_llms_txt(data, out_dir)
     print(f"generated {count} detail pages under s/", file=sys.stderr)
     return count
 

@@ -151,35 +151,39 @@ def build(capture,out,root=ROOT):
  # Long history belongs in the detail output/state, not every browser's search download.
  public=dict(data);public['servers']=[{k:v for k,v in x.items() if k not in ('rank_history','packages','remotes')} for x in data['servers']]
  writejson(static/'data.json',public)
- with tempfile.TemporaryDirectory(prefix='mcp-html-',dir=out) as rawfolder:
-  raw=pathlib.Path(rawfolder);badges=legacy.generate_badges(data['servers'],str(static));legacy.generate_feed(data,badges,str(static));legacy.generate_rss(data,str(static))
-  legacy.generate_details(data,str(raw),badges)
-  dictionary=(raw/'s'/data['servers'][0]['slug']/'index.html').read_bytes()[-32768:]
-  (func/'dictionary.bin').write_bytes(dictionary)
-  pages={};route_status={};offset=0
-  with (func/'pages.bin').open('wb') as packed:
-   for slug,row in sorted(history['routes'].items()):
-    active=current.get(row['name'])
-    if active:
-     body=(raw/'s'/active['slug']/'index.html').read_bytes()
-     # Existing canonical identity stays stable even when a historical alias exists.
-     body=body.replace(b'checks freshness.',b'checks recorded update timestamps, not runtime health.')
-     body=body.replace(b'Updated daily from the official registry',b'Last successful snapshot: '+data['generated_at'].encode())
-     if active['registry_status']=='deprecated':
-      warning='<aside class="d-card"><strong>Publisher registry status: deprecated.</strong> '+html.escape(active.get('status_message') or 'Consult the publisher before use.')+'</aside>'
-      body=body.replace(b'<div class="d-head">',warning.encode()+b'<div class="d-head">')
-     route_status[slug]='current' if active['slug']==slug else 'historical_alias'
-    else:
-     state=statuses.get(row['name'])
-     reason='The official registry marks this server as deleted.' if state=='deleted' else 'This identity was absent from the completed latest-version traversal. Absence alone does not establish why it is unavailable.'
-     body=retained_page(slug,row,reason,data['generated_at']);route_status[slug]='deleted_reference' if state=='deleted' else 'unobserved_reference'
-    if len(body)>1_000_000:raise ReleaseError('Detail page exceeds bound')
-    encoder=zlib.compressobj(9,zlib.DEFLATED,-15,zdict=dictionary)
-    zipped=encoder.compress(body)+encoder.flush();packed.write(zipped)
-    pages[slug]={'offset':offset,'length':len(zipped),'bytes':len(body),'sha256':sha(body),'identity':row['name'],'state':route_status[slug]}
-    offset+=len(zipped)
+ # Stream rendered HTML into the bounded compressed package. Do not materialize
+ # tens of thousands of temporary pages on the publisher's disk.
+ badges=legacy.generate_badges(data['servers'],str(static));legacy.generate_feed(data,badges,str(static));legacy.generate_rss(data,str(static))
+ pages={};route_status={};offset=0;dictionary=None
+ by_slug={x['slug']:x for x in data['servers']}
+ with (func/'pages.bin').open('w+b') as packed:
+  def append_page(slug,body,row,state):
+   nonlocal offset,dictionary
+   if not isinstance(body,bytes) or len(body)>1_000_000:raise ReleaseError('Detail page exceeds bound')
+   if dictionary is None:
+    if slug!=data['servers'][0]['slug']:raise ReleaseError('Unexpected first rendered identity')
+    dictionary=body[-32768:];(func/'dictionary.bin').write_bytes(dictionary)
+   body=body.replace(b'checks freshness.',b'checks recorded update timestamps, not runtime health.')
+   body=body.replace(b'Updated daily from the official registry',b'Last successful snapshot: '+data['generated_at'].encode())
+   if row.get('registry_status')=='deprecated':
+    warning='<aside class="d-card"><strong>Publisher registry status: deprecated.</strong> '+html.escape(row.get('status_message') or 'Consult the publisher before use.')+'</aside>'
+    body=body.replace(b'<div class="d-head">',warning.encode()+b'<div class="d-head">')
+   encoder=zlib.compressobj(9,zlib.DEFLATED,-15,zdict=dictionary);zipped=encoder.compress(body)+encoder.flush()
+   packed.write(zipped);pages[slug]={'offset':offset,'length':len(zipped),'bytes':len(body),'sha256':sha(body),'identity':row['name'],'state':state};route_status[slug]=state;offset+=len(zipped)
+   if offset>MAX_FUNCTION_BYTES-10_000_000:raise ReleaseError('Function package byte budget exceeded')
+  legacy.generate_details(data,str(out),badges,page_sink=lambda slug,body:append_page(slug,body,by_slug[slug],'current'))
+  for slug,row in sorted(history['routes'].items()):
+   if slug in pages:continue
+   active=current.get(row['name'])
+   if active:
+    # Historical aliases retain the exact current HTML and canonical identity.
+    original_page=pages[active['slug']];packed.flush();packed.seek(original_page['offset']);zipped=packed.read(original_page['length']);packed.seek(offset)
+    packed.write(zipped);pages[slug]={**original_page,'offset':offset,'state':'historical_alias'};route_status[slug]='historical_alias';offset+=len(zipped)
     if offset>MAX_FUNCTION_BYTES-10_000_000:raise ReleaseError('Function package byte budget exceeded')
-  writejson(func/'pages.json',pages)
+   else:
+    state=statuses.get(row['name']);reason='The official registry marks this server as deleted.' if state=='deleted' else 'This identity was absent from the completed latest-version traversal. Absence alone does not establish why it is unavailable.'
+    append_page(slug,retained_page(slug,row,reason,data['generated_at']),row,'deleted_reference' if state=='deleted' else 'unobserved_reference')
+ writejson(func/'pages.json',pages)
  shutil.copyfile(root/'packed_pages.js',func/'index.js')
  writejson(func/'.vc-config.json',{'runtime':'nodejs22.x','handler':'index.js','launcherType':'Nodejs','shouldAddHelpers':True,'maxDuration':5})
  presentation=render(static,updated_template((root/'index.source.html').read_text()))
