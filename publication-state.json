@@ -1,16 +1,15 @@
 {
   "schema_version": 1,
-  "status": "production_verified",
-  "previous_id": "dpl_3ppJeGrUCDibpZi4WUwvtndmCmuL",
-  "pending_id": "dpl_7wWuWk3KuZbALSD75NpxypM4Ktts",
-  "pending_url": "https://mcp-index-i6dkbfau3-techtalevisions-projects.vercel.app",
+  "status": "candidate_verified_pending_promotion",
+  "previous_id": "dpl_7wWuWk3KuZbALSD75NpxypM4Ktts",
+  "pending_id": "dpl_bewq5zhV9UXmkcCZCKdSYeys3Jrc",
+  "pending_url": "https://mcp-index-l75pi6ap1-techtalevisions-projects.vercel.app",
   "project_id": "prj_SAGAzK3ApYyopzV82TdMlS6vNXqO",
   "team_id": "team_L6hpqgg8pEHznOzrnU66JuoW",
-  "package_sha256": "e70eb8ae82d3ce44c161e3cec1552d849f516fafccbaedd2172c84f2441004d6",
-  "source_revision": "0ae3d85d851de9a243f2a8e7f3e80031af845fb8",
+  "package_sha256": "afb8477b8b1f650835b8bb96a96c9b544862e022a5c72a69635bb034fecdd228",
+  "source_revision": "7ec32509c2efb076ace0e6216d79ab2cb900fb5d",
   "files": {
-    "route-history.json": "7d48d6cbb4538e73e6a2d828619913eeb71c1129f8bd4678b7fe05710dfc0ac2",
-    ".catalog-state.json.gz": "61605c0a3f88d8bf189c3ff75fbe604c0a65afcba24c2617c1f7f4c271bb387d"
-  },
-  "production_verification_sha256": "4c2b99032fe4f095fe9f122aa597b189d280c256eb50f391272b027c09f7dd81"
+    "route-history.json": "7ebd4495fbfbdcf11ce94bdc35da44beec6be2394b0530b3a2c63539853f56e5",
+    ".catalog-state.json.gz": "61664fa764d264dad6a6c3a20bf8b370c7eee542936f533311b35293f00b0f98"
+  }
 }
