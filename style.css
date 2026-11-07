@@ -334,7 +334,7 @@ pre.code .copy.ok{color:var(--node);border-color:var(--node)}
 .geo-kstrip .d { width: 7px; height: 7px; background: var(--muted); border-radius: 1px; display: inline-block; }
 .geo-kstrip .s { opacity: .3; } .geo-kstrip .g { flex: 1; }
 .geo-about { border-top: 1px solid var(--line); padding: 46px 28px 8px; max-width: 1200px; margin: 0 auto; }
-.geo-about h2 { font-weight: 700; font-size: clamp(21px, 3vw, 28px); letter-spacing: -.02em; margin-bottom: 12px; color: var(--ink); }
+.geo-about h2, .catalog-heading { font-weight: 700; font-size: clamp(21px, 3vw, 28px); letter-spacing: -.02em; margin-bottom: 12px; color: var(--ink); }
 .geo-about .intro { color: var(--muted); max-width: 72ch; font-size: 14px; line-height: 1.7; margin-bottom: 26px; }
 .geo-about a { color: var(--ink); }
 .geo-faq { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
