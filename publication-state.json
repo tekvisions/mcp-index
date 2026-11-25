@@ -2,14 +2,14 @@
   "schema_version": 1,
   "status": "candidate_verified_pending_promotion",
   "previous_id": "dpl_7wWuWk3KuZbALSD75NpxypM4Ktts",
-  "pending_id": "dpl_9pg8Dk3BMJ2ba3GqraoLeMR7Apdk",
-  "pending_url": "https://mcp-index-gm3j7q8eh-techtalevisions-projects.vercel.app",
+  "pending_id": "dpl_8wJc64ki3apUbsinpDUpYAPekc25",
+  "pending_url": "https://mcp-index-jtkdv1lh6-techtalevisions-projects.vercel.app",
   "project_id": "prj_SAGAzK3ApYyopzV82TdMlS6vNXqO",
   "team_id": "team_L6hpqgg8pEHznOzrnU66JuoW",
-  "package_sha256": "20daf08e6617c15de1307e7504f09cd7ebbe80142af99272339a2072424a28ce",
-  "source_revision": "831a6cf176a64222149455340b39b240c41b7ddf",
+  "package_sha256": "2c504f93c86efc84c1adb6fe9087bdff18a4eb153f6862ffdc4b70eef8541968",
+  "source_revision": "2b204608b89b068c15b87b0327c49bc829841408",
   "files": {
-    "route-history.json": "1027dc32d0a7605bab3e1b4a82b98c2465873730c655f98876e9a494d6bab80d",
-    ".catalog-state.json.gz": "dc5b1cfd05a7aef3c147a91b288ae3784572b8f7343e9a3b73b5820026f57e5d"
+    "route-history.json": "6546a36271d6a91c9132d7bf1d84438edc093ac790145be387a798d1a63c0f42",
+    ".catalog-state.json.gz": "679012b8fb74886fc6251a40c45b7df6348ca242821e3832e11e5ff1a76ecb90"
   }
 }
