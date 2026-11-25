@@ -56,3 +56,35 @@ no compare-and-swap transaction here, so a narrow inspect-to-mutate race remains
 All access settings, canonical ownership and CSP were preserved. Candidate
 provider noindex is crawler exclusion, not authentication. The public correction
 does not waive separate privacy, commercial or launch gates for other projects.
+
+## Publication filter: 2026-11-25
+
+The official registry outgrew the 60,000-record budget (76,061 latest-version
+records captured on 2026-11-25: 72,884 active, 1,114 deprecated, 2,063 deleted),
+so every scheduled release failed closed from 2026-11-09. Owner decision: publish
+only active servers and keep the cap.
+
+- Listed: records the registry marks `active` whose latest version was
+  updated within the last 30 days of the completed capture (`updatedAt`, else
+  `publishedAt`). Constants: `RECENCY_DAYS = 30`, `MAX_RECORDS = 60000` in
+  `release_pipeline.py`. Active records alone (72,884) exceed the cap, so the
+  recency window is required; 30 days matches the existing "active" freshness
+  label and gave 33,698 listed records (56% of the cap) on 2026-11-25.
+- Not listed: `deleted`, `deprecated`, and active records last updated more than
+  30 days before the capture. Collection is unchanged (the full traversal is still
+  captured and hash-bound), so counts per exclusion reason are published in
+  `data.json` and `snapshot.json` (`publication_filter`, `deleted_records`,
+  `deprecated_records`, `outside_window_records`).
+- Lifecycle: no published URL is removed. A previously published identity the
+  filter excludes is served at the same `/s/<slug>/` URL as a labelled,
+  `noindex,follow` historical reference (`deleted_reference`,
+  `deprecated_reference` with the publisher's status message, or
+  `dormant_reference` with its last registry update date), outside the sitemap and
+  without install commands. If it is updated again it returns to the listing at
+  the same slug.
+- Guards kept: an empty listing raises (`Empty catalog ...`) and the previous
+  release stays; more than `MAX_RECORDS` raises (`Record budget exceeded ...`);
+  above 85% of the cap the build logs a GitHub warning so the window or capacity
+  can be reviewed before it fails. Raising the cap still needs a measured package
+  review. Offline build of the 2026-11-25 capture: 74,321 routes (all 59,615
+  historical routes kept), detail function 65 MB of the 160 MB budget.

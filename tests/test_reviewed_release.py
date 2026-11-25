@@ -1,11 +1,12 @@
-import contextlib,io,json,pathlib,shutil,subprocess,tempfile,unittest
+import contextlib,datetime,io,json,pathlib,shutil,subprocess,tempfile,unittest
 from registry_collect import collect,OFFICIAL
 from release_pipeline import build,verify_package,ReleaseError,stable_slugs
 from build_data import generate_details
 
 SOURCE=pathlib.Path(__file__).resolve().parents[1]
+RECENT=(datetime.datetime.now(datetime.timezone.utc)-datetime.timedelta(days=1)).isoformat().replace('+00:00','Z')
 def source_page():
- return json.dumps({'servers':[{'server':{'name':'org.example/current','title':'Current </script><script>alert(1)</script>','description':'Publisher declaration','version':'1.0.0','packages':[]},'_meta':{OFFICIAL:{'isLatest':True,'status':'active','publishedAt':'2026-01-01T00:00:00Z'}}},{'server':{'name':'org.example/removed','version':'1.0.0'},'_meta':{OFFICIAL:{'isLatest':True,'status':'deleted'}}}],'metadata':{'count':2}}).encode()
+ return json.dumps({'servers':[{'server':{'name':'org.example/current','title':'Current </script><script>alert(1)</script>','description':'Publisher declaration','version':'1.0.0','packages':[]},'_meta':{OFFICIAL:{'isLatest':True,'status':'active','publishedAt':RECENT}}},{'server':{'name':'org.example/removed','version':'1.0.0'},'_meta':{OFFICIAL:{'isLatest':True,'status':'deleted'}}}],'metadata':{'count':2}}).encode()
 class ReviewedRelease(unittest.TestCase):
  def setUp(self):
   self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.root=pathlib.Path(self.temp.name);self.repo=self.root/'repo';self.repo.mkdir();self.capture=self.root/'capture';self.out=self.root/'built'

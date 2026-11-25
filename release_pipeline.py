@@ -12,6 +12,12 @@ from render_catalog import render
 ROOT=pathlib.Path(__file__).resolve().parent
 SITE='https://mcp.kymatalabs.com'
 MAX_RECORDS=60000
+# Publication filter (owner decision 2026-11-25): list only servers the registry
+# marks active AND whose latest version was updated within RECENCY_DAYS of the
+# completed capture. Deleted, deprecated and older records are not listed; any
+# of their URLs that were already published stay as labelled noindex references.
+RECENCY_DAYS=30
+HEADROOM_WARNING=0.85
 MAX_PACKAGE_BYTES=220_000_000
 MAX_FUNCTION_BYTES=160_000_000
 MAX_FILES=1600
@@ -67,12 +73,22 @@ def stable_slugs(records,history):
   used.add(slug);row['slug']=clean_slug(slug);result[name]=slug
  return result
 
+def exclusion(meta,now):
+ """None when the record is listed, otherwise why it is not (deleted, deprecated, dormant)."""
+ if meta['status']!='active':return meta['status']
+ updated=meta.get('updatedAt') or meta.get('publishedAt')
+ if not updated:return 'dormant'
+ try:days=(now-datetime.datetime.fromisoformat(updated.replace('Z','+00:00'))).total_seconds()/86400
+ except (ValueError,TypeError):raise ReleaseError('Invalid registry timestamp')
+ return 'dormant' if days>RECENCY_DAYS else None
+
 def normalized(source,receipt,history,prior):
- rows=[];now=datetime.datetime.fromisoformat(receipt['finished_at']);today=now.date().isoformat()
+ rows=[];now=datetime.datetime.fromisoformat(receipt['finished_at']);today=now.date().isoformat();excluded=collections.Counter()
  prior_rows={x['name']:x for x in prior.get('servers',[])} if prior.get('collection_scope')=='official-v0.1-latest-including-deleted' else {}
  for item in source:
   server=item['server'];meta=item['_meta'][registry_collect.OFFICIAL]
-  if meta['status']=='deleted':continue
+  reason=exclusion(meta,now)
+  if reason:excluded[reason]+=1;continue
   name=server['name'];title=server.get('title') or name.split('/')[-1];desc=server.get('description') or ''
   if not isinstance(title,str) or not isinstance(desc,str) or len(title)>2000 or len(desc)>20000:raise ReleaseError('Unbounded or invalid publisher text')
   packages=server.get('packages') or [];remotes=server.get('remotes') or []
@@ -94,14 +110,17 @@ def normalized(source,receipt,history,prior):
        'health':'unknown' if days is None else 'active' if days<=30 else 'maintained' if days<=120 else 'stale','is_new':pd is not None and 0<=pd<=7,
        'category':legacy.categorize(title+' '+desc+' '+name)}
   rows.append(row)
- if not 1<=len(rows)<=MAX_RECORDS:raise ReleaseError('Record budget or empty catalog')
+ if not rows:raise ReleaseError('Empty catalog after the publication filter; keeping the previous release')
+ if len(rows)>MAX_RECORDS:raise ReleaseError('Record budget exceeded by the publication filter: '+str(len(rows))+' > '+str(MAX_RECORDS))
+ if len(rows)>HEADROOM_WARNING*MAX_RECORDS:print('::warning::Listed records '+str(len(rows))+' exceed '+str(int(HEADROOM_WARNING*100))+'% of the record budget '+str(MAX_RECORDS),flush=True)
  stable_slugs(rows,history);rows.sort(key=lambda x:(x['updated_at'] or '',x['name']),reverse=True)
  for rank,row in enumerate(rows,1):
   rh=[p for p in prior_rows.get(row['name'],{}).get('rank_history',[]) if isinstance(p,dict) and type(p.get('rank')) is int and p.get('date','')<today][-89:]
   row.update(rank=rank,rank_prev=rh[-1]['rank'] if rh else None,rank_delta=rh[-1]['rank']-rank if rh else None,peak_rank=min([rank]+[p['rank'] for p in rh]),tracked_days=len(rh)+1,rank_history=rh+[{'date':today,'rank':rank}])
  cats=collections.Counter(x['category'] for x in rows)
  return {'generated_at':receipt['finished_at'],'generated_date':today,'source':'Official MCP Registry v0.1; publisher declarations','collection_complete':True,'collection_scope':'official-v0.1-latest-including-deleted',
-         'collection_receipt_sha256':sha(encoded(receipt)),'server_count':len(rows),'registry_records':len(source),'deleted_count':len(source)-len(rows),
+         'collection_receipt_sha256':sha(encoded(receipt)),'server_count':len(rows),'registry_records':len(source),'deleted_count':excluded['deleted'],'deprecated_count':excluded['deprecated'],'outside_window_count':excluded['dormant'],
+         'publication_filter':{'registry_status':'active','updated_within_days':RECENCY_DAYS},
          'new_this_week':sum(x['is_new'] for x in rows),'active_count':sum(x['health']=='active' for x in rows),'categories':sorted(cats),'category_counts':dict(cats),
          'new_names':[x['name'] for x in rows if x['is_new']][:12],'movers':[{'name':x['name'],'title':x['title'],'slug':x['slug'],'category':x['category'],'rank':x['rank'],'rank_delta':x['rank_delta'],'is_new':x['is_new']} for x in sorted(rows,key=lambda x:x['rank_delta'] or 0,reverse=True) if (x['rank_delta'] or 0)>0][:5],
          'servers':rows}
@@ -118,7 +137,7 @@ def retained_page(slug,row,reason,date):
 def updated_template(text):
  replacements={
   'Health · updated':'Registry freshness',
-  'This legacy snapshot has no verified cursor-exhaustion receipt, so source completeness is unknown. Updates remain paused while the replacement publishing pipeline is validated.':'The snapshot is built only after the official latest-version cursor traversal completes. Deleted records are excluded from search and retained historical URLs are labeled. A moving registry is not an atomic census; listings are not independently tested.',
+  'This legacy snapshot has no verified cursor-exhaustion receipt, so source completeness is unknown. Updates remain paused while the replacement publishing pipeline is validated.':'The snapshot is built only after the official latest-version cursor traversal completes. Only servers the registry marks active and updated within the last '+str(RECENCY_DAYS)+' days are listed; deleted, deprecated and older records are excluded, and their previously published URLs stay as labeled references. A moving registry is not an atomic census; listings are not independently tested.',
   'Completeness and current server availability are unverified.':'The declared latest-version traversal is complete; endpoint availability and safety are not independently verified.',
   'current availability and completeness are unverified.':'current availability and safety are not independently verified.',
   'completeness is unverified.':'latest-version traversal completed; runtime availability is unverified.',
@@ -137,7 +156,7 @@ def build(capture,out,root=ROOT):
  if not 0<=age<=36*3600:raise ReleaseError('Complete source capture is stale')
  source=json.loads((capture/'records.json').read_text())['servers'];history=identity_manifest(root)
  prior_path=root/'.catalog-state.json.gz';prior=json.loads(gzip.decompress(prior_path.read_bytes())) if prior_path.exists() else {}
- data=normalized(source,receipt,history,prior);current={x['name']:x for x in data['servers']};statuses={x['server']['name']:x['_meta'][registry_collect.OFFICIAL]['status'] for x in source}
+ data=normalized(source,receipt,history,prior);current={x['name']:x for x in data['servers']};now=datetime.datetime.fromisoformat(receipt['finished_at']);metas={x['server']['name']:x['_meta'][registry_collect.OFFICIAL] for x in source}
  original=set(history['routes'])
  for row in data['servers']:
   history['routes'].setdefault(row['slug'],{'name':row['name'],'title':row['title'],'first_complete_capture':receipt['finished_at']})
@@ -165,9 +184,6 @@ def build(capture,out,root=ROOT):
     dictionary=body[-32768:];(func/'dictionary.bin').write_bytes(dictionary)
    body=body.replace(b'checks freshness.',b'checks recorded update timestamps, not runtime health.')
    body=body.replace(b'Updated daily from the official registry',b'Last successful snapshot: '+data['generated_at'].encode())
-   if row.get('registry_status')=='deprecated':
-    warning='<aside class="d-card"><strong>Publisher registry status: deprecated.</strong> '+html.escape(row.get('status_message') or 'Consult the publisher before use.')+'</aside>'
-    body=body.replace(b'<div class="d-head">',warning.encode()+b'<div class="d-head">')
    encoder=zlib.compressobj(9,zlib.DEFLATED,-15,zdict=dictionary);zipped=encoder.compress(body)+encoder.flush()
    packed.write(zipped);pages[slug]={'offset':offset,'length':len(zipped),'bytes':len(body),'sha256':sha(body),'identity':row['name'],'state':state};route_status[slug]=state;offset+=len(zipped)
    if offset>MAX_FUNCTION_BYTES-10_000_000:raise ReleaseError('Function package byte budget exceeded')
@@ -181,8 +197,12 @@ def build(capture,out,root=ROOT):
     packed.write(zipped);pages[slug]={**original_page,'offset':offset,'state':'historical_alias'};route_status[slug]='historical_alias';offset+=len(zipped)
     if offset>MAX_FUNCTION_BYTES-10_000_000:raise ReleaseError('Function package byte budget exceeded')
    else:
-    state=statuses.get(row['name']);reason='The official registry marks this server as deleted.' if state=='deleted' else 'This identity was absent from the completed latest-version traversal. Absence alone does not establish why it is unavailable.'
-    append_page(slug,retained_page(slug,row,reason,data['generated_at']),row,'deleted_reference' if state=='deleted' else 'unobserved_reference')
+    meta=metas.get(row['name']);state=exclusion(meta,now) if meta else 'unobserved'
+    if state=='deleted':reason='The official registry marks this server as deleted.'
+    elif state=='deprecated':reason='The official registry marks this server as deprecated'+(' with the publisher message: '+meta['statusMessage'].strip().rstrip('.')+'.' if isinstance(meta.get('statusMessage'),str) and meta['statusMessage'].strip() else '.')+' The MCP Index lists only servers the registry marks active.'
+    elif state=='dormant':reason='The official registry lists this server as active, but its latest version was last updated '+(meta.get('updatedAt') or meta.get('publishedAt') or 'at an unrecorded date')[:10]+'. The MCP Index lists only active servers updated within the last '+str(RECENCY_DAYS)+' days, so this earlier page is kept as a dated reference.'
+    else:reason='This identity was absent from the completed latest-version traversal. Absence alone does not establish why it is unavailable.'
+    append_page(slug,retained_page(slug,row,reason,data['generated_at']),row,state+'_reference')
  writejson(func/'pages.json',pages)
  shutil.copyfile(root/'packed_pages.js',func/'index.js')
  writejson(func/'.vc-config.json',{'runtime':'nodejs22.x','handler':'index.js','launcherType':'Nodejs','shouldAddHelpers':True,'maxDuration':5})
@@ -199,9 +219,9 @@ def build(capture,out,root=ROOT):
   name='sitemap.xml' if len(chunks)==1 else f'sitemap-{i}.xml';sitemap_names.append(name)
   (static/name).write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+html.escape(u)+'</loc></url>' for u in chunk)+'</urlset>')
  if len(chunks)>1:(static/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<sitemap><loc>'+SITE+'/'+n+'</loc></sitemap>' for n in sitemap_names)+'</sitemapindex>')
- (static/'llms.txt').write_text('# The MCP Index\n\nOfficial registry latest-version snapshot. Cursor traversal completed '+data['generated_at']+'.\n\nSearchable non-deleted records: '+str(data['server_count'])+'. Registry-deleted identities are historical references, not recommendations. Freshness is a registry timestamp, not GitHub adoption, package safety or tested runtime availability. Listings are publisher declarations. No automatic connection or execution is performed.\n\n- Homepage: '+SITE+'/\n- Sitemap: '+SITE+'/sitemap.xml\n- Snapshot provenance: '+SITE+'/snapshot.json\n\n## More from Kymata Labs\nOther products from the same publisher. They are not part of this index.\n- [Keyspoken](https://keyspoken.com/): On-device dictation for iPhone\n- [Kymata Health](https://kymatahealth.com/): Evidence-based health guides and calculators\n- [CrowLingo](https://crowlingo.org/): American crow call atlas\n- [Verse Made Simple](https://www.versemadesimple.com/): Bible verses in three reading styles\n- [PercentEase](https://percentease.com/): Percentage calculator\n- [Enzo Adventures](https://enzoadventures.com/): Comic stories and coloring books\n')
+ (static/'llms.txt').write_text('# The MCP Index\n\nOfficial registry latest-version snapshot. Cursor traversal completed '+data['generated_at']+'.\n\nListed records: '+str(data['server_count'])+', limited to servers the registry marks active and updated within the last '+str(RECENCY_DAYS)+' days. Deleted, deprecated and older identities that were published before are historical references, not recommendations. Freshness is a registry timestamp, not GitHub adoption, package safety or tested runtime availability. Listings are publisher declarations. No automatic connection or execution is performed.\n\n- Homepage: '+SITE+'/\n- Sitemap: '+SITE+'/sitemap.xml\n- Snapshot provenance: '+SITE+'/snapshot.json\n\n## More from Kymata Labs\nOther products from the same publisher. They are not part of this index.\n- [Keyspoken](https://keyspoken.com/): On-device dictation for iPhone\n- [Kymata Health](https://kymatahealth.com/): Evidence-based health guides and calculators\n- [CrowLingo](https://crowlingo.org/): American crow call atlas\n- [Verse Made Simple](https://www.versemadesimple.com/): Bible verses in three reading styles\n- [PercentEase](https://percentease.com/): Percentage calculator\n- [Enzo Adventures](https://enzoadventures.com/): Comic stories and coloring books\n')
  (static/'ai.txt').write_text('The MCP Index is a Kymata Labs directory of publisher-declared official MCP registry records. See /snapshot.json for dated collection scope and /llms.txt for limitations. No safety or availability certification is implied.\n')
- snapshot={'schema_version':1,'captured_at':data['generated_at'],'source_endpoint':registry_collect.ENDPOINT,'filters':registry_collect.FILTERS,'traversal_complete':True,'atomic_snapshot':False,'source_pages':len(receipt['pages']),'source_records':receipt['total_records'],'records_sha256':receipt['records_sha256'],'search_records':data['server_count'],'deleted_records':data['deleted_count'],'data_sha256':sha((static/'data.json').read_bytes()),'route_states':dict(collections.Counter(route_status.values())),'limits':['Publisher declarations, not independently verified functionality, safety or licensing.','Historical routes are retained; missing identities are not guessed to be deleted.','Freshness is the recorded registry timestamp.']}
+ snapshot={'schema_version':1,'captured_at':data['generated_at'],'source_endpoint':registry_collect.ENDPOINT,'filters':registry_collect.FILTERS,'traversal_complete':True,'atomic_snapshot':False,'source_pages':len(receipt['pages']),'source_records':receipt['total_records'],'records_sha256':receipt['records_sha256'],'search_records':data['server_count'],'deleted_records':data['deleted_count'],'deprecated_records':data['deprecated_count'],'outside_window_records':data['outside_window_count'],'publication_filter':data['publication_filter'],'data_sha256':sha((static/'data.json').read_bytes()),'route_states':dict(collections.Counter(route_status.values())),'limits':['Publisher declarations, not independently verified functionality, safety or licensing.','Historical routes are retained; missing identities are not guessed to be deleted.','Only registry-active servers updated within the last '+str(RECENCY_DAYS)+' days are listed.','Freshness is the recorded registry timestamp.']}
  writejson(static/'snapshot.json',snapshot)
  security=json.loads((root/'vercel.json').read_text())['headers'][0]['headers']
  config={'version':3,'routes':[{'src':'/(.*)','headers':{x['key']:x['value'] for x in security},'continue':True},{'src':'/s/([a-z0-9-]+)/?','dest':'/details?route=$1'},{'src':'/catalog/([0-9]+)/?','dest':'/catalog/$1/index.html'},{'handle':'filesystem'}]}
