@@ -133,6 +133,19 @@ class ReviewedRelease(unittest.TestCase):
   for i,prior in enumerate([None,{'status':'candidate_verified_pending_promotion'}]):
    with self.assertRaisesRegex(ReleaseError,'state push'):publish(self.out,self.root/('receipts-'+str(i)),True,root=self.repo,runner=runner,checker=lambda *a:checks.append(a[3]),state_checker=lambda *a:prior,state_writer=persist)
   self.assertEqual(checks,[True,True]);self.assertNotIn('promote',calls)
+ def test_promote_and_rollback_name_the_team_scope(self):
+  # vercel promote/rollback ignore .vercel/project.json; without --scope the CLI
+  # answers "Deployment belongs to a different team" (2026-11-07, -08, -25 runs).
+  from publish_release import publish
+  self.build();calls=[]
+  def runner(args,*rest):
+   calls.append(args);return {'deployment':{'id':'dpl_fixture','url':'https://mcp-index-fixture-techtalevisions-projects.vercel.app'}} if args[0]=='deploy' else {'id':'dpl_fixture','name':'mcp-index','target':'production','readyState':'READY','url':'old.vercel.app'}
+  def checker(package,origin,*a):
+   if origin=='https://mcp.kymatalabs.com':raise ReleaseError('public mismatch')
+  with self.assertRaisesRegex(ReleaseError,'public mismatch'):publish(self.out,self.root/'receipts',True,root=self.repo,runner=runner,checker=checker,state_checker=lambda *a:None,state_writer=lambda *a:{'durable_revision':'fixture'})
+  team=json.loads((self.out/'package-manifest.json').read_text())['target_team']
+  for verb in ('promote','rollback'):
+   args=[a for a in calls if a[0]==verb][0];self.assertEqual(args[args.index('--scope')+1],team)
  def test_rollback_cannot_replace_a_newer_production(self):
   from publish_release import publish
   self.build();calls=[]

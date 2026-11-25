@@ -57,7 +57,7 @@ def publish(package,receipts,promote=False,all_historical=False,runner=cli,check
   result['durable_state_revision']=state['durable_revision']
   current=runner(['inspect','https://mcp.kymatalabs.com','--format','json'],package,receipts,'before-promote')
   if current.get('id')!=previous['id']:raise ReleaseError('Production changed concurrently; do not overwrite')
-  runner(['promote',origin,'--yes'],package,receipts,'promote')
+  runner(['promote',origin,'--yes','--scope',m['target_team']],package,receipts,'promote')
   result['promoted']=True
   result['status']='promoted_pending_public_verification'
   (receipts/'promotion-checkpoint.json').write_text(json.dumps(result,indent=2))
@@ -66,7 +66,7 @@ def publish(package,receipts,promote=False,all_historical=False,runner=cli,check
   except Exception:
    current=runner(['inspect','https://mcp.kymatalabs.com','--format','json'],package,receipts,'before-rollback')
    if current.get('id')==candidate['id']:
-    runner(['rollback',previous['url'],'--yes'],package,receipts,'rollback')
+    runner(['rollback',previous['url'],'--yes','--scope',m['target_team']],package,receipts,'rollback')
     result.update(status='rolled_back_after_failed_verification')
    else:result.update(status='production_changed_requires_reconciliation')
    (receipts/'release.json').write_text(json.dumps(result,indent=2));raise
