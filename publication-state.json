@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "candidate_verified_pending_promotion",
+  "status": "production_verified",
   "previous_id": "dpl_FJCaEGF2NJafduFQ5sCQ2Rv6eyg7",
   "pending_id": "dpl_GXV5VvzCHRDmNVtR9ZG1P6tkZdgk",
   "pending_url": "https://mcp-index-7xop0i88t-techtalevisions-projects.vercel.app",
@@ -11,5 +11,6 @@
   "files": {
     "route-history.json": "acb061e2a595846d929345291ae09c3fec3eaf33cf7cf11159181e08ec539806",
     ".catalog-state.json.gz": "90c4e1563679278285fc16f12169ebb880ba78a6aefbf7bd7c2d60ff1b8560e5"
-  }
+  },
+  "production_verification_sha256": "5ca6b5a39ad122e48bdacd540006247d2ed41f4482d3573823d160819cac51a0"
 }
